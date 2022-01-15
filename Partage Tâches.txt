@@ -1,18 +1,18 @@
-Page d'accueil 
+Page d'accueil
 Page de CV TECH (Les étudiants ajoutent leur CV)
 Page Offres et Emploi
 Annuaire
-TAHI EZAN 
+TAHI EZAN
 -----------------------------
-Bibliothèque 
-Enquêtes 
-Page de connexion 
+Bibliothèque
+Enquêtes
+Page de connexion
 Page d'inscription
-N'GUESSAN ANGE 
+N'GUESSAN ANGE
 ------------------------------
 Page de contacts
 Page de professeurs
 Dashboard
 Blog
 GNINLI
-------------------------------------------------
+------------------------------
