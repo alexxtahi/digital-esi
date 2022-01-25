@@ -137,7 +137,7 @@
 			<div class="container consult-wrap">
 				<div class="row d-flex align-items-stretch">
 					<div class="col-md-6 wrap-about align-items-stretch d-flex">
-						<div class="img" style="background-image: url({{ asset('negotiate-master/images/about.jpg') }});"></div>
+						<div class="img" style="background-image: url({{ asset('img/entree-inp.jpg') }});"></div>
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate py-md-5 pl-md-5">
 						<div class="heading-section mb-4">
@@ -365,8 +365,8 @@
       <div class="container-fluid px-md-5">
         <div class="row justify-content-center mb-5">
           <div class="col-md-8 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimonies</span>
-            <h2 class="mb-4">Our Clients Says</h2>
+          	<span class="subheading">Les dires</span>
+            <h2 class="mb-4">Quelques Mots Des Dirigeants</h2>
             <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
           </div>
         </div>
