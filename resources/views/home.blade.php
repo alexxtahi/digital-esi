@@ -13,7 +13,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url('{{ asset('images/bg_1.jpg') }}');">
+      <div class="slider-item" style="background-image:url('{{ asset('negotiate-master/images/bg_1.jpg') }}');">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url({{ asset('images/bg_2.jpg') }});">
+      <div class="slider-item" style="background-image:url({{ asset('negotiate-master/images/bg_2.jpg') }});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -123,7 +123,7 @@
 			</div>
 		</section>
 
-		<section class="ftco-intro ftco-no-pb img" style="background-image: url(images/bg_3.jpg);">
+		<section class="ftco-intro ftco-no-pb img" style="background-image: url(negotiate-master/images/bg_3.jpg);">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
@@ -137,7 +137,7 @@
 			<div class="container consult-wrap">
 				<div class="row d-flex align-items-stretch">
 					<div class="col-md-6 wrap-about align-items-stretch d-flex">
-						<div class="img" style="background-image: url({{ asset('images/about.jpg') }});"></div>
+						<div class="img" style="background-image: url({{ asset('negotiate-master/images/about.jpg') }});"></div>
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate py-md-5 pl-md-5">
 						<div class="heading-section mb-4">
@@ -216,7 +216,7 @@
         <div class="row">
         	<div class="col-md-4">
         		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('images/project-1.jpg') }});"></div>
+        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-1.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Consulting</span>
         				<h3><a href="#">Consultacy Solutions</a></h3>
@@ -226,7 +226,7 @@
         	</div>
         	<div class="col-md-4">
         		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('images/project-2.jpg') }});"></div>
+        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-2.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Marketing</span>
         				<h3><a href="#">Consultacy Solutions</a></h3>
@@ -236,7 +236,7 @@
         	</div>
         	<div class="col-md-4">
         		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('images/project-3.jpg') }});"></div>
+        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-3.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Financing</span>
         				<h3><a href="#">Consultacy Solutions</a></h3>
@@ -246,7 +246,7 @@
         	</div>
         	<div class="col-md-4">
         		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('images/project-4.jpg') }});"></div>
+        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-4.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Audit &amp; Taxes</span>
         				<h3><a href="#">Consultacy Solutions</a></h3>
@@ -256,7 +256,7 @@
         	</div>
         	<div class="col-md-4">
         		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('images/project-5.jpg') }});"></div>
+        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-5.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Financing</span>
         				<h3><a href="#">Consultacy Solutions</a></h3>
@@ -266,7 +266,7 @@
         	</div>
         	<div class="col-md-4">
         		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('images/project-6.jpg') }});"></div>
+        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-6.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Real Estate</span>
         				<h3><a href="#">Consultacy Solutions</a></h3>
@@ -313,32 +313,32 @@
 					<div class="col-md-8">
 						<div class="tab-content">
 						  <div class="tab-pane container p-0 active" id="services-1">
-						  	<div class="img" style="background-image: url({{ asset('images/project-2.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-2.jpg') }});"></div>
 						  	<h3><a href="#">Business Analysis</a></h3>
 						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-2">
-						  	<div class="img" style="background-image: url({{ asset('images/project-3.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-3.jpg') }});"></div>
 						  	<h3><a href="#">Business Consulting</a></h3>
 						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-3">
-						  	<div class="img" style="background-image: url({{ asset('images/project-4.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-4.jpg') }});"></div>
 						  	<h3><a href="#">Business Insurance</a></h3>
 						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-4">
-						  	<div class="img" style="background-image: url({{ asset('images/project-5.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-5.jpg') }});"></div>
 						  	<h3><a href="#">Global Investigation</a></h3>
 						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-5">
-						  	<div class="img" style="background-image: url({{ asset('images/project-6.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-6.jpg') }});"></div>
 						  	<h3><a href="#">Audit &amp; Evaluation</a></h3>
 						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-6">
-						  	<div class="img" style="background-image: url({{ asset('images/project-1.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-1.jpg') }});"></div>
 						  	<h3><a href="#">Marketing Strategy</a></h3>
 						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 						  </div>
@@ -348,7 +348,7 @@
     	</div>
     </section>
 
-    <section class="ftco-intro ftco-no-pb img" style="background-image: url({{ asset('images/bg_1.jpg') }});">
+    <section class="ftco-intro ftco-no-pb img" style="background-image: url({{ asset('negotiate-master/images/bg_1.jpg') }});">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-lg-9 col-md-8 d-flex align-items-center heading-section heading-section-white ftco-animate">
@@ -375,7 +375,7 @@
             <div class="carousel-testimony owl-carousel">
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('images/person_1.jpg') }})">
+                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -389,7 +389,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('images/person_2.jpg') }})">
+                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -403,7 +403,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('images/person_3.jpg') }})">
+                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_3.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -417,7 +417,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('images/person_4.jpg') }})">
+                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_4.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -431,7 +431,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('images/person_1.jpg') }})">
+                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -463,7 +463,7 @@
 				<div class="row">
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('images/image_1.jpg') }});">
+              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_1.jpg') }});">
 								<div class="meta-date text-center p-2">
                   <span class="day">15</span>
                   <span class="mos">Oct.</span>
@@ -485,7 +485,7 @@
           </div>
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('images/image_2.jpg') }});">
+              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_2.jpg') }});">
 								<div class="meta-date text-center p-2">
                   <span class="day">15</span>
                   <span class="mos">Oct.</span>
@@ -507,7 +507,7 @@
           </div>
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('images/image_3.jpg') }});">
+              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_3.jpg') }});">
 								<div class="meta-date text-center p-2">
                   <span class="day">15</span>
                   <span class="mos">Oct.</span>
