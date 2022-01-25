@@ -28,3 +28,7 @@ Route::get('/blog-details', function () {
 Route::get('/contacts', function () {
     return view('contacts');
 });
+
+Route::get('/profs', function () {
+    return view('profs');
+});
