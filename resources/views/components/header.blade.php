@@ -70,7 +70,7 @@
 				</li>
 
 				<li @if ($view_name=='profs')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Enseignants</a>
+					<a href={{url('/profs')}} class="nav-link">Personnel</a>
 				</li>
 
 				<li @if ($view_name=='cs')class="nav-item active"@else class="nav-item"@endif>
