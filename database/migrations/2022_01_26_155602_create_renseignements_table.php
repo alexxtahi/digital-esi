@@ -16,6 +16,7 @@ class CreateRenseignementsTable extends Migration
         Schema::create('renseignements', function (Blueprint $table) {
             $table->id();
             $table->string('message_rens');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -16,6 +16,7 @@ class CreateCategorieBlogArticlesTable extends Migration
         Schema::create('categorie_blog_articles', function (Blueprint $table) {
             $table->id();
             $table->string('lib_cat_article')->unique();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

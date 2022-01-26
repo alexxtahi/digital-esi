@@ -18,6 +18,7 @@ class CreateUserDemanderRenseignementsTable extends Migration
             $table->integer('id_rens');
             $table->integer('id_user');
             $table->integer('id_spec')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

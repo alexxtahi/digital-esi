@@ -35,28 +35,20 @@
           <div class="col-md-6 col-lg-4">
             <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2">Actualités récentes</h2>
+              <!-- Articles récents -->
+            @foreach ($blog_articles as $article)
               <div class="block-21 mb-4 d-flex">
                 <a class="blog-img mr-4" style="background-image: url({{ asset('negotiate-master/images/image_1.jpg') }});"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="#">{{ $article->titre_article }}</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Oct. 16, 2019</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> {{ date('d M Y', strtotime($article->date_publication)) }}</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({{ asset('negotiate-master/images/image_2.jpg') }});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Oct. 16, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
+            @endforeach
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
@@ -64,7 +56,7 @@
             	<h2 class="ftco-heading-2">Restez informé !</h2>
               <form action="#" class="subscribe-form">
                 <div class="form-group">
-                  <input type="text" class="form-control mb-2 text-center" placeholder="Entrer votre Email">
+                  <input type="text" class="form-control mb-2 text-center" placeholder="Entrez votre Email">
                   <input type="submit" value="S'abonner" class="form-control submit px-3">
                 </div>
               </form>

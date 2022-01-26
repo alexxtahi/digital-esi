@@ -20,6 +20,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('prenom_etud');
             $table->string('date_naiss_etud');
             $table->integer('id_classe');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

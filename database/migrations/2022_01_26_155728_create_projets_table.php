@@ -18,6 +18,7 @@ class CreateProjetsTable extends Migration
             $table->string('titre_projet');
             $table->string('domaine_projet');
             $table->string('description_projet');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

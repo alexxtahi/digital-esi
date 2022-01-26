@@ -19,6 +19,7 @@ class CreateCommentairesTable extends Migration
             $table->dateTime('date_com');
             $table->integer('id_user');
             $table->integer('id_article');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

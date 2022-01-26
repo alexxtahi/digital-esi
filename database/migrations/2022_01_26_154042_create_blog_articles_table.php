@@ -20,6 +20,7 @@ class CreateBlogArticlesTable extends Migration
             $table->string('contenu_article')->nullable();
             $table->dateTime('date_publication');
             $table->integer('id_user');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

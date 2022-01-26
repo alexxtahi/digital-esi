@@ -18,6 +18,7 @@ class CreateSpecialitesTable extends Migration
             $table->string('lib_spec');
             $table->string('description_spec');
             $table->integer('id_filiere');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

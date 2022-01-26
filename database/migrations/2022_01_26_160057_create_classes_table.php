@@ -17,6 +17,7 @@ class CreateClassesTable extends Migration
             $table->id();
             $table->string('lib_classe');
             $table->integer('id_filiere');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

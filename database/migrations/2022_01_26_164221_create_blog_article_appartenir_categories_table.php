@@ -17,6 +17,7 @@ class CreateBlogArticleAppartenirCategoriesTable extends Migration
             $table->id();
             $table->integer('id_article');
             $table->integer('id_cat_article');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

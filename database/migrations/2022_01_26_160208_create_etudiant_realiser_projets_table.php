@@ -18,6 +18,7 @@ class CreateEtudiantRealiserProjetsTable extends Migration
             $table->integer('matri_etud');
             $table->integer('id_projet');
             $table->date('date_realisation')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
