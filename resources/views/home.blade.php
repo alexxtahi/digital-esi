@@ -184,7 +184,7 @@
 		            	<div class="icon"><span class="flaticon-doctor"></span></div>
 		              <div class="text">
 		                <strong class="number" data-number="310">0</strong>
-		                <span>Enseginants</span>
+		                <span>Enseignants</span>
 		              </div>
 		            </div>
 		          </div>
@@ -219,8 +219,8 @@
         			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-1.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Informatique</span>
-        				<h3><a href="#">Consultacy Solutions</a></h3>
-        				<p>Ci-dessous les projets réalisés par nos étudiants au cours de leur formation à l'ESI</p>
+        				<h3><a href="#">Techfood</a></h3>
+        				<p>Une application mobile intelligente facilitant la gestion de l'accueil d'un restaurant.</p>
         			</div>
         		</div>
         	</div>
@@ -229,8 +229,8 @@
         			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-2.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Electronique</span>
-        				<h3><a href="#">Consultacy Solutions</a></h3>
-        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+        				<h3><a href="#">Sol Analyzer</a></h3>
+        				<p>Un équipement électronique conçu pour relever das statistiques sur l'état des sols.</p>
         			</div>
         		</div>
         	</div>
@@ -239,8 +239,8 @@
         			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-3.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Electrotechnique</span>
-        				<h3><a href="#">Consultacy Solutions</a></h3>
-        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+        				<h3><a href="#">I.O.N</a></h3>
+        				<p>Une solution pour l'économie du courant électrique domestique.</p>
         			</div>
         		</div>
         	</div>
@@ -249,8 +249,8 @@
         			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-4.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Chimie</span>
-        				<h3><a href="#">Consultacy Solutions</a></h3>
-        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+        				<h3><a href="#">Hydro A+</a></h3>
+        				<p>La solution hydroalcoolique éliminant 100% des bacteries.</p>
         			</div>
         		</div>
         	</div>
@@ -259,8 +259,8 @@
         			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-5.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Informatique</span>
-        				<h3><a href="#">Consultacy Solutions</a></h3>
-        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+        				<h3><a href="#">INP-Market</a></h3>
+        				<p>La plateforme de vente en ligne dédiée aux étudiants de l'INP-HB.</p>
         			</div>
         		</div>
         	</div>
@@ -269,8 +269,8 @@
         			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-6.jpg') }});"></div>
         			<div class="text w-100 text-center">
         				<span class="cat">Informatique</span>
-        				<h3><a href="#">Consultacy Solutions</a></h3>
-        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+        				<h3><a href="#">NoteXpert</a></h3>
+        				<p>L'espace de gestion des notes, moyennes et absences de l'ESI.</p>
         			</div>
         		</div>
         	</div>
@@ -313,32 +313,32 @@
 					<div class="col-md-8">
 						<div class="tab-content">
 						  <div class="tab-pane container p-0 active" id="services-1">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-2.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('img/specialites/info.jpg') }});"></div>
 						  	<h3><a href="#">Informatique</a></h3>
 						  	<p>Le parcours des passionés des technologies du digital: Développement, Sécurité informatique, Conception de SI, Bases de données, Intelligence artificielle, etc.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-2">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-3.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('img/specialites/electronics.jpg') }});"></div>
 						  	<h3><a href="#">Electronique</a></h3>
 						  	<p>Formation sur les technologies embarquées, les systèmes électroniques et informatiques, les réseaux et la télécommunication.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-3">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-4.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('img/specialites/electrotech.jpg') }});"></div>
 						  	<h3><a href="#">Electrotechnique</a></h3>
 						  	<p>Formation pour les intéressés des circuits éléectriques, du courant et de ses applications dans nos équipements.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-4">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-5.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('img/specialites/mecatronic.jpg') }});"></div>
 						  	<h3><a href="#">Mécatronique</a></h3>
 						  	<p>Formation sur les technologies touchant au domaine de l'automobile et de l'électronique axée sur les véhicules de nos jours.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-5">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-6.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('img/specialites/alimentation.jpg') }});"></div>
 						  	<h3><a href="#">Alimentation</a></h3>
 						  	<p>Formation aux métiers de l'alimentation, de la nutrition et des sciences de production.</p>
 						  </div>
 						  <div class="tab-pane container p-0 fade" id="services-6">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-1.jpg') }});"></div>
+						  	<div class="img" style="background-image: url({{ asset('img/specialites/production.jpg') }});"></div>
 						  	<h3><a href="#">Production de masse</a></h3>
 						  	<p>Formation sur les sytèmes et outils de production de masse dans l'industrie, les chaines de production et bien d'autres.</p>
 						  </div>
@@ -367,27 +367,14 @@
           <div class="col-md-8 text-center heading-section ftco-animate">
           	<span class="subheading">Les dires</span>
             <h2 class="mb-4">Quelques Mots Des Dirigeants</h2>
-            <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            <p>Ces hommes qui tiennent l'Ecole Supérieur d'Industrie</p>
           </div>
         </div>
         <div class="row ftco-animate justify-content-center">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
-                  </div>
-                  <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Racky Henderson</p>
-                    <span class="position">Father</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
+                <!-- DG INP -->
+                <div class="item">
                 <div class="testimony-wrap d-flex">
                   <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
                   </div>
@@ -395,40 +382,28 @@
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Henry Dee</p>
-                    <span class="position">Businesswoman</span>
+                    <p>L'INP-HB compte en son sein des écoles prestigieuses dont je peux citer l'Ecole Supérieur d'Industrie.</p>
+                    <p class="name">M. MOUSSA Adbul Kader Diaby</p>
+                    <span class="position">Directeur général de l'INP-HB</span>
                   </div>
                 </div>
               </div>
-              <div class="item">
+              <!-- DG ESI -->
+                <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_3.jpg') }})">
+                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Huff</p>
-                    <span class="position">Businesswoman</span>
+                    <p>De l'Ecole Supérieure d'Industrie sont sortis de nombreux talents qui sont actuellement des pièces maitresses dans le développement du pays.</p>
+                    <p class="name">M. TANOH Aka</p>
+                    <span class="position">Directeur général de l'ESI</span>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_4.jpg') }})">
-                  </div>
-                  <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Rodel Golez</p>
-                    <span class="position">Businesswoman</span>
-                  </div>
-                </div>
-              </div>
+              <!-- DE ESI -->
               <div class="item">
                 <div class="testimony-wrap d-flex">
                   <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
@@ -437,12 +412,13 @@
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Ken Bosh</p>
-                    <span class="position">Businesswoman</span>
+                    <p>De mon poste de directeur des études, j'ai eu l'occasion de rencontrer de nombreux professeurs tous excellents dans leurs domaines.</p>
+                    <p class="name">M. Siriky KONE</p>
+                    <span class="position">Directeur des études de l'ESI</span>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -455,78 +431,37 @@
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section ftco-animate">
-          	<span class="subheading">Blog Posts</span>
-            <h2 class="mb-4">Recent Blog</h2>
-            <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+          	<span class="subheading">Articles récents</span>
+            <h2 class="mb-4">Actualités</h2>
+            <p>Toute l'actualité de l'Ecole Supérieure d'Industrie sur le blog.</p>
           </div>
         </div>
-				<div class="row">
+        <div class="row">
+            <!-- Chargement des articles de blog récents -->
+        @foreach ($blog_articles as $article)
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_1.jpg') }});">
+              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('img/header-pic.jpg') }});">
 								<div class="meta-date text-center p-2">
-                  <span class="day">15</span>
-                  <span class="mos">Oct.</span>
-                  <span class="yr">2019</span>
+                  <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
+                  <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
+                  <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
                 </div>
               </a>
               <div class="text border border-top-0 p-4">
-                <h3 class="heading"><a href="#">Finance And Legal Working Streams Occur Throughout</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <h3 class="heading"><a href="#">{{ $article->titre_article }}</a></h3>
+                <p>{{ $article->resume_article }}</p>
                 <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="mb-0"><a href="#" class="btn btn-primary">Lire l'article <span class="ion-ios-arrow-round-forward"></span></a></p>
 	                <p class="ml-auto mb-0">
 	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 63</a>
 	                </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_2.jpg') }});">
-								<div class="meta-date text-center p-2">
-                  <span class="day">15</span>
-                  <span class="mos">Oct.</span>
-                  <span class="yr">2019</span>
-                </div>
-              </a>
-              <div class="text border border-top-0 p-4">
-                <h3 class="heading"><a href="#">Finance And Legal Working Streams Occur Throughout</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_3.jpg') }});">
-								<div class="meta-date text-center p-2">
-                  <span class="day">15</span>
-                  <span class="mos">Oct.</span>
-                  <span class="yr">2019</span>
-                </div>
-              </a>
-              <div class="text border border-top-0 p-4">
-                <h3 class="heading"><a href="#">Finance And Legal Working Streams Occur Throughout</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        @endforeach
         </div>
 			</div>
 		</section>
