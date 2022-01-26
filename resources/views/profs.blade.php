@@ -17,14 +17,14 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');">
+    <section class="hero-wrap hero-wrap-2" style="background-image:background-image: url({{asset('negotiate-master/images/bg_1.jpg')}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Professional Staff</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                    class="ion-ios-arrow-forward"></i></a></span> <span>Team <i
+                    <h1 class="mb-2 bread">Présentation du personnel</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/accueil')}}>Accueil <i
+                                    class="ion-ios-arrow-forward"></i></a></span> <span>Personnel <i
                                 class="ion-ios-arrow-forward"></i></span></p>
                 </div>
             </div>
@@ -37,14 +37,14 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff border">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(images/staff-1.jpg);">
+                            <div class="img align-self-stretch" style="background-image: url({{asset('negotiate-master/images/blankavatar.png')}});">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
-                            <h3>Lloyd Wilson</h3>
-                            <span class="position mb-2">Accountant</span>
+                            <h3>M. TANOH Aka</h3>
+                            <span class="position mb-2">Directeur</span>
                             <div class="faded">
-                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                                <p>Directeur général de l'école supérieure d'industrie.</p>
                                 <ul class="ftco-social text-center">
                                     <li class="ftco-animate"><a href="#"
                                             class="d-flex align-items-center justify-content-center"><span
@@ -66,14 +66,14 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff border">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(images/staff-2.jpg);">
+                            <div class="img align-self-stretch" style="background-image: url({{asset('negotiate-master/images/blankavatar.png')}});">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
-                            <h3>Rachel Parker</h3>
-                            <span class="position mb-2">Manager</span>
+                            <h3>M. KONÉ SIRIKY</h3>
+                            <span class="position mb-2">Directeur des études</span>
                             <div class="faded">
-                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                                <p>Directeurs des études, chargé du parcours TS STIC.</p>
                                 <ul class="ftco-social text-center">
                                     <li class="ftco-animate"><a href="#"
                                             class="d-flex align-items-center justify-content-center"><span
@@ -92,6 +92,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!--
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff border">
                         <div class="img-wrap d-flex align-items-stretch">
@@ -267,6 +269,7 @@
                         </div>
                     </div>
                 </div>
+            -->
             </div>
         </div>
     </section>
