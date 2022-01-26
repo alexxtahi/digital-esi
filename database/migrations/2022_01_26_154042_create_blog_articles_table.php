@@ -18,7 +18,8 @@ class CreateBlogArticlesTable extends Migration
             $table->string('titre_article');
             $table->string('resume_article')->nullable();
             $table->string('contenu_article')->nullable();
-            $table->integer('id_admin');
+            $table->dateTime('date_publication');
+            $table->integer('id_user');
             $table->timestamps();
         });
     }
