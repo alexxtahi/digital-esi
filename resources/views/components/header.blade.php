@@ -65,16 +65,12 @@
 					<a href="about.html" class="nav-link">Accueil</a>
 				</li>
 
-				<li @if ($view_name=='about')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">A propos</a>
-				</li>
-
 				<li @if ($view_name=='profs')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Enseignants</a>
+					<a href="about.html" class="nav-link">Personnel</a>
 				</li>
 
 				<li @if ($view_name=='cs')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Case Studies</a>
+					<a href="about.html" class="nav-link">Portfolio</a>
 				</li>
 
 				<li @if ($view_name=='services')class="nav-item active"@else class="nav-item"@endif>
@@ -87,6 +83,10 @@
 
 				<li @if ($view_name=='contacts')class="nav-item active"@else class="nav-item"@endif>
 					<a href={{url('/contacts')}} class="nav-link">Contacts</a>
+				</li>
+
+                <li @if ($view_name=='about')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">A propos</a>
 				</li>
 
 	        </ul>
