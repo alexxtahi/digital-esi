@@ -2,21 +2,21 @@
     	<div class="container py-3">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
     			<div class="col-md-4 d-flex align-items-center py-4">
-    				<a class="navbar-brand" href="index.html">ESI <span>École Supérieure d'Industrie</span></a>
+    				<a class="navbar-brand" href="index.html">ESI <span>Ecole Supérieure d'Industrie</span></a>
     			</div>
 	    		<div class="col-lg-8 d-block">
 		    		<div class="row d-flex">
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-paper-plane"></span></div>
 					    	<div class="text">
-					    		<span>Email</span>
+					    		<span>Adresse mail</span>
 						    	<span>youremail@email.com</span>
 						    </div>
 					    </div>
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-call"></span></div>
 						    <div class="text">
-						    	<span>Call</span>
+						    	<span>Contact</span>
 						    	<span>+123 523 5598</span>
 						    </div>
 					    </div>
@@ -42,7 +42,7 @@
 			    		</p>
 			    	</div>
 			    	<div class="col text-right">
-			    		<a href="#" class="btn-link">Request A Quote</a>
+			    		<a href="#" class="btn-link">Besoin d'aide ?</a>
 			    	</div>
 			    </div>
 		  	</div>
