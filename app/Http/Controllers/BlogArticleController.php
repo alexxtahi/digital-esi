@@ -16,6 +16,37 @@ class BlogArticleController extends Controller
     public function index()
     {
         //
+        // Récupération des articles récents
+        $blog_articles = BlogArticle::where('deleted_at', null)->get();
+        // Affichage
+        return view('blog', compact('blog_articles'));
+    }
+
+    public function index2()
+    {
+        //
+        // Récupération des articles récents
+        $blog_articles = BlogArticle::where('deleted_at', null)->get();
+        // Affichage
+        return view('blog-details', compact('blog_articles'));
+    }
+
+    public function index3()
+    {
+        //
+        // Récupération des articles récents
+        $blog_articles = BlogArticle::where('deleted_at', null)->get();
+        // Affichage
+        return view('contacts', compact('blog_articles'));
+    }
+
+    public function index4()
+    {
+        //
+        // Récupération des articles récents
+        $blog_articles = BlogArticle::where('deleted_at', null)->get();
+        // Affichage
+        return view('profs', compact('blog_articles'));
     }
 
     /**

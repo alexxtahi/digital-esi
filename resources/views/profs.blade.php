@@ -23,7 +23,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
                     <h1 class="mb-2 bread">Présentation du personnel</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/accueil')}}>Accueil <i
+                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/')}}>Accueil <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span>Personnel <i
                                 class="ion-ios-arrow-forward"></i></span></p>
                 </div>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
-                            <h3>M. KONÉ SIRIKY</h3>
+                            <h3>M. KONÉ Siriky</h3>
                             <span class="position mb-2">Directeur des études</span>
                             <div class="faded">
                                 <p>Directeurs des études, chargé du parcours TS STIC.</p>
