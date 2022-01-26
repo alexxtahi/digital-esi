@@ -21,7 +21,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
                     <h1 class="mb-2 bread">Contact</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/accueil')}}>Home <i
+                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/accueil')}}>Accueil <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
                                 class="ion-ios-arrow-forward"></i></span></p>
                 </div>
@@ -39,7 +39,7 @@
                                 <div class="icon">
                                     <span class="icon-map-o"></span>
                                 </div>
-                                <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                                <p><span>Adresse:</span> BP 1093 Yamoussoukro, Côte d'Ivoire</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -47,7 +47,7 @@
                                 <div class="icon">
                                     <span class="icon-tablet"></span>
                                 </div>
-                                <p><span>Phone:</span> <a href="tel://1234567920">Call us: + 1235 2355 98</a></p>
+                                <p><span>Téléphone:</span> <a href="tel://1234567920">Appelez-nous : + 225 XX XX XX XX XX</a></p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -55,7 +55,7 @@
                                 <div class="icon">
                                     <span class="icon-envelope-o"></span>
                                 </div>
-                                <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                <p><span>Email:</span> <a href="mailto:info@yoursite.com">sg@inphb.ci</a></p>
                             </div>
                         </div>
                     </div>
@@ -63,24 +63,24 @@
             </div>
             <div class="row block-9 justify-content-center mb-5">
                 <div class="col-md-10 mb-md-5">
-                    <h2 class="text-center">If you got any questions <br>please do not hesitate to send us a message
+                    <h2 class="text-center">Si vous avez des questions, <br>n'hésitez pas à nous faire parvenir un message
                     </h2>
                     <form action="#" class="border p-5 contact-form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" class="form-control" placeholder="Votre nom">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="text" class="form-control" placeholder="Votre email">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" class="form-control" placeholder="Sujet">
                         </div>
                         <div class="form-group">
                             <textarea name="" id="" cols="30" rows="7" class="form-control"
                                 placeholder="Message"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Envoyer un message" class="btn btn-primary py-3 px-5">
                         </div>
                     </form>
 
