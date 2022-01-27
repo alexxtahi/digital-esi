@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogArticleController;
+use App\Http\Controllers\HomeContoller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,23 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-<<<<<<< HEAD
-Route::get('/login', function () {
-    return view('login');
-=======
-Route::get('/blog', function () {
-    return view('blog');
-});
-
-Route::get('/blog-details', function () {
-    return view('blog-details');
-});
-
-Route::get('/contacts', function () {
-    return view('contacts');
->>>>>>> origin/demnyx
-});
+Route::get('/', [HomeContoller::class, 'index'])->name('home');
+Route::get('/blog', [BlogArticleController::class, 'index'])->name('blog');
+Route::get('/blog-details', [BlogArticleController::class, 'index2'])->name('blog-details');
+Route::get('/contacts', [BlogArticleController::class, 'index3'])->name('contacts');
+Route::get('/profs', [BlogArticleController::class, 'index4'])->name('profs');

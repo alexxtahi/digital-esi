@@ -2,21 +2,21 @@
     	<div class="container py-3">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
     			<div class="col-md-4 d-flex align-items-center py-4">
-    				<a class="navbar-brand" href="index.html">ESI <span>École Supérieure d'Industrie</span></a>
+    				<a class="navbar-brand" href="index.html">ESI <span>Ecole Supérieure d'Industrie</span></a>
     			</div>
 	    		<div class="col-lg-8 d-block">
 		    		<div class="row d-flex">
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-paper-plane"></span></div>
 					    	<div class="text">
-					    		<span>Email</span>
+					    		<span>Adresse mail</span>
 						    	<span>youremail@email.com</span>
 						    </div>
 					    </div>
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-call"></span></div>
 						    <div class="text">
-						    	<span>Call</span>
+						    	<span>Contact</span>
 						    	<span>+123 523 5598</span>
 						    </div>
 					    </div>
@@ -42,7 +42,7 @@
 			    		</p>
 			    	</div>
 			    	<div class="col text-right">
-			    		<a href="#" class="btn-link">Request A Quote</a>
+			    		<a href="#" class="btn-link">Besoin d'aide ?</a>
 			    	</div>
 			    </div>
 		  	</div>
@@ -62,19 +62,15 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
 	        	<li @if ($view_name =='home')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Accueil</a>
-				</li>
-
-				<li @if ($view_name=='about')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">A propos</a>
+					<a href={{url('/')}} class="nav-link">Accueil</a>
 				</li>
 
 				<li @if ($view_name=='profs')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Enseignants</a>
+					<a href={{url('/profs')}} class="nav-link">Personnel</a>
 				</li>
 
 				<li @if ($view_name=='cs')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Case Studies</a>
+					<a href="about.html" class="nav-link">Portfolio</a>
 				</li>
 
 				<li @if ($view_name=='services')class="nav-item active"@else class="nav-item"@endif>
@@ -87,6 +83,10 @@
 
 				<li @if ($view_name=='contacts')class="nav-item active"@else class="nav-item"@endif>
 					<a href={{url('/contacts')}} class="nav-link">Contacts</a>
+				</li>
+
+                <li @if ($view_name=='about')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">A propos</a>
 				</li>
 
 	        </ul>
