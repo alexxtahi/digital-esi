@@ -14,3 +14,4 @@
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/flaticon.css') }}">
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/icomoon.css') }}">
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('negotiate-master/css/login.css') }}">
