@@ -62,7 +62,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
 	        	<li @if ($view_name =='home')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">Accueil</a>
+					<a href={{url('/')}} class="nav-link">Accueil</a>
 				</li>
 
 				<li @if ($view_name=='profs')class="nav-item active"@else class="nav-item"@endif>
