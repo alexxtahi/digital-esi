@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Negotiate - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Ecole Supérieure d'Industrie - INP-HB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
