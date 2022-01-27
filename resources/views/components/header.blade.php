@@ -2,7 +2,7 @@
     	<div class="container py-3">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
     			<div class="col-md-4 d-flex align-items-center py-4">
-    				<a class="navbar-brand" href="index.html">Negotiate <span>Consulting Agency</span></a>
+    				<a class="navbar-brand" href="index.html">ESI <span>École Supérieure d'Industrie</span></a>
     			</div>
 	    		<div class="col-lg-8 d-block">
 		    		<div class="row d-flex">
@@ -55,19 +55,40 @@
 	      </button>
 	      <form action="#" class="searchform order-lg-last">
           <div class="form-group d-flex">
-            <input type="text" class="form-control pl-3" placeholder="Search">
+            <input type="text" class="form-control pl-3" placeholder="Recherche">
             <button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
           </div>
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-	        	<li class="nav-item"><a href="project.html" class="nav-link">Case Studies</a></li>
-	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        	<li @if ($view_name =='home')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">Accueil</a>
+				</li>
+
+				<li @if ($view_name=='about')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">A propos</a>
+				</li>
+
+				<li @if ($view_name=='profs')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">Enseignants</a>
+				</li>
+
+				<li @if ($view_name=='cs')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">Case Studies</a>
+				</li>
+
+				<li @if ($view_name=='services')class="nav-item active"@else class="nav-item"@endif>
+					<a href="about.html" class="nav-link">Services</a>
+				</li>
+
+				<li @if (strpos($view_name, 'blog') !== false)class="nav-item active"@else class="nav-item"@endif>
+					<a href={{url('/blog')}} class="nav-link">Blog</a>
+				</li>
+
+				<li @if ($view_name=='contacts')class="nav-item active"@else class="nav-item"@endif>
+					<a href={{url('/contacts')}} class="nav-link">Contacts</a>
+				</li>
+
 	        </ul>
 	      </div>
 	    </div>

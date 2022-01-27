@@ -17,6 +17,19 @@ Route::get('/', function () {
     return view('home');
 });
 
+<<<<<<< HEAD
 Route::get('/login', function () {
     return view('login');
+=======
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/blog-details', function () {
+    return view('blog-details');
+});
+
+Route::get('/contacts', function () {
+    return view('contacts');
+>>>>>>> origin/demnyx
 });
