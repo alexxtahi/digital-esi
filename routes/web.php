@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogArticleController;
-use App\Http\Controllers\HomeContoller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RenseignementController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 //! --- HOME ---
 // Page d'accueil
-Route::get('/', [HomeContoller::class, 'index'])->name('home');
-Route::post('/demande', [RenseignementController::class, 'store'])->name('renseignement.store');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/renseignement', [RenseignementController::class, 'store'])->name('renseignement.store');
 
 //! --- AUTH ---
 // Page de connexion

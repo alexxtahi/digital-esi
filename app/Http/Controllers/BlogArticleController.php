@@ -19,7 +19,7 @@ class BlogArticleController extends Controller
         // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->get();
         // Affichage
-        return view('blog', compact('blog_articles'));
+        return view('blog.blog', compact('blog_articles'));
     }
     // Page de détails d'un article
     public function detailsArticle()
@@ -28,7 +28,7 @@ class BlogArticleController extends Controller
         // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->get();
         // Affichage
-        return view('blog-details', compact('blog_articles'));
+        return view('blog.blog-details', compact('blog_articles'));
     }
 
     /**
