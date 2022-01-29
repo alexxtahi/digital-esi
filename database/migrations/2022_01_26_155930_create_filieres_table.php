@@ -16,6 +16,7 @@ class CreateFilieresTable extends Migration
         Schema::create('filieres', function (Blueprint $table) {
             $table->id();
             $table->string('lib_filiere');
+            $table->string('description_filiere');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });

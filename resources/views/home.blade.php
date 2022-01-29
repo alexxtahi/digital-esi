@@ -13,11 +13,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-
-      <div class="slider-item" style="background-image:url('{{ asset('negotiate-master/images/bg_1.jpg') }}');">
-
       <div class="slider-item" style="background-image:url({{ asset('img/entree-inp2.jpg') }});">
-
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -30,10 +26,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url({{ asset('negotiate-master/images/bg_2.jpg') }});">
-
       <div class="slider-item" style="background-image:url({{ asset('img/header-pic.jpg') }});">
-
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -47,88 +40,12 @@
       </div>
     </section>
 
-		<section class="ftco-section ftco-no-pt ftco-no-pb ftco-consult">
-			<div class="container">
-				<div class="row d-flex no-gutters align-items-stretch	consult-wrap">
-					<div class="col-md-5 wrap-about align-items-stretch d-flex">
-						<div class="ftco-animate bg-primary align-self-stretch px-4 py-5 w-100">
-							<h2 class="heading-white mb-4">Envie d'en savoir plus ?</h2>
-							<form action="#" id="quoteForm" class="appointment-form ftco-animate">
-		    				<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="Nom">
-		    				</div>
-		    				<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="Prénom(s)">
-		    				</div>
-	    					<div class="form-group">
-		    					<div class="form-field">
-	        					<div class="select-wrap">
-	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control">
-	                    	<option value="">Choisir une spécialité</option>
-	                      <option value="INFO">INFO</option>
-	                      <option value="EIT">EIT</option>
-	                      <option value="EAI">EAI</option>
-	                      <option value="PMSI">PMSI</option>
-	                      <option value="MA">MA</option>
-	                      <option value="STA">STA</option>
-	                    </select>
-	                  </div>
-		              </div>
-		    				</div>
-	    					<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="Téléphone">
-		    				</div>
-	    					<div class="form-group">
-		              <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-		            </div>
-		            <div class="form-group">
-		              <input type="submit" value="Soumettre votre requête" class="btn btn-secondary py-3 px-4">
-		            </div>
-		    			</form>
-						</div>
-					</div>
-					<div class="col-md-7 wrap-about ftco-animate align-items-stretch d-flex">
-						<div class="bg-white p-5">
-							<h2 class="mb-4">Un aperçu<br>de nos filières</h2>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="services">
-										<div class="icon mt-2 d-flex align-items-center"><span class="flaticon-insurance"></span></div>
-										<div class="text media-body">
-											<h3>STIC</h3>
-											<p>
-                                                Sciences et Technologies de l'Information et de la Communication
-                                            </p>
-										</div>
-									</div>
-									<div class="services">
-										<div class="icon mt-2"><span class="flaticon-analysis"></span></div>
-										<div class="text media-body">
-											<h3>STGI</h3>
-											<p>
-                                                Sciences et Technologies du Génie Industriel
-                                            </p>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="services">
-										<div class="icon mt-2"><span class="flaticon-analysis"></span></div>
-										<div class="text media-body">
-											<h3>STGP</h3>
-											<p>
-                                                Sciences et Technologies du Génie des Procédés
-                                            </p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+        <!-- Formulaire de demande de renseignemens -->
+        @include('components.askinfo-form')
+        <!-- Message après soumission de la requête -->
+        @if (isset($result))
+            @include('components.modal')
+        @endif
 
 		<section class="ftco-intro ftco-no-pb img" style="background-image: url(negotiate-master/images/bg_3.jpg);">
     	<div class="container">
@@ -144,11 +61,7 @@
 			<div class="container consult-wrap">
 				<div class="row d-flex align-items-stretch">
 					<div class="col-md-6 wrap-about align-items-stretch d-flex">
-
-						<div class="img" style="background-image: url({{ asset('negotiate-master/images/about.jpg') }});"></div>
-
 						<div class="img" style="background-image: url({{ asset('img/entree-inp.jpg') }});"></div>
-
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate py-md-5 pl-md-5">
 						<div class="heading-section mb-4">
@@ -289,6 +202,8 @@
 			</div>
 		</section>
 
+        <!-- Nos formations -->
+
     <section class="ftco-section ftco-no-pt">
     	<div class="container">
     		<div class="row justify-content-center mb-5">
@@ -324,36 +239,6 @@
 					<div class="col-md-8">
 						<div class="tab-content">
 						  <div class="tab-pane container p-0 active" id="services-1">
-
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-2.jpg') }});"></div>
-						  	<h3><a href="#">Business Analysis</a></h3>
-						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-2">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-3.jpg') }});"></div>
-						  	<h3><a href="#">Business Consulting</a></h3>
-						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-3">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-4.jpg') }});"></div>
-						  	<h3><a href="#">Business Insurance</a></h3>
-						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-4">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-5.jpg') }});"></div>
-						  	<h3><a href="#">Global Investigation</a></h3>
-						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-5">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-6.jpg') }});"></div>
-						  	<h3><a href="#">Audit &amp; Evaluation</a></h3>
-						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						  </div>
-						  <div class="tab-pane container p-0 fade" id="services-6">
-						  	<div class="img" style="background-image: url({{ asset('negotiate-master/images/project-1.jpg') }});"></div>
-						  	<h3><a href="#">Marketing Strategy</a></h3>
-						  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
 						  	<div class="img" style="background-image: url({{ asset('img/specialites/info.jpg') }});"></div>
 						  	<h3><a href="#">Informatique</a></h3>
 						  	<p>Le parcours des passionés des technologies du digital: Développement, Sécurité informatique, Conception de SI, Bases de données, Intelligence artificielle, etc.</p>
@@ -382,7 +267,6 @@
 						  	<div class="img" style="background-image: url({{ asset('img/specialites/production.jpg') }});"></div>
 						  	<h3><a href="#">Production de masse</a></h3>
 						  	<p>Formation sur les sytèmes et outils de production de masse dans l'industrie, les chaines de production et bien d'autres.</p>
-
 						  </div>
 						</div>
 					</div>
@@ -418,11 +302,7 @@
                 <!-- DG INP -->
                 <div class="item">
                 <div class="testimony-wrap d-flex">
-
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
-
                   <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
-
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -452,44 +332,12 @@
               <!-- DE ESI -->
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_3.jpg') }})">
                   <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
                   </div>
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Huff</p>
-                    <span class="position">Businesswoman</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_4.jpg') }})">
-                  </div>
-                  <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Rodel Golez</p>
-                    <span class="position">Businesswoman</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
-                  </div>
-                  <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Ken Bosh</p>
-                    <span class="position">Businesswoman</span>
                     <p>De mon poste de directeur des études, j'ai eu l'occasion de rencontrer de nombreux professeurs tous excellents dans leurs domaines.</p>
                     <p class="name">M. Siriky KONE</p>
                     <span class="position">Directeur des études de l'ESI</span>
@@ -514,54 +362,6 @@
             <p>Toute l'actualité de l'Ecole Supérieure d'Industrie sur le blog.</p>
           </div>
         </div>
-				<div class="row">
-          <div class="col-md-6 col-lg-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_1.jpg') }});">
-								<div class="meta-date text-center p-2">
-                  <span class="day">15</span>
-                  <span class="mos">Oct.</span>
-                  <span class="yr">2019</span>
-                </div>
-              </a>
-              <div class="text border border-top-0 p-4">
-                <h3 class="heading"><a href="#">Finance And Legal Working Streams Occur Throughout</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_2.jpg') }});">
-								<div class="meta-date text-center p-2">
-                  <span class="day">15</span>
-                  <span class="mos">Oct.</span>
-                  <span class="yr">2019</span>
-                </div>
-              </a>
-              <div class="text border border-top-0 p-4">
-                <h3 class="heading"><a href="#">Finance And Legal Working Streams Occur Throughout</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('negotiate-master/images/image_3.jpg') }});">
         <div class="row">
             <!-- Chargement des articles de blog récents -->
         @foreach ($blog_articles as $article)

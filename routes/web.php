@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogArticleController;
-use App\Http\Controllers\HomeContoller;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RenseignementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeContoller::class, 'index'])->name('home');
+//! --- HOME ---
+// Page d'accueil
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/renseignement', [RenseignementController::class, 'store'])->name('renseignement.store');
+
+//! --- AUTH ---
+// Page de connexion
+Route::view('/login', 'login');
+
+//! --- CONTACTS ---
+// Page des contacts
+Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
+// Page du personnel
+Route::get('/personnel', [HomeController::class, 'personnel'])->name('personnel');
+
+//! --- BLOG ---
+// Page du blog
 Route::get('/blog', [BlogArticleController::class, 'index'])->name('blog');
 Route::get('/blog-details', [BlogArticleController::class, 'index2'])->name('blog-details');
 Route::get('/contacts', [BlogArticleController::class, 'index3'])->name('contacts');
 Route::get('/profs', [BlogArticleController::class, 'index4'])->name('profs');
 
 Route::view('/login', 'login');
+// Page de détails d'un article
+Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
