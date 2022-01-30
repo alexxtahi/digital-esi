@@ -20,7 +20,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
                     <h1 class="mb-2 bread">Blog</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/accueil')}}>Accueil <i
+                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/')}}>Accueil <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i
                                 class="ion-ios-arrow-forward"></i></span></p>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry">
                         <a href={{url('/blog-details')}} class="block-20 d-flex align-items-end"
-                            style="background-image: url({{asset('negotiate-master/images/blog1.jpg')}});">
+                            style="background-image: url({{asset('img/blog1.jpg')}});">
                             <div class="meta-date text-center p-2">
                                 <span class="day">22</span>
                                 <span class="mos">Jan.</span>
@@ -60,7 +60,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry">
                         <a href={{url('/blog-details')}} class="block-20 d-flex align-items-end"
-                            style="background-image: url({{asset('negotiate-master/images/blog2.jpg')}});">
+                            style="background-image: url({{asset('img/blog2.jpg')}});">
                             <div class="meta-date text-center p-2">
                                 <span class="day">14</span>
                                 <span class="mos">Jan.</span>
@@ -87,7 +87,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry">
                         <a href={{url('/blog-details')}} class="block-20 d-flex align-items-end"
-                            style="background-image: url({{asset('negotiate-master/images/blog3.jpg')}});">
+                            style="background-image: url({{asset('img/blog3.jpg')}});">
                             <div class="meta-date text-center p-2">
                                 <span class="day">23</span>
                                 <span class="mos">Dec.</span>

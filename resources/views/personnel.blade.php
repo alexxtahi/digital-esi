@@ -37,7 +37,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff border">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url({{asset('negotiate-master/images/blankavatar.png')}});">
+                            <div class="img align-self-stretch" style="background-image: url({{asset('img/blankavatar.png')}});">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
@@ -66,7 +66,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff border">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url({{asset('negotiate-master/images/blankavatar.png')}});">
+                            <div class="img align-self-stretch" style="background-image: url({{asset('img/blankavatar.png')}});">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">

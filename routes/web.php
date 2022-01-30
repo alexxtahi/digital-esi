@@ -34,10 +34,11 @@ Route::get('/personnel', [HomeController::class, 'personnel'])->name('personnel'
 //! --- BLOG ---
 // Page du blog
 Route::get('/blog', [BlogArticleController::class, 'index'])->name('blog');
-Route::get('/blog-details', [BlogArticleController::class, 'index2'])->name('blog-details');
-Route::get('/contacts', [BlogArticleController::class, 'index3'])->name('contacts');
-Route::get('/profs', [BlogArticleController::class, 'index4'])->name('profs');
 
 Route::view('/login', 'login');
 // Page de détails d'un article
 Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
+
+//! --- DASHBOARD ---
+// Admin homepage
+Route::view('/admin', 'dashboard.admin-index');

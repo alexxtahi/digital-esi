@@ -38,7 +38,7 @@
                     <p>A l'initiative du Directeur Général de l'INP-HB, un séminaire de réflexion sur le
                          mécanisme de gestion des projets de l'Institut s'est tenu, le jeudi 20 janvier 2022, au salon d'honneur du site centre.</p>
                     <p>
-                        <img src="{{asset('negotiate-master/images/blog1.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{asset('img/blog1.jpg')}}" alt="" class="img-fluid">
                     </p>
                     <p>Ce séminaire avait pour objectif de proposer une démarche consensuelle
                          et incitative en harmonie avec les pratiques règlementaires en vigueur,
@@ -55,7 +55,7 @@
 
                     <div class="about-author d-flex p-4 bg-light">
                         <div class="bio mr-5">
-                            <img src={{asset('negotiate-master/images/blankavatar.png')}} alt="Image placeholder" class="img-fluid mb-4"
+                            <img src={{asset('img/blankavatar.png')}} alt="Image placeholder" class="img-fluid mb-4"
                             style="height: 80px;">
                         </div>
                         <div class="desc">
@@ -70,7 +70,7 @@
                         <ul class="comment-list">
                             <li class="comment">
                                 <div class="vcard bio">
-                                    <img src="{{asset('negotiate-master/images/blankavatar.png')}}" alt="Image placeholder">
+                                    <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
                                 </div>
                                 <div class="comment-body">
                                     <h3>John Doe</h3>
@@ -84,7 +84,7 @@
 
                             <li class="comment">
                                 <div class="vcard bio">
-                                    <img src="{{asset('negotiate-master/images/blankavatar.png')}}" alt="Image placeholder">
+                                    <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
                                 </div>
                                 <div class="comment-body">
                                     <h3>John Doe</h3>
@@ -98,7 +98,7 @@
                                 <ul class="children">
                                     <li class="comment">
                                         <div class="vcard bio">
-                                            <img src="{{asset('negotiate-master/images/blankavatar.png')}}" alt="Image placeholder">
+                                            <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
                                         </div>
                                         <div class="comment-body">
                                             <h3>John Doe</h3>
@@ -114,7 +114,7 @@
                                         <ul class="children">
                                             <li class="comment">
                                                 <div class="vcard bio">
-                                                    <img src="{{asset('negotiate-master/images/blankavatar.png')}}" alt="Image placeholder">
+                                                    <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
                                                 </div>
                                                 <div class="comment-body">
                                                     <h3>John Doe</h3>
@@ -129,7 +129,7 @@
                                                 <ul class="children">
                                                     <li class="comment">
                                                         <div class="vcard bio">
-                                                            <img src="{{asset('negotiate-master/images/blankavatar.png')}}" alt="Image placeholder">
+                                                            <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
                                                         </div>
                                                         <div class="comment-body">
                                                             <h3>John Doe</h3>
@@ -204,7 +204,7 @@
                     <div class="sidebar-box ftco-animate">
                         <h3>Articles populaires</h3>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{asset('negotiate-master/images/blog2.jpg')}});"></a>
+                            <a class="blog-img mr-4" style="background-image: url({{asset('img/blog2.jpg')}});"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Visite de la Direction Générale
                                      de Total-Energies Côte d'Ivoire à l'INP-HB</a></h3>
@@ -216,7 +216,7 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{asset('negotiate-master/images/blog3.jpg')}});"></a>
+                            <a class="blog-img mr-4" style="background-image: url({{asset('img/blog3.jpg')}});"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Cérémonie de décoration de l'Administration Générale du Cnam</a></h3>
                                 <div class="meta">
