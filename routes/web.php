@@ -42,3 +42,10 @@ Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->n
 //! --- DASHBOARD ---
 // Admin homepage
 Route::view('/admin', 'dashboard.admin-index');
+
+// Add new blog article
+Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->name('dashboard.articles.index');
+Route::get('/articles/add', [BlogArticleController::class, 'create']);
+Route::post('/articles', [BlogArticleController::class, 'store'])->name('dashboard.articles.store');
+
+

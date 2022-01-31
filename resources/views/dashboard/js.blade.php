@@ -16,4 +16,5 @@
 <script src="{{ asset('majestic-master/js/data-table.js') }}"></script>
 <script src="{{ asset('majestic-master/js/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('majestic-master/js/dataTables.bootstrap4.js') }}"></script>
+
 <!-- End custom js for this page-->
