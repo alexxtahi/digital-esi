@@ -15,7 +15,7 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('negotiate-master/images/contactbanner.png')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('img/contactbanner.png')}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">

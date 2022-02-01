@@ -65,8 +65,8 @@
 					<a href={{url('/')}} class="nav-link">Accueil</a>
 				</li>
 
-				<li @if ($view_name == 'profs')class="nav-item active"@else class="nav-item"@endif>
-					<a href={{url('/profs')}} class="nav-link">Personnel</a>
+				<li @if ($view_name == 'personnel')class="nav-item active"@else class="nav-item"@endif>
+					<a href={{url('/personnel')}} class="nav-link">Personnel</a>
 				</li>
 
 				<li @if ($view_name == 'cs')class="nav-item active"@else class="nav-item"@endif>

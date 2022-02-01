@@ -21,6 +21,12 @@ class BlogArticleController extends Controller
         // Affichage
         return view('blog.blog', compact('blog_articles'));
     }
+
+    public function dashIndex()
+    {
+        return view('dashboard.articles.index');
+
+    }
     // Page de détails d'un article
     public function detailsArticle()
     {
@@ -39,6 +45,8 @@ class BlogArticleController extends Controller
     public function create()
     {
         //
+        return view('dashboard.articles.create');
+
     }
 
     /**
@@ -50,6 +58,24 @@ class BlogArticleController extends Controller
     public function store(StoreBlogArticleRequest $request)
     {
         //
+        //dd($request);
+
+        $request->validate([
+            "title" => 'required',
+        ]);
+
+        //Enregistrement dans la bd
+        BlogArticle::create([
+            'titre_article' => $request->get('title'),
+            'resume_article' => $request->get('resume'),
+            'contenu_article' => $request->get('content'),
+            'image_article' => 'img/' . $request->get('img')[0],
+            'date_publication' => now(),
+            'id_user' => 1,
+            'created_at' => now(),
+        ]);
+
+        return redirect()->route("dashboard.articles.index");
     }
 
     /**

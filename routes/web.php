@@ -34,5 +34,18 @@ Route::get('/personnel', [HomeController::class, 'personnel'])->name('personnel'
 //! --- BLOG ---
 // Page du blog
 Route::get('/blog', [BlogArticleController::class, 'index'])->name('blog');
+
+Route::view('/login', 'login');
 // Page de détails d'un article
 Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
+
+//! --- DASHBOARD ---
+// Admin homepage
+Route::view('/admin', 'dashboard.admin-index');
+
+// Add new blog article
+Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->name('dashboard.articles.index');
+Route::get('/articles/add', [BlogArticleController::class, 'create']);
+Route::post('/articles', [BlogArticleController::class, 'store'])->name('dashboard.articles.store');
+
+

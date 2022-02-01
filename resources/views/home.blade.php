@@ -367,7 +367,7 @@
         @foreach ($blog_articles as $article)
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('img/header-pic.jpg') }});">
+              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset($article->image_article) }});">
 								<div class="meta-date text-center p-2">
                   <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
                   <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
