@@ -34,24 +34,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    <h2 class="mb-3">#2. Séminaire sur le fonctionnement des projets de l'INP-HB</h2>
-                    <p>A l'initiative du Directeur Général de l'INP-HB, un séminaire de réflexion sur le
-                         mécanisme de gestion des projets de l'Institut s'est tenu, le jeudi 20 janvier 2022, au salon d'honneur du site centre.</p>
+                    <h2 class="mb-3">#. {{$article->titre_article}}</h2>
                     <p>
-                        <img src="{{asset('img/blog1.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{asset($article->image_article)}}" alt="" class="img-fluid">
                     </p>
-                    <p>Ce séminaire avait pour objectif de proposer une démarche consensuelle
-                         et incitative en harmonie avec les pratiques règlementaires en vigueur,
-                          pour la gestion des projets à l'INP-HB. Pour ce faire,
-                           il s'est agi de proposer des mécanismes permettant une meilleure contribution
-                         de l'INP-HB au budget général grâce aux ressources propres dont la gestion intègrera des clés de répartition approuvées.</p>
-                    <p>Selon Dr Moussa Diaby, pour faire face au budget général qui décroît depuis 2018, les projets représentent la majeure source de ressources propres permettant un appoint pour le fonctionnement de l'INP-HB. Cependant, la participation des projets au budget général tel que défini par le ministère de tutelle, reste peu visible.</p>
-                    <p>A en croire M. Boidou, Agent Comptable Principal (ACP), l'INP-HB dispose d'infrastructures et d'un fort potentiel pour capter un certain nombre de ressources additives si seulement l'ensemble des acteurs fait preuve d'imagination.</p>
-                    <p>Au cours de ce séminaire, la démarche privilégiée par les organisateurs était le travail en atelier. Cet atelier a regroupé environ 90 experts internes qui ont travaillé en commissions. Trois commissions à savoir la commission « projets de formation », la commission « projets de recherche » et la commission « projets de production et expertise », subdivisées en trois équipes, ont permis de relever des solutions pertinentes.</p>
-                    <p>Les recommandations suggérées par les groupes de travail sont entre autres, la nécessité de faire la typologie des projets pour mieux les comprendre et affecter les financements, la formation des acteurs impliqués dans les projets, la création d'un service central d'accompagnement des projets, la conception d’un manuel de procédures pour la gestion financière afin de s’accorder sur une clé de répartition et la création d’un guichet unique de gestion des projets. Aussi quelques marges en gestion de projet ont-elles été proposées. Ces propositions seront passées au peigne fin par les spécialistes en finance en vue de les rendre conformes aux normes de la réglementation.</p>
-                    <p>Pour conclure, le Directeur Général a reconnu qu’il n’existe aucun doute concernant la contribution des projets au fonctionnement de l’Institut. Toutefois, il va falloir trouver des stratégies non seulement pour alimenter le budget général mais également pour rehausser le niveau des ressources propres. Ainsi pour donner le ton, il a annoncé que le centre de production subira une réforme pour devenir le centre de production et d’expertise. Afin d'aider les acteurs dans le management des projets, le 10 février 2022, M. Boidou donnera une formation sur la gestion financière des projets qui sera suivie le 17 février M. MORO par une autre formation portant sur la gestion administrative des projets.</p>
 
-
+                    {!! $article->contenu_article !!}
+                        
 
                     <div class="about-author d-flex p-4 bg-light">
                         <div class="bio mr-5">
@@ -59,7 +48,7 @@
                             style="height: 80px;">
                         </div>
                         <div class="desc">
-                            <h3>Yvette N'Goran</h3>
+                            <h3>{{$author->nom_user . " " . $author->prenom_user}}</h3>
                             <p></p>
                         </div>
                     </div>

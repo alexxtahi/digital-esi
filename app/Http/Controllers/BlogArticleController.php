@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogArticle;
 use App\Http\Requests\StoreBlogArticleRequest;
 use App\Http\Requests\UpdateBlogArticleRequest;
+use App\Models\User;
 
 class BlogArticleController extends Controller
 {
@@ -28,13 +29,18 @@ class BlogArticleController extends Controller
 
     }
     // Page de détails d'un article
-    public function detailsArticle()
+    public function detailsArticle(StoreBlogArticleRequest $request)
     {
+        //dd($request);
         //
         // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->get();
+
+        $article = BlogArticle::where('id', $request->get('id'))->first();
+        $author = User::where('id', $article->id_user)->first();
+
         // Affichage
-        return view('blog.blog-details', compact('blog_articles'));
+        return view('blog.blog-details', compact('blog_articles', 'article', 'author'));
     }
 
     /**
