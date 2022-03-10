@@ -14,7 +14,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(array $previousResult = null)
     {
         // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->get();
@@ -22,8 +22,10 @@ class HomeController extends Controller
         $specs = Specialite::where('deleted_at', null)->get();
         // Récupération des projets
         $projets = Projet::where('deleted_at', null)->get();
+        // Récupération des résultats d'une précédente requête
+        $result = $previousResult;
         // Affichage
-        return view('home', compact('blog_articles', 'specs', 'projets'));
+        return view('home', compact('blog_articles', 'specs', 'projets', 'result'));
     }
     // Page des contacts
     public function contacts()

@@ -16,40 +16,45 @@
     </div>
     <div class="row">
 
-    <!-- Message après opération -->
-    @if (isset($result) && !empty($result) && $result['type'] === 'add-form')
-        @switch($result['state'])
-            @case('success')
-                <div class="alert alert-success" role="alert">
-                    {{ $result['message'] }}
-                </div>
+        <!-- Message après opération -->
+        @if (isset($result) && !empty($result) && $result['type'] === 'add-form')
+            @switch($result['state'])
+                @case('success')
+                    <div class="alert alert-success" role="alert">
+                        {{ $result['message'] }}
+                    </div>
                 @break
-            @case('warning')
-                <div class="alert alert-warning" role="alert">
-                    {{ $result['message'] }}
-                </div>
+
+                @case('warning')
+                    <div class="alert alert-warning" role="alert">
+                        {{ $result['message'] }}
+                    </div>
                 @break
-            @case('error')
-                <div class="alert alert-danger" role="alert">
-                    {{ $result['message'] }}
-                </div>
+
+                @case('error')
+                    <div class="alert alert-danger" role="alert">
+                        {{ $result['message'] }}
+                    </div>
                 @break
-            @default
-        @endswitch
-    @endif
+
+                @default
+            @endswitch
+        @endif
     </div>
 
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <form class="forms-sample" action="{{ route('dashboard.pages.projets.store') }}" method="POST">
+                    <form class="forms-sample" action="{{ route('dashboard.pages.projets.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @method("POST")
                         @csrf
 
                         <div class="form-group">
                             <label for="titre_projet">Titre</label>
-                            <input type="text" name="titre_projet" class="form-control" id="titre_projet" placeholder="Titre du projet">
+                            <input type="text" name="titre_projet" class="form-control" id="titre_projet"
+                                placeholder="Titre du projet">
                         </div>
 
                         <div class="form-group">
@@ -64,7 +69,8 @@
 
                         <div class="form-group">
                             <label for="description_projet">Description</label>
-                            <textarea class="form-control" name="description_projet" id="articleContent" rows="4"></textarea>
+                            <textarea class="form-control" name="description_projet" id="articleContent"
+                                rows="4"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -87,7 +93,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('js')
@@ -95,14 +100,13 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-        function showInfo(){
-            alert(document.getElementById('aa').value)
-        }
-        */
+                    function showInfo(){
+                        alert(document.getElementById('aa').value)
+                    }
+                    */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'
         });
     </script>
-
 @endsection
