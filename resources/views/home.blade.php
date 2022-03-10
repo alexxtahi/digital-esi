@@ -138,65 +138,22 @@
           </div>
         </div>
         <div class="row">
-        	<div class="col-md-4">
-        		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-1.jpg') }});"></div>
-        			<div class="text w-100 text-center">
-        				<span class="cat">Informatique</span>
-        				<h3><a href="#">Techfood</a></h3>
-        				<p>Une application mobile intelligente facilitant la gestion de l'accueil d'un restaurant.</p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-2.jpg') }});"></div>
-        			<div class="text w-100 text-center">
-        				<span class="cat">Electronique</span>
-        				<h3><a href="#">Sol Analyzer</a></h3>
-        				<p>Un équipement électronique conçu pour relever das statistiques sur l'état des sols.</p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-3.jpg') }});"></div>
-        			<div class="text w-100 text-center">
-        				<span class="cat">Electrotechnique</span>
-        				<h3><a href="#">I.O.N</a></h3>
-        				<p>Une solution pour l'économie du courant électrique domestique.</p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-4.jpg') }});"></div>
-        			<div class="text w-100 text-center">
-        				<span class="cat">Chimie</span>
-        				<h3><a href="#">Hydro A+</a></h3>
-        				<p>La solution hydroalcoolique éliminant 100% des bacteries.</p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-5.jpg') }});"></div>
-        			<div class="text w-100 text-center">
-        				<span class="cat">Informatique</span>
-        				<h3><a href="#">INP-Market</a></h3>
-        				<p>La plateforme de vente en ligne dédiée aux étudiants de l'INP-HB.</p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="project">
-        			<div class="img rounded mb-4" style="background-image: url({{ asset('negotiate-master/images/project-6.jpg') }});"></div>
-        			<div class="text w-100 text-center">
-        				<span class="cat">Informatique</span>
-        				<h3><a href="#">NoteXpert</a></h3>
-        				<p>L'espace de gestion des notes, moyennes et absences de l'ESI.</p>
-        			</div>
-        		</div>
+            @foreach ($projets as $projet)
+                <div class="col-md-4">
+                    <div class="project">
+                        @if (isset($projet->img_projet) && !empty($projet->img_projet))
+                            <div class="img rounded mb-4" style="background-image: url({{ asset($projet->img_projet) }});"></div>
+                        @else
+                            <div class="img rounded mb-4" style="background-image: url({{ asset('img/contactbanner.png') }});"></div>
+                        @endif
+                        <div class="text w-100 text-center">
+                            <span class="cat">{{ $projet->domaine_projet }}</span>
+                            <h3><a href="#">{{ $projet->titre_projet }}</a></h3>
+                            <p>{{ $projet->description_projet }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         	</div>
         </div>
 			</div>
@@ -302,8 +259,8 @@
                 <!-- DG INP -->
                 <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
-                  </div>
+                  {{-- <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
+                  </div> --}}
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
@@ -317,8 +274,8 @@
               <!-- DG ESI -->
                 <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
-                  </div>
+                  {{-- <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
+                  </div> --}}
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
@@ -332,8 +289,8 @@
               <!-- DE ESI -->
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
-                  </div>
+                  {{-- <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
+                  </div> --}}
                   <div class="text pl-4">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
@@ -367,8 +324,9 @@
         @foreach ($blog_articles as $article)
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset($article->image_article) }});">
-								<div class="meta-date text-center p-2">
+              {{-- <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset($article->image_article) }});"> --}}
+              <a href="#" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('img/header-pic.jpg') }});">
+                <div class="meta-date text-center p-2">
                   <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
                   <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
                   <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>

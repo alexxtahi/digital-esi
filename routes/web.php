@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BlogArticleController;
+use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RenseignementController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 // Page d'accueil
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/renseignement', [RenseignementController::class, 'store'])->name('renseignement.store');
+Route::post('/', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 //! --- AUTH ---
 // Page de connexion
@@ -40,12 +43,20 @@ Route::view('/login', 'login');
 Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
 
 //! --- DASHBOARD ---
-// Admin homepage
-Route::view('/admin', 'dashboard.admin-index');
+Route::group(['prefix' => 'admin'], function () {
+    // Admin homepage
+    Route::view('/', 'dashboard.admin-index')->name('dashboard.index');
 
-// Add new blog article
-Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->name('dashboard.articles.index');
-Route::get('/articles/add', [BlogArticleController::class, 'create']);
-Route::post('/articles', [BlogArticleController::class, 'store'])->name('dashboard.articles.store');
+    // Gestion des articles
+    Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->name('dashboard.pages.articles.index');
+    Route::get('/articles/add', [BlogArticleController::class, 'create'])->name('dashboard.pages.articles.create');
+    Route::post('/articles', [BlogArticleController::class, 'store'])->name('dashboard.pages.articles.store');
+
+    // Gestion des projets
+    Route::get('/projets', [ProjetController::class, 'index'])->name('dashboard.pages.projets.index');
+    Route::get('/projets/add', [ProjetController::class, 'create'])->name('dashboard.pages.projets.create');
+    Route::post('/projets', [ProjetController::class, 'store'])->name('dashboard.pages.projets.store');
+
+});
 
 

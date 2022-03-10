@@ -7,8 +7,8 @@
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Site centre, INP-HB Yamoussoukro, Côte d'Ivoire</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+225 07 47 26 05 05</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">siriky.kone@inphb.ci</span></a></li>
 	              </ul>
 	            </div>
 	            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
@@ -38,7 +38,7 @@
               <!-- Articles récents -->
             @foreach ($blog_articles as $article)
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({{ asset('negotiate-master/images/image_1.jpg') }});"></a>
+                <a class="blog-img mr-4" style="background-image: url({{ asset($article->image_article) }});"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">{{ $article->titre_article }}</a></h3>
                   <div class="meta">
@@ -54,11 +54,13 @@
           <div class="col-md-6 col-lg-3">
             <div class="ftco-footer-widget mb-5">
             	<h2 class="ftco-heading-2">Restez informé !</h2>
-              <form action="#" class="subscribe-form">
-                <div class="form-group">
-                  <input type="text" class="form-control mb-2 text-center" placeholder="Entrez votre Email">
-                  <input type="submit" value="S'abonner" class="form-control submit px-3">
-                </div>
+              <form action="{{ route('newsletter.store') }}" class="subscribe-form" method="POST">
+                  @method('POST')
+                  @csrf
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control mb-2 text-center" placeholder="Entrez votre Email" required>
+                        <input type="submit" value="S'abonner" class="form-control submit px-3">
+                    </div>
               </form>
             </div>
           </div>

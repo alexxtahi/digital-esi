@@ -7,7 +7,7 @@
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
                         <h2>Bienvenue,</h2>
-                        <p class="mb-md-0">Your analytics dashboard template.</p>
+                        <p class="mb-md-0">Administration de l'ESI</p>
                     </div>
 
                 </div>
@@ -22,15 +22,15 @@
                     <ul class="nav nav-tabs px-4" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab"
-                                aria-controls="overview" aria-selected="true">Overview</a>
+                                aria-controls="overview" aria-selected="true">Aperçu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="sales-tab" data-toggle="tab" href="#sales" role="tab"
-                                aria-controls="sales" aria-selected="false">Sales</a>
+                                aria-controls="sales" aria-selected="false">Activités</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="purchases-tab" data-toggle="tab" href="#purchases" role="tab"
-                                aria-controls="purchases" aria-selected="false">Purchases</a>
+                                aria-controls="purchases" aria-selected="false">Suivi</a>
                         </li>
                     </ul>
                     <div class="tab-content py-0 px-0">
@@ -205,6 +205,7 @@
         </div>
     </div>
 
+    {{--
     <div class="row">
         <div class="col-md-12 stretch-card">
             <div class="card">
@@ -294,4 +295,5 @@
             </div>
         </div>
     </div>
+    --}}
 @endsection

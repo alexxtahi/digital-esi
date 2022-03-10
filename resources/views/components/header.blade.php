@@ -10,21 +10,21 @@
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-paper-plane"></span></div>
 					    	<div class="text">
 					    		<span>Adresse mail</span>
-						    	<span>youremail@email.com</span>
+						    	<span>siriky.kone@inphb.ci</span>
 						    </div>
 					    </div>
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-call"></span></div>
 						    <div class="text">
 						    	<span>Contact</span>
-						    	<span>+123 523 5598</span>
+						    	<span>+225 07 47 26 05 05</span>
 						    </div>
 					    </div>
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="ion-ios-time"></span></div>
 						    <div class="text">
 						    	<span>Working Hours</span>
-						    	<span>Mon - Sat 8am - 5pm</span>
+						    	<span>Lundi - Vendredi 8H - 18H</span>
 						    </div>
 					    </div>
 				    </div>
@@ -86,7 +86,7 @@
 				</li>
 
                 <li @if ($view_name == 'about')class="nav-item active"@else class="nav-item"@endif>
-					<a href="about.html" class="nav-link">A propos</a>
+					<a href="{{ url('/admin') }}" class="nav-link">Tableau de bord</a>
 				</li>
 
 	        </ul>
