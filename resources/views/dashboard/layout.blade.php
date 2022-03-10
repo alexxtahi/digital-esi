@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Tableau de bord - ESI</title>
 
-    @include('dashboard.css')
+    @include('dashboard.includes.css')
 
     <link rel="shortcut icon" href="{{ asset('majestic-master/images/favicon.png') }}" />
 </head>
@@ -15,11 +15,11 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        @include('dashboard.nav')
+        @include('dashboard.components.nav')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-            @include('dashboard.sidebar')
+            @include('dashboard.components.sidebar')
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -27,7 +27,7 @@
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
-                @include('dashboard.footer')
+                @include('dashboard.includes.footer')
                 <!-- partial -->
             </div>
             <!-- main-panel ends -->
@@ -36,7 +36,7 @@
     </div>
     <!-- container-scroller -->
 
-    @include('dashboard.js')
+    @include('dashboard.includes.js')
     @yield('js')
 
 </body>

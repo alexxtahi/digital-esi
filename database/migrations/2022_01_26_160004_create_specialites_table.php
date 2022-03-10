@@ -15,6 +15,7 @@ class CreateSpecialitesTable extends Migration
     {
         Schema::create('specialites', function (Blueprint $table) {
             $table->id();
+            $table->string('abrev_spec');
             $table->string('lib_spec');
             $table->string('description_spec');
             $table->integer('id_filiere');

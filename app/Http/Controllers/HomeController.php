@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogArticle;
+use App\Models\Projet;
 use App\Models\Specialite;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,10 @@ class HomeController extends Controller
         $blog_articles = BlogArticle::where('deleted_at', null)->get();
         // Récupération des spécialités
         $specs = Specialite::where('deleted_at', null)->get();
+        // Récupération des projets
+        $projets = Projet::where('deleted_at', null)->get();
         // Affichage
-        return view('home', compact('blog_articles', 'specs'));
+        return view('home', compact('blog_articles', 'specs', 'projets'));
     }
     // Page des contacts
     public function contacts()

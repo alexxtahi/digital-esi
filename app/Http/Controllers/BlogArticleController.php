@@ -24,7 +24,7 @@ class BlogArticleController extends Controller
 
     public function dashIndex()
     {
-        return view('dashboard.articles.index');
+        return view('dashboard.pages.articles.index');
 
     }
     // Page de détails d'un article
@@ -45,7 +45,7 @@ class BlogArticleController extends Controller
     public function create()
     {
         //
-        return view('dashboard.articles.create');
+        return view('dashboard.pages.articles.create');
 
     }
 
@@ -57,7 +57,6 @@ class BlogArticleController extends Controller
      */
     public function store(StoreBlogArticleRequest $request)
     {
-        //
         //dd($request);
 
         $request->validate([
@@ -75,7 +74,7 @@ class BlogArticleController extends Controller
             'created_at' => now(),
         ]);
 
-        return redirect()->route("dashboard.articles.index");
+        return redirect()->route('dashboard.pages.articles.index');
     }
 
     /**
