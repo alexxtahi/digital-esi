@@ -33,6 +33,12 @@ Route::view('/login', 'login');
 Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
 // Page du personnel
 Route::get('/personnel', [HomeController::class, 'personnel'])->name('personnel');
+// Page du portfolio
+Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+// Page de l'à propos
+Route::get('/apropos', [HomeController::class, 'apropos'])->name('apropos');
+// Page des services
+Route::get('/services', [HomeController::class, 'services'])->name('services');
 
 //! --- BLOG ---
 // Page du blog
@@ -56,7 +62,4 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/projets', [ProjetController::class, 'index'])->name('dashboard.pages.projets.index');
     Route::get('/projets/add', [ProjetController::class, 'create'])->name('dashboard.pages.projets.create');
     Route::post('/projets', [ProjetController::class, 'store'])->name('dashboard.pages.projets.store');
-
 });
-
-

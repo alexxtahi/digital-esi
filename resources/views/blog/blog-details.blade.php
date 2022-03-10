@@ -15,16 +15,17 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('negotiate-master/images/bg_1.jpg')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset($article->image_article)}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Blog</h1>
+                    <h1 class="mb-2 bread">{{$article->titre_article}}</h1>
                     <p class="breadcrumbs"><span class="mr-2"><a href={{url('/')}}>Accueil <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-                                href={{url('/blog')}}>Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Details du
-                            blog <i class="ion-ios-arrow-forward"></i></span></p>
+                                href={{url('/blog')}}>Blog <i class="ion-ios-arrow-forward"></i></a></span>
+                        <span>Details du blog <i class="ion-ios-arrow-forward"></i></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -40,12 +41,12 @@
                     </p>
 
                     {!! $article->contenu_article !!}
-                        
+
 
                     <div class="about-author d-flex p-4 bg-light">
                         <div class="bio mr-5">
                             <img src={{asset('img/blankavatar.png')}} alt="Image placeholder" class="img-fluid mb-4"
-                            style="height: 80px;">
+                                style="height: 80px;">
                         </div>
                         <div class="desc">
                             <h3>{{$author->nom_user . " " . $author->prenom_user}}</h3>
@@ -118,7 +119,8 @@
                                                 <ul class="children">
                                                     <li class="comment">
                                                         <div class="vcard bio">
-                                                            <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
+                                                            <img src="{{asset('img/blankavatar.png')}}"
+                                                                alt="Image placeholder">
                                                         </div>
                                                         <div class="comment-body">
                                                             <h3>John Doe</h3>
@@ -138,7 +140,7 @@
                                 </ul>
                             </li>
 
-                            
+
                         </ul>
                         <!-- END comment-list -->
 
@@ -160,11 +162,11 @@
 
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea name="" id="message" cols="30" rows="10"
-                                        class="form-control"></textarea>
+                                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Envoyer le commentaire" class="btn py-3 px-4 btn-primary">
+                                    <input type="submit" value="Envoyer le commentaire"
+                                        class="btn py-3 px-4 btn-primary">
                                 </div>
 
                             </form>
@@ -193,10 +195,11 @@
                     <div class="sidebar-box ftco-animate">
                         <h3>Articles populaires</h3>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{asset('img/blog2.jpg')}});"></a>
+                            <a class="blog-img mr-4"
+                                style="background-image: url({{asset('img/blog/blog2.jpg')}});"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="#">Visite de la Direction Générale
-                                     de Total-Energies Côte d'Ivoire à l'INP-HB</a></h3>
+                                        de Total-Energies Côte d'Ivoire à l'INP-HB</a></h3>
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"></span> 14. Jan, 2022</a></div>
                                     <div><a href="#"><span class="icon-person"></span> Yvette N'Goran</a></div>
@@ -205,9 +208,11 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{asset('img/blog3.jpg')}});"></a>
+                            <a class="blog-img mr-4"
+                                style="background-image: url({{asset('img/blog/blog3.jpg')}});"></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">Cérémonie de décoration de l'Administration Générale du Cnam</a></h3>
+                                <h3 class="heading"><a href="#">Cérémonie de décoration de l'Administration Générale du
+                                        Cnam</a></h3>
                                 <div class="meta">
                                     <div><a href="#"><span class="icon-calendar"></span> 23. Dec, 2021</a></div>
                                     <div><a href="#"><span class="icon-person"></span> Yvette N'Goran</a></div>
@@ -215,7 +220,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
 
                     <div class="sidebar-box ftco-animate">

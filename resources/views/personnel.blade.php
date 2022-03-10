@@ -17,7 +17,7 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('negotiate-master/images/bg_1.jpg')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/blog/blog2.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -34,18 +34,26 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
+                @foreach ($personnel as $personne)
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff border">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url({{asset('img/blankavatar.png')}});">
+                            <div class="img align-self-stretch"
+                                style="background-image: url({{asset('img/blankavatar.png')}});">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
-                            <h3>M. TANOH Aka</h3>
-                            <span class="position mb-2">Directeur</span>
+                            <h3>{{ $personne->nom_user . ' ' . $personne->prenom_user }}</h3>
+                            <span class="position mb-2">{{ $personne->role_user }}</span>
                             <div class="faded">
-                                <p>Directeur général de l'école supérieure d'industrie.</p>
-                                <ul class="ftco-social text-center">
+                                <p>{{ $personne->role_user }} de l'école supérieure d'industrie.</p>
+                                <ul class="text-left">
+                                    <li><strong>{{ $personne->email_user }}</strong></li>
+                                    @if (!empty($personne->tel_user))
+                                    <li><strong>{{ $personne->tel_user }}</strong></li>
+                                    @endif
+                                </ul>
+                                {{-- <ul class="ftco-social text-center">
                                     <li class="ftco-animate"><a href="#"
                                             class="d-flex align-items-center justify-content-center"><span
                                                 class="icon-twitter"></span></a></li>
@@ -58,40 +66,12 @@
                                     <li class="ftco-animate"><a href="#"
                                             class="d-flex align-items-center justify-content-center"><span
                                                 class="icon-instagram"></span></a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="staff border">
-                        <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url({{asset('img/blankavatar.png')}});">
-                            </div>
-                        </div>
-                        <div class="text pt-3 px-3 pb-4 text-center">
-                            <h3>M. KONÉ Siriky</h3>
-                            <span class="position mb-2">Directeur des études</span>
-                            <div class="faded">
-                                <p>Directeurs des études, chargé du parcours TS STIC.</p>
-                                <ul class="ftco-social text-center">
-                                    <li class="ftco-animate"><a href="#"
-                                            class="d-flex align-items-center justify-content-center"><span
-                                                class="icon-twitter"></span></a></li>
-                                    <li class="ftco-animate"><a href="#"
-                                            class="d-flex align-items-center justify-content-center"><span
-                                                class="icon-facebook"></span></a></li>
-                                    <li class="ftco-animate"><a href="#"
-                                            class="d-flex align-items-center justify-content-center"><span
-                                                class="icon-google-plus"></span></a></li>
-                                    <li class="ftco-animate"><a href="#"
-                                            class="d-flex align-items-center justify-content-center"><span
-                                                class="icon-instagram"></span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
                 <!--
                 <div class="col-md-6 col-lg-3 ftco-animate">

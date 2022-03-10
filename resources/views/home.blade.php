@@ -49,10 +49,10 @@
     @include('components.askinfo-form')
     <!-- Message après soumission de la requête -->
     @if (isset($result))
-        <script>
-            alert('renseignements sauvegardés !')
-        </script>
-        @include('components.modal', [$result])
+    <script>
+        alert('renseignements sauvegardés !')
+    </script>
+    @include('components.modal', [$result])
     @endif
 
     <section class="ftco-intro ftco-no-pb img" style="background-image: url(negotiate-master/images/bg_3.jpg);">
@@ -69,7 +69,7 @@
         <div class="container consult-wrap">
             <div class="row d-flex align-items-stretch">
                 <div class="col-md-6 wrap-about align-items-stretch d-flex">
-                    <div class="img" style="background-image: url({{ asset('img/entree-inp.jpg') }});">
+                    <div class="img" style="background-image: url({{ asset('img/blog/blog2.jpg') }});">
                     </div>
                 </div>
                 <div class="col-md-6 wrap-about ftco-animate py-md-5 pl-md-5">
@@ -155,25 +155,24 @@
             </div>
             <div class="row">
                 @foreach ($projets as $projet)
-                    <div class="col-md-4">
-                        <div class="project">
-                            @if (isset($projet->img_projet) && !empty($projet->img_projet))
-                                <div class="img rounded mb-4"
-                                    style="background-image: url('{{ asset($projet->img_projet) }}');"></div>
-                            @else
-                                <div class="img rounded mb-4"
-                                    style="background-image: url({{ asset('img/contactbanner.png') }});"></div>
-                            @endif
-                            <div class="text w-100 text-center">
-                                <span class="cat">{{ $projet->domaine_projet }}</span>
-                                <h3><a href="#">{{ $projet->titre_projet }}</a></h3>
-                                <p>{{ $projet->description_projet }}</p>
-                            </div>
+                <div class="col-md-4">
+                    <div class="project">
+                        @if (isset($projet->img_projet) && !empty($projet->img_projet))
+                        <div class="img rounded mb-4"
+                            style='background-image: url("{{ asset($projet->img_projet) }}");'></div>
+                        @else
+                        <div class="img rounded mb-4"
+                            style="background-image: url({{ asset('img/contactbanner.png') }});"></div>
+                        @endif
+                        <div class="text w-100 text-center">
+                            <span class="cat">{{ $projet->domaine_projet }}</span>
+                            <h3><a href="#">{{ $projet->titre_projet }}</a></h3>
+                            <p>{{ $projet->description_projet }}</p>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
-        </div>
         </div>
     </section>
 
@@ -220,8 +219,8 @@
                 <div class="col-md-8">
                     <div class="tab-content">
                         <div class="tab-pane container p-0 active" id="services-1">
-                            <div class="img"
-                                style="background-image: url({{ asset('img/specialites/info.jpg') }});"></div>
+                            <div class="img" style="background-image: url({{ asset('img/specialites/info.jpg') }});">
+                            </div>
                             <h3><a href="#">Informatique</a></h3>
                             <p>Le parcours des passionés des technologies du digital: Développement, Sécurité
                                 informatique, Conception de SI, Bases de données, Intelligence artificielle, etc.</p>
@@ -299,8 +298,9 @@
                         <!-- DG INP -->
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                {{-- <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
-                  </div> --}}
+                                {{-- <div class="user-img"
+                                    style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
+                                </div> --}}
                                 <div class="text pl-4">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
@@ -315,8 +315,9 @@
                         <!-- DG ESI -->
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                {{-- <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
-                  </div> --}}
+                                {{-- <div class="user-img"
+                                    style="background-image: url({{ asset('negotiate-master/images/person_2.jpg') }})">
+                                </div> --}}
                                 <div class="text pl-4">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
@@ -331,8 +332,9 @@
                         <!-- DE ESI -->
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                {{-- <div class="user-img" style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
-                  </div> --}}
+                                {{-- <div class="user-img"
+                                    style="background-image: url({{ asset('negotiate-master/images/person_1.jpg') }})">
+                                </div> --}}
                                 <div class="text pl-4">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
@@ -365,34 +367,34 @@
             <div class="row">
                 <!-- Chargement des articles de blog récents -->
                 @foreach ($blog_articles as $article)
-                    <div class="col-md-6 col-lg-4 ftco-animate">
-                        <div class="blog-entry">
-                            {{-- <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url({{ asset($article->image_article) }});"> --}}
-                            <a href="#" class="block-20 d-flex align-items-end"
-                                style="background-image: url({{ asset('img/header-pic.jpg') }});">
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="blog-entry">
+                        {{-- <a href="blog-single.html" class="block-20 d-flex align-items-end"
+                            style="background-image: url({{ asset($article->image_article) }});"> --}}
+                            <a href="{{ url('/blog-details?id=' . $article->id ) }}"
+                                class="block-20 d-flex align-items-end"
+                                style="background-image: url({{ asset($article->image_article) }});">
                                 <div class="meta-date text-center p-2">
-                                    <span
-                                        class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
-                                    <span
-                                        class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
-                                    <span
-                                        class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
+                                    <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
+                                    <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
+                                    <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
                                 </div>
                             </a>
                             <div class="text border border-top-0 p-4">
-                                <h3 class="heading"><a href="#">{{ $article->titre_article }}</a></h3>
+                                <h3 class="heading">{{ $article->titre_article }}</h3>
                                 <p>{{ $article->resume_article }}</p>
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a href="#" class="btn btn-primary">Lire l'article <span
+                                    <p class="mb-0"><a href="{{ url('/blog-details?id=' . $article->id ) }}"
+                                            class="btn btn-primary">Lire l'article <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                     <p class="ml-auto mb-0">
-                                        <a href="#" class="mr-2">Admin</a>
-                                        <a href="#" class="meta-chat"><span class="icon-chat"></span> 63</a>
+                                    <p>Admin</p>
+                                    <p><span class="icon-chat"></span> 63</p>
                                     </p>
                                 </div>
                             </div>
-                        </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>

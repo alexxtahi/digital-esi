@@ -14,7 +14,7 @@
     @include('components.header')
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('negotiate-master/images/bg_1.jpg')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/blog/blog1.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -33,21 +33,21 @@
             <div class="row">
 
                 @foreach ($blog_articles as $article)
-                    <div class="col-md-6 col-lg-4 ftco-animate">
-                        <div class="blog-entry">
-                            <a href={{url('/blog-details?id=' . $article->id )}} class="block-20 d-flex align-items-end"
-                                style="background-image: url({{asset($article->image_article)}});">
-                                <div class="meta-date text-center p-2">
-                                    <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
-                                    <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
-                                    <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
-                                </div>
-                            </a>
-                            <div class="text border border-top-0 p-4">
-                                <h3 class="heading"><a href="#">{{$article->titre_article}}</a></h3>
-                                <p>{{$article->resume_article}}</p>
-                                <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a href={{url('/blog-details?id=' . $article->id )}} class="btn btn-primary">Voir plus <span
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="{{ url('/blog-details?id=' . $article->id ) }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset($article->image_article) }}");'>
+                            <div class="meta-date text-center p-2">
+                                <span class="day">{{ date(' d', strtotime($article->date_publication)) }}</span>
+                                <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
+                                <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
+                            </div>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">{{$article->titre_article}}</a></h3>
+                            <p>{{$article->resume_article}}</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href={{url('/blog-details?id=' . $article->id )}} class="btn btn-primary">Voir plus <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                     <p class="ml-auto mb-0">
                                         <a href="#" class="mr-2">Admin</a>
@@ -59,9 +59,9 @@
                     </div>
                 @endforeach
 
-               
 
-                
+
+
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
@@ -81,21 +81,18 @@
         </div>
     </section>
 
-    @include('components.footer')
+    @include(' components.footer') <!-- loader -->
+                                        <div id="ftco-loader" class="show fullscreen">
+                                            <svg class="circular" width="48px" height="48px">
+                                                <circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+                                                    stroke-width="4" stroke="#eeeeee" />
+                                                <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                                                    stroke-miterlimit="10" stroke="#F96D00" />
+                                            </svg>
+                                        </div>
 
 
-
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen">
-        <svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
-        </svg>
-    </div>
-
-
-    @include('components.js')
+                                        @include('components.js')
 
 </body>
 

@@ -24,5 +24,24 @@ class UserSeeder extends Seeder
             'password_user' => bcrypt('P@ssword@123456'),
             'created_at' => now(),
         ]);
+
+        DB::table('users')->insert([
+            'nom_user' => "TANOH",
+            'prenom_user' => "Aka",
+            'role_user' => 'Directeur',
+            'email_user' => 'tanohaka@esi.com',
+            'password_user' => bcrypt('ESI@2022@'),
+            'created_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'nom_user' => "KONE",
+            'prenom_user' => "Siriky",
+            'role_user' => 'Directeur des études',
+            'tel_user' => ' 0747260505',
+            'email_user' => 'siriky.kone@inphb.ci',
+            'password_user' => bcrypt('ESI@2022@'),
+            'created_at' => now(),
+        ]);
     }
 }

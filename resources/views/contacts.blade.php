@@ -15,7 +15,7 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('img/contactbanner.png')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/contactbanner.png') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -47,7 +47,8 @@
                                 <div class="icon">
                                     <span class="icon-tablet"></span>
                                 </div>
-                                <p><span>Téléphone:</span> <a href="tel://1234567920">Appelez-nous : + 225 XX XX XX XX XX</a></p>
+                                <p><span>Téléphone:</span> <a href="tel://1234567920">Appelez-nous : + 225 XX XX XX XX
+                                        XX</a></p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -63,7 +64,8 @@
             </div>
             <div class="row block-9 justify-content-center mb-5">
                 <div class="col-md-10 mb-md-5">
-                    <h2 class="text-center">Si vous avez des questions, <br>n'hésitez pas à nous faire parvenir un message
+                    <h2 class="text-center">Si vous avez des questions, <br>n'hésitez pas à nous faire parvenir un
+                        message
                     </h2>
                     <form action="#" class="border p-5 contact-form">
                         <div class="form-group">
@@ -114,7 +116,7 @@
         </svg></div>
 
 
-        @include('components.js')
+    @include('components.js')
 
 </body>
 
