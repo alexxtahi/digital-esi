@@ -79,7 +79,7 @@
                             <input type="text" name="prenom_user" class="form-control" placeholder="Votre prénom">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email_user" class="form-control" placeholder="Votre email">
+                            <input type="email" name="email" class="form-control" placeholder="Votre email">
                         </div>
                         <div class="form-group">
                             <textarea name="message_rens" cols="30" rows="7" class="form-control"

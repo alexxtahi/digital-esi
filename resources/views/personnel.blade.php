@@ -48,7 +48,7 @@
                             <div class="faded">
                                 <p>{{ $personne->role_user }} de l'école supérieure d'industrie.</p>
                                 <ul class="text-left">
-                                    <li><strong>{{ $personne->email_user }}</strong></li>
+                                    <li><strong>{{ $personne->email }}</strong></li>
                                     @if (!empty($personne->tel_user))
                                     <li><strong>{{ $personne->tel_user }}</strong></li>
                                     @endif

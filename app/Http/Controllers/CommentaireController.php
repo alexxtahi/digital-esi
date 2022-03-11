@@ -49,7 +49,7 @@ class CommentaireController extends Controller
                 'id_article' => 'required',
                 'nom_user' => 'required',
                 'prenom_user' => 'required',
-                'email_user' => 'required',
+                'email' => 'required',
                 'message' => 'required',
             ]);
 
@@ -59,7 +59,7 @@ class CommentaireController extends Controller
                 $user = new User;
                 $user->nom_user = $data['nom_user'];
                 $user->prenom_user = $data['prenom_user'];
-                $user->email_user = $data['email_user'];
+                $user->email = $data['email'];
                 $user->save();
             }
             $user_id = $user->id;

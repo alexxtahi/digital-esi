@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('nom_user');
             $table->string('prenom_user');
             $table->string('tel_user')->nullable();
-            $table->string('email_user')->nullable();
-            $table->string('password_user')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
             $table->string('role_user')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('deleted_at')->nullable();

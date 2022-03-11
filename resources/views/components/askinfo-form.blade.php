@@ -32,7 +32,7 @@
                         </div>
                         <!-- Téléphone -->
                         <div class="form-group">
-                            <input type="email" name="email_user" class="form-control" placeholder="Adresse mail">
+                            <input type="email" name="email" class="form-control" placeholder="Adresse mail">
                         </div>
                         <!-- Message -->
                         <div class="form-group">

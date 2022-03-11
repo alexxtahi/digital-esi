@@ -48,7 +48,7 @@
                     </p>
                 </div>
                 <div class="col text-right">
-                    <a href="{{ route('contacts') }}" class="btn-link">Besoin d'aide ?</a>
+                    <a href="{{ route('login') }}" class="btn-link">Se connecter</a>
                 </div>
             </div>
         </div>
@@ -86,15 +86,15 @@
                 </li>
 
                 <li @if (strpos($view_name, 'blog' ) !==false)class="nav-item active" @else class="nav-item" @endif>
-                    <a href={{ url('/blog') }} class="nav-link">Blog</a>
+                    <a href={{ route('blog') }} class="nav-link">Blog</a>
                 </li>
 
                 <li @if ($view_name=='contacts' )class="nav-item active" @else class="nav-item" @endif>
-                    <a href={{ url('/contacts') }} class="nav-link">Contacts</a>
+                    <a href={{ route('contacts') }} class="nav-link">Contacts</a>
                 </li>
 
                 <li @if ($view_name=='about' )class="nav-item active" @else class="nav-item" @endif>
-                    <a href="{{ url('/admin') }}" class="nav-link">Tableau de bord</a>
+                    <a href="{{ route('dashboard.index') }}" class="nav-link">Tableau de bord</a>
                 </li>
 
             </ul>

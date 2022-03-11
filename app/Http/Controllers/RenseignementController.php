@@ -47,7 +47,7 @@ class RenseignementController extends Controller
             $request->validate([
                 'nom_user' => 'required',
                 'prenom_user' => 'required',
-                'email_user' => 'required',
+                'email' => 'required',
                 'message_rens' => 'required',
             ]);
 
@@ -56,7 +56,7 @@ class RenseignementController extends Controller
                 $user = new User;
                 $user->nom_user = $data['nom_user'];
                 $user->prenom_user = $data['prenom_user'];
-                $user->email_user = $data['email_user'];
+                $user->email = $data['email'];
                 $user->save();
                 // Création d'un nouveau renseignement
                 $rens = new Renseignement;
