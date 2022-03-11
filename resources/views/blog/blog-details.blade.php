@@ -40,129 +40,56 @@
                         <img src="{{asset($article->image_article)}}" alt="" class="img-fluid">
                     </p>
 
-                    {!! $article->contenu_article !!}
-
-
                     <div class="about-author d-flex p-4 bg-light">
-                        <div class="bio mr-5">
-                            <img src={{asset('img/blankavatar.png')}} alt="Image placeholder" class="img-fluid mb-4"
-                                style="height: 80px;">
-                        </div>
-                        <div class="desc">
-                            <h3>{{$author->nom_user . " " . $author->prenom_user}}</h3>
-                            <p></p>
-                        </div>
+                        {!! $article->contenu_article !!}
+                        <br>
+                        <span>Ecrit par {{ $author->nom_user . " " . $author->prenom_user }}</span>
                     </div>
 
-
                     <div class="pt-5 mt-5">
-                        <h3 class="mb-5 h4 font-weight-bold">6 Commentaires</h3>
+                        <h3 class="mb-5 h4 font-weight-bold">{{ count($commentaires) }} Commentaires</h3>
                         <ul class="comment-list">
+                            @foreach ($commentaires as $commentaire)
                             <li class="comment">
                                 <div class="vcard bio">
-                                    <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
+                                    <img src="{{asset('img/blankavatar.png')}}" alt="Avatar">
                                 </div>
                                 <div class="comment-body">
-                                    <h3>John Doe</h3>
-                                    <div class="meta mb-2">Jan. 22, 2022 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                                        necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim
-                                        sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                    <p><a href="#" class="reply">Reply</a></p>
+                                    <h3>{{ $commentaire->nom_user . " " . $commentaire->prenom_user }}</h3>
+                                    <div class="meta mb-2">{{ date('d M Y à H:i:s',
+                                        strtotime($commentaire->date_com)) }}</div>
+                                    <p>{{ $commentaire->contenu_com }}</p>
                                 </div>
                             </li>
-
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>John Doe</h3>
-                                    <div class="meta mb-2">Jan. 22, 2022 at 2:21pm</div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                                        necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim
-                                        sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                    <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard bio">
-                                            <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>John Doe</h3>
-                                            <div class="meta mb-2">Jan. 22, 2022 at 2:21pm</div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem
-                                                laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat
-                                                saepe enim sapiente iste iure! Quam voluptas earum impedit
-                                                necessitatibus, nihil?</p>
-                                            <p><a href="#" class="reply">Reply</a></p>
-                                        </div>
-
-
-                                        <ul class="children">
-                                            <li class="comment">
-                                                <div class="vcard bio">
-                                                    <img src="{{asset('img/blankavatar.png')}}" alt="Image placeholder">
-                                                </div>
-                                                <div class="comment-body">
-                                                    <h3>John Doe</h3>
-                                                    <div class="meta mb-2">Jan. 22, 2022 at 2:21pm</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-                                                        autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-                                                        voluptas earum impedit necessitatibus, nihil?</p>
-                                                    <p><a href="#" class="reply">Reply</a></p>
-                                                </div>
-
-                                                <ul class="children">
-                                                    <li class="comment">
-                                                        <div class="vcard bio">
-                                                            <img src="{{asset('img/blankavatar.png')}}"
-                                                                alt="Image placeholder">
-                                                        </div>
-                                                        <div class="comment-body">
-                                                            <h3>John Doe</h3>
-                                                            <div class="meta mb-2">Jan. 22, 2022 at 2:21pm</div>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                                Pariatur quidem laborum necessitatibus, ipsam impedit
-                                                                vitae autem, eum officia, fugiat saepe enim sapiente
-                                                                iste iure! Quam voluptas earum impedit necessitatibus,
-                                                                nihil?</p>
-                                                            <p><a href="#" class="reply">Reply</a></p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-
+                            @endforeach
                         </ul>
                         <!-- END comment-list -->
 
                         <div class="comment-form-wrap pt-5">
                             <h3 class="mb-5 h4 font-weight-bold">Laisser un commentaire</h3>
-                            <form action="#" class="p-5 bg-light">
+                            <form action="{{ route('post-commentaire') }}" class="p-5 bg-light" method="POST">
+                                @method('POST')
+                                @csrf
                                 <div class="form-group">
-                                    <label for="name">Nom *</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="hidden" class="form-control" name="id_article" id="id_article"
+                                        value="{{ $article->id }}">
+                                    <label for="nom_user">Nom</label>
+                                    <input type="text" class="form-control" name="nom_user" id="nom_user" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Prénoms *</label>
-                                    <input type="email" class="form-control" id="email">
+                                    <label for="prenom_user">Prénoms</label>
+                                    <input type="text" class="form-control" name="prenom_user" id="prenom_user"
+                                        required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="website">Tel</label>
-                                    <input type="url" class="form-control" id="website">
+                                    <label for="email_user">Adresse mail</label>
+                                    <input type="email" class="form-control" name="email_user" id="email_user" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"
+                                        required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Envoyer le commentaire"
@@ -175,7 +102,7 @@
                 </div> <!-- .col-md-8 -->
 
                 <div class="col-lg-4 sidebar ftco-animate">
-                    <div class="sidebar-box">
+                    {{-- <div class="sidebar-box">
                         <form action="#" class="search-form">
                             <div class="form-group">
                                 <span class="icon icon-search"></span>
@@ -190,40 +117,31 @@
                             <li><a href="#">Recherche <span>(1)</span></a></li>
                             <li><a href="#">Éducation <span>(1)</span></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                     <div class="sidebar-box ftco-animate">
-                        <h3>Articles populaires</h3>
+                        <h3>Articles récents</h3>
+                        @foreach ($articles_recents as $recent)
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4"
-                                style="background-image: url({{asset('img/blog/blog2.jpg')}});"></a>
+                                style='background-image: url("{{ asset($recent->image_article) }}");'></a>
                             <div class="text">
-                                <h3 class="heading"><a href="#">Visite de la Direction Générale
-                                        de Total-Energies Côte d'Ivoire à l'INP-HB</a></h3>
+                                <h3 class="heading" style="font-size: 13px;"><a
+                                        href="{{ url('/blog-details?id=' . $recent->id ) }}">{{
+                                        $recent->resume_article }}</a></h3>
                                 <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> 14. Jan, 2022</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Yvette N'Goran</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    <div><span class="icon-calendar"></span> {{ date('d M Y',
+                                        strtotime($recent->date_publication)) }}</div>
+                                    <div><span class="icon-person"></span> Admin</div>
+                                    <div><span class="icon-chat"></span> 19</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4"
-                                style="background-image: url({{asset('img/blog/blog3.jpg')}});"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Cérémonie de décoration de l'Administration Générale du
-                                        Cnam</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> 23. Dec, 2021</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Yvette N'Goran</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
 
-                    <div class="sidebar-box ftco-animate">
+                    {{-- <div class="sidebar-box ftco-animate">
                         <h3>Archives</h3>
                         <ul class="categories">
                             <li><a href="#">Decembre 2018 <span>(30)</span></a></li>
@@ -231,7 +149,7 @@
                             <li><a href="#">Septembre 2018 <span>(6)</span></a></li>
                             <li><a href="#">Août 2018 <span>(8)</span></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                 </div>
                 <!-- END COL -->

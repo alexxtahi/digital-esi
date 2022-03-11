@@ -6,6 +6,7 @@ use App\Models\BlogArticle;
 use App\Http\Requests\StoreBlogArticleRequest;
 use App\Http\Requests\UpdateBlogArticleRequest;
 use App\Models\User;
+use App\Models\Commentaire;
 
 class BlogArticleController extends Controller
 {
@@ -26,21 +27,22 @@ class BlogArticleController extends Controller
     public function dashIndex()
     {
         return view('dashboard.pages.articles.index');
-
     }
     // Page de détails d'un article
     public function detailsArticle(StoreBlogArticleRequest $request)
     {
-        //dd($request);
-        //
-        // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->get();
+        $articles_recents = BlogArticle::where('deleted_at', null)->paginate(2);
 
         $article = BlogArticle::where('id', $request->get('id'))->first();
+        $commentaires = Commentaire::where([['commentaires.deleted_at', null], ['commentaires.id_article', $request->get('id')]])
+            ->join('users', 'users.id', '=', 'commentaires.id_user')
+            ->join('blog_articles', 'blog_articles.id', '=', 'commentaires.id_article')
+            ->select('commentaires.*', 'users.nom_user', 'users.prenom_user')->get();
         $author = User::where('id', $article->id_user)->first();
 
         // Affichage
-        return view('blog.blog-details', compact('blog_articles', 'article', 'author'));
+        return view('blog.blog-details', compact('blog_articles', 'articles_recents', 'article', 'commentaires', 'author'));
     }
 
     /**
@@ -52,7 +54,6 @@ class BlogArticleController extends Controller
     {
         //
         return view('dashboard.pages.articles.create');
-
     }
 
     /**

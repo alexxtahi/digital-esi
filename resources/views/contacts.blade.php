@@ -20,9 +20,9 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Contact</h1>
+                    <h1 class="mb-2 bread">Contacts</h1>
                     <p class="breadcrumbs"><span class="mr-2"><a href={{url('/')}}>Accueil <i
-                                    class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
+                                    class="ion-ios-arrow-forward"></i></a></span> <span>Contacts <i
                                 class="ion-ios-arrow-forward"></i></span></p>
                 </div>
             </div>
@@ -39,7 +39,8 @@
                                 <div class="icon">
                                     <span class="icon-map-o"></span>
                                 </div>
-                                <p><span>Adresse:</span> BP 1093 Yamoussoukro, Côte d'Ivoire</p>
+                                <p><span>Adresse:</span> Site centre, INP-HB
+                                    Yamoussoukro, Côte d'Ivoire</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -47,8 +48,8 @@
                                 <div class="icon">
                                     <span class="icon-tablet"></span>
                                 </div>
-                                <p><span>Téléphone:</span> <a href="tel://1234567920">Appelez-nous : + 225 XX XX XX XX
-                                        XX</a></p>
+                                <p><span>Téléphone:</span> <a href="tel://1234567920">+225 07 47 26 05
+                                        05</a></p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -56,7 +57,8 @@
                                 <div class="icon">
                                     <span class="icon-envelope-o"></span>
                                 </div>
-                                <p><span>Email:</span> <a href="mailto:info@yoursite.com">sg@inphb.ci</a></p>
+                                <p><span>Email:</span> <a href="mailto:siriky.kone@inphb.ci">siriky.kone@inphb.ci</a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -64,21 +66,23 @@
             </div>
             <div class="row block-9 justify-content-center mb-5">
                 <div class="col-md-10 mb-md-5">
-                    <h2 class="text-center">Si vous avez des questions, <br>n'hésitez pas à nous faire parvenir un
+                    <h2 class="text-center">Si vous avez des questions, n'hésitez pas à nous faire parvenir un
                         message
                     </h2>
-                    <form action="#" class="border p-5 contact-form">
+                    <form action="{{ route('renseignement.store') }}" method="POST" class="border p-5 contact-form">
+                        @method('POST')
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Votre nom">
+                            <input type="text" name="nom_user" class="form-control" placeholder="Votre nom">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Votre email">
+                            <input type="text" name="prenom_user" class="form-control" placeholder="Votre prénom">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Sujet">
+                            <input type="email" name="email_user" class="form-control" placeholder="Votre email">
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control"
+                            <textarea name="message_rens" cols="30" rows="7" class="form-control"
                                 placeholder="Message"></textarea>
                         </div>
                         <div class="form-group">

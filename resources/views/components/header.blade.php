@@ -44,11 +44,11 @@
                         <a href="https://twitter.com/inphbpolytech"><i class="ion-logo-twitter"></i><span
                                 class="sr-only">Twitter</span></a>
                         <a href="https://www.instagram.com/inphb/?hl=fr"><i class="ion-logo-instagram"></i><span
-                                class="sr-only">Googleplus</span></a>
+                                class="sr-only">Instagram</span></a>
                     </p>
                 </div>
                 <div class="col text-right">
-                    <a href="#" class="btn-link">Besoin d'aide ?</a>
+                    <a href="{{ route('contacts') }}" class="btn-link">Besoin d'aide ?</a>
                 </div>
             </div>
         </div>

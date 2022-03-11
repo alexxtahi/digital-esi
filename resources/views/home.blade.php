@@ -50,7 +50,7 @@
     <!-- Message après soumission de la requête -->
     @if (isset($result))
     <script>
-        alert('renseignements sauvegardés !')
+        alert("Votre demande a bien été prise en compte. Nous vous reviendrons d'ici peu.")
     </script>
     @include('components.modal', [$result])
     @endif

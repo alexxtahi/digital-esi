@@ -5,6 +5,7 @@ use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RenseignementController;
+use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,10 +44,10 @@ Route::get('/services', [HomeController::class, 'services'])->name('services');
 //! --- BLOG ---
 // Page du blog
 Route::get('/blog', [BlogArticleController::class, 'index'])->name('blog');
-
-Route::view('/login', 'login');
 // Page de détails d'un article
 Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
+// Poster un commentaire
+Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post-commentaire');
 
 //! --- DASHBOARD ---
 Route::group(['prefix' => 'admin'], function () {
