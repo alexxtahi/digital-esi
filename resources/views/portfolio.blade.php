@@ -37,9 +37,7 @@
                 <div class="col-md-6 text-center heading-section ftco-animate">
                     <h2 class="mb-4">Le Portfolio de l'ESI</h2>
                     <p>Ici vous retrouverez notre gallerie de projets réalisés par nos étudiants ingénieurs et
-                        techniciens supérieurs.
-                        enseignants
-                        de l'école supérieure d'industrie</p>
+                        techniciens supérieurs.</p>
                 </div>
             </div>
             <div class="row">

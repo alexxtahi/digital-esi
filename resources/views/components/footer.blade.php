@@ -39,9 +39,7 @@
                         <li><a href="{{ route('blog') }}"><span class="ion-ios-arrow-round-forward mr-2"></span>Blog</a>
                         </li>
                         <li><a href="{{ route('contacts') }}"><span
-                                    class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
-                        <li><a href="{{ route('apropos') }}"><span class="ion-ios-arrow-round-forward mr-2"></span>A
-                                propos</a></li>
+                                    class="ion-ios-arrow-round-forward mr-2"></span>Contacts</a></li>
                     </ul>
                 </div>
             </div>

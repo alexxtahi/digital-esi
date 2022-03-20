@@ -23,7 +23,7 @@
                     <div class="col-md-7 ftco-animate mb-md-5">
                         <span class="subheading">Ecole Supérieure d'Industrie</span>
                         <h1 class="mb-4">Informatique, Electronique, Chimie et bien d'autres</h1>
-                        <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Nos Filières</a></p>
+                        <p><a href="#specs" class="btn btn-primary px-4 py-3 mt-3">Nos Spécialités</a></p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <span class="subheading">Ecole Supérieure d'Industrie</span>
                         <h1 class="mb-4">Techniciens et ingénieurs qualifiés dans les domaines de l'industrie
                         </h1>
-                        <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Nos Filières</a></p>
+                        <p><a href="#specs" class="btn btn-primary px-4 py-3 mt-3">Nos Spécialités</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="1387">0</strong>
+                                    <strong class="number" data-number="2">0</strong>
                                     <span>Diplomés</span>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="310">0</strong>
+                                    <strong class="number" data-number="6">0</strong>
                                     <span>Enseignants</span>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="35">0</strong>
+                                    <strong class="number" data-number="3">0</strong>
                                     <span>Etudiants</span>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center heading-section ftco-animate">
                     <span class="subheading">Formation</span>
-                    <h2 class="mb-4">Nos Spécialités</h2>
+                    <h2 class="mb-4" id="specs">Nos Spécialités</h2>
                     <p>Les spécialités de nos formations dans le domaine de l'industrie</p>
                 </div>
             </div>

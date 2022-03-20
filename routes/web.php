@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RenseignementController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 // require auth routes
 require __DIR__ . '/auth.php';
@@ -50,7 +51,7 @@ Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post
 //! --- DASHBOARD ---
 Route::group(['prefix' => 'dashboard'], function () {
     // Admin homepage
-    Route::view('/', 'dashboard.admin-index')->middleware(['auth'])->name('dashboard.index');
+    Route::get('/', [AdminController::class, 'index'])->middleware(['auth'])->name('dashboard.index');
 
     // Gestion des articles
     Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.articles.index');

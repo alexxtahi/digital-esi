@@ -2,7 +2,7 @@
     <div class="container py-3">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
             <div class="col-md-4 d-flex align-items-center py-4">
-                <a class="navbar-brand" href="index.html">ESI <span>Ecole Supérieure d'Industrie</span></a>
+                <a class="navbar-brand" href="{{ route('home') }}">ESI <span>Ecole Supérieure d'Industrie</span></a>
             </div>
             <div class="col-lg-8 d-block">
                 <div class="row d-flex">
@@ -26,7 +26,7 @@
                         <div class="icon d-flex justify-content-center align-items-center"><span
                                 class="ion-ios-time"></span></div>
                         <div class="text">
-                            <span>Working Hours</span>
+                            <span>Heures de travail</span>
                             <span>Lundi - Vendredi 8H - 18H</span>
                         </div>
                     </div>
@@ -47,8 +47,20 @@
                                 class="sr-only">Instagram</span></a>
                     </p>
                 </div>
-                <div class="col text-right">
+                <div class="col-md-5 text-right">
+                    @if (Auth::check())
+                    <!-- Si l'utilisateur est connecté -->
+                    <!-- Formulaire de déconnexion -->
+                    <span style="margin-right: 15px;">Bonjour, M. {{ Auth::user()->nom_user
+                        }}</span>
+                    <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                        @csrf
+                        <a href="" class="btn-link" onclick="event.preventDefault(); this.closest('form').submit();">Se
+                            déconnecter</a>
+                    </form>
+                    @else
                     <a href="{{ route('login') }}" class="btn-link">Se connecter</a>
+                    @endif
                 </div>
             </div>
         </div>
