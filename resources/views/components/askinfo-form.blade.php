@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row d-flex no-gutters align-items-stretch	consult-wrap">
             <div class="col-md-5 wrap-about align-items-stretch d-flex">
-                <div class="ftco-animate bg-primary align-self-stretch px-4 py-5 w-100">
+                <div class="ftco-animate bg-primary align-self-stretch px-4 py-5 w-100 custom-bg-primary">
                     <h2 class="heading-white mb-4">Envie d'en savoir plus ?</h2>
                     <form action="{{ route('renseignement.store') }}" method="POST" id="quoteForm"
                         class="appointment-form ftco-animate">
@@ -14,7 +14,8 @@
                         </div>
                         <!-- Prénom -->
                         <div class="form-group">
-                            <input type="text" name="prenom_user" class="form-control" placeholder="Prénom(s)" required>
+                            <input type="text" name="prenom_user" class="form-control" placeholder="Prénom(s)"
+                                required>
                         </div>
                         <div class="form-group">
                             <div class="form-field">
@@ -24,7 +25,7 @@
                                     <select name="spec_rens" class="form-control">
                                         <option value="">Choisir une spécialité</option>
                                         @foreach ($specs as $spec)
-                                        <option value="{{ $spec->id }}">{{ $spec->lib_spec }}</option>
+                                            <option value="{{ $spec->id }}">{{ $spec->lib_spec }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -36,12 +37,12 @@
                         </div>
                         <!-- Message -->
                         <div class="form-group">
-                            <textarea name="message_rens" cols="30" rows="2" class="form-control" placeholder="Message"
-                                required></textarea>
+                            <textarea name="message_rens" cols="30" rows="2" class="form-control" placeholder="Message" required></textarea>
                         </div>
                         <!-- Bouton soumettre -->
                         <div class="form-group">
-                            <input type="submit" value="Soumettre votre requête" class="btn btn-secondary py-3 px-4">
+                            <input type="submit" value="Soumettre votre requête"
+                                class="btn btn-secondary py-3 px-4 custom-secondary-btn">
                         </div>
                     </form>
                 </div>

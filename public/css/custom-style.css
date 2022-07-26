@@ -1,0 +1,49 @@
+.bg-primary {
+    background-color: maroon !important;
+}
+
+.custom-active {
+    background-color: #670a0a !important;
+}
+
+.custom-icon-color {
+    color: maroon !important;
+}
+
+.custom-btn {
+    background-color: maroon !important;
+    border: 2px solid maroon !important;
+}
+
+.custom-btn:hover {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.custom-secondary-btn {
+    background-color: #b40d0d !important;
+    border: 2px solid #b40d0d !important;
+}
+
+.custom-secondary-btn:hover {
+    background-color: transparent !important;
+    border: 2px solid #b40d0d !important;
+}
+
+.custom-logo-esi {
+    width: 160px !important;
+    aspect-ratio: 1 !important;
+    object-fit: contain !important;
+    position: absolute;
+    top: -30px;
+
+}
+
+
+.nav-link {
+    font-size: 18px !important;
+}
+
+.testimony-wrap {
+    border-radius: 10px;
+}

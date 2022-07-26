@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogArticle;
+use App\Models\Filiere;
 use App\Models\Projet;
 use App\Models\Specialite;
 use App\Models\User;
@@ -19,14 +20,15 @@ class HomeController extends Controller
     {
         // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->paginate(3);
-        // Récupération des spécialités
+        // Récupération des filières
+        $filieres = Filiere::where('deleted_at', null)->get();
         $specs = Specialite::where('deleted_at', null)->get();
         // Récupération des projets
         $projets = Projet::where('deleted_at', null)->paginate(6);
         // Récupération des résultats d'une précédente requête
         $result = $previousResult;
         // Affichage
-        return view('home', compact('blog_articles', 'specs', 'projets', 'result'));
+        return view('home', compact('blog_articles', 'filieres', 'specs', 'projets', 'result'));
     }
     // Page des contacts
     public function contacts()

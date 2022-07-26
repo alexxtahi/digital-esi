@@ -15,3 +15,6 @@
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/icomoon.css') }}">
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/login.css') }}">
+{{-- Custom style --}}
+<link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
+
