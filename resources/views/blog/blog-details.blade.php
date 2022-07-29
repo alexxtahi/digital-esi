@@ -15,15 +15,15 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset($article->image_article)}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset($article->img_article) }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">{{$article->titre_article}}</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/')}}>Accueil <i
+                    <h1 class="mb-2 bread">{{ $article->titre_article }}</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href={{ url('/') }}>Accueil <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-                                href={{url('/blog')}}>Blog <i class="ion-ios-arrow-forward"></i></a></span>
+                                href={{ url('/blog') }}>Blog <i class="ion-ios-arrow-forward"></i></a></span>
                         <span>Details du blog <i class="ion-ios-arrow-forward"></i></span>
                     </p>
                 </div>
@@ -35,32 +35,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    <h2 class="mb-3">#. {{$article->titre_article}}</h2>
+                    <h2 class="mb-3">#. {{ $article->titre_article }}</h2>
                     <p>
-                        <img src="{{asset($article->image_article)}}" alt="" class="img-fluid">
+                        <img src="{{ asset($article->img_article) }}" alt="" class="img-fluid">
                     </p>
 
                     <div class="about-author d-flex p-4 bg-light">
                         {!! $article->contenu_article !!}
                         <br>
-                        <span>Ecrit par {{ $author->nom_user . " " . $author->prenom_user }}</span>
+                        <span>Ecrit par {{ $author->nom_user . ' ' . $author->prenom_user }}</span>
                     </div>
 
                     <div class="pt-5 mt-5">
                         <h3 class="mb-5 h4 font-weight-bold">{{ count($commentaires) }} Commentaires</h3>
                         <ul class="comment-list">
                             @foreach ($commentaires as $commentaire)
-                            <li class="comment">
-                                <div class="vcard bio">
-                                    <img src="{{asset('img/blankavatar.png')}}" alt="Avatar">
-                                </div>
-                                <div class="comment-body">
-                                    <h3>{{ $commentaire->nom_user . " " . $commentaire->prenom_user }}</h3>
-                                    <div class="meta mb-2">{{ date('d M Y à H:i:s',
-                                        strtotime($commentaire->date_com)) }}</div>
-                                    <p>{{ $commentaire->contenu_com }}</p>
-                                </div>
-                            </li>
+                                <li class="comment">
+                                    <div class="vcard bio">
+                                        <img src="{{ asset('img/blankavatar.png') }}" alt="Avatar">
+                                    </div>
+                                    <div class="comment-body">
+                                        <h3>{{ $commentaire->nom_user . ' ' . $commentaire->prenom_user }}</h3>
+                                        <div class="meta mb-2">
+                                            {{ date('d M Y à H:i:s', strtotime($commentaire->date_com)) }}
+                                        </div>
+                                        <p>{{ $commentaire->contenu_com }}</p>
+                                    </div>
+                                </li>
                             @endforeach
                         </ul>
                         <!-- END comment-list -->
@@ -88,8 +89,7 @@
 
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"
-                                        required></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Envoyer le commentaire"
@@ -122,21 +122,22 @@
                     <div class="sidebar-box ftco-animate">
                         <h3>Articles récents</h3>
                         @foreach ($articles_recents as $recent)
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4"
-                                style='background-image: url("{{ asset($recent->image_article) }}");'></a>
-                            <div class="text">
-                                <h3 class="heading" style="font-size: 13px;"><a
-                                        href="{{ url('/blog-details?id=' . $recent->id ) }}">{{
-                                        $recent->resume_article }}</a></h3>
-                                <div class="meta">
-                                    <div><span class="icon-calendar"></span> {{ date('d M Y',
-                                        strtotime($recent->date_publication)) }}</div>
-                                    <div><span class="icon-person"></span> Admin</div>
-                                    <div><span class="icon-chat"></span> 19</div>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4"
+                                    style='background-image: url("{{ asset($recent->img_article) }}");'></a>
+                                <div class="text">
+                                    <h3 class="heading" style="font-size: 13px;"><a
+                                            href="{{ url('/blog-details?id=' . $recent->id) }}">{{ $recent->resume_article }}</a>
+                                    </h3>
+                                    <div class="meta">
+                                        <div><span class="icon-calendar"></span>
+                                            {{ date('d M Y', strtotime($recent->date_publication)) }}
+                                        </div>
+                                        <div><span class="icon-person"></span> Admin</div>
+                                        <div><span class="icon-chat"></span> 19</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
                     </div>
@@ -163,9 +164,10 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
 

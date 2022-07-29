@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `blog_articles` (
     `resume_article` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `contenu_article` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `date_publication` datetime NOT NULL,
-    `image_article` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'img/blog/blog1.jpg',
+    `img_article` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'img/blog/blog1.jpg',
     `id_user` int(11) NOT NULL,
     `deleted_at` timestamp NULL DEFAULT NULL,
     `created_at` timestamp NULL DEFAULT NULL,

@@ -9,12 +9,12 @@
         </li>
         {{-- Actualités --}}
         @include('dashboard.components.sidebar-item', [
-            'id' => 'actualites',
+            'id' => 'articles',
             'icon' => 'mdi-information',
             'title' => 'Actualités',
             'routes' => [
-                'dashboard.pages.actualites.index' => 'Aperçu',
-                'dashboard.pages.actualites.create' => 'Ajouter une info',
+                'dashboard.pages.articles.index' => 'Aperçu',
+                'dashboard.pages.articles.create' => 'Ajouter une info',
             ],
         ])
         {{-- Projets --}}

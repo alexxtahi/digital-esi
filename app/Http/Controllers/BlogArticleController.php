@@ -7,7 +7,9 @@ use App\Http\Requests\StoreBlogArticleRequest;
 use App\Http\Requests\UpdateBlogArticleRequest;
 use App\Models\User;
 use App\Models\Commentaire;
+use Exception;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class BlogArticleController extends Controller
 {
@@ -27,7 +29,9 @@ class BlogArticleController extends Controller
 
     public function dashIndex()
     {
-        return view('dashboard.pages.actualites.index');
+        $articles = BlogArticle::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
+        return view('dashboard.pages.articles.index', compact('articles', 'result'));
     }
     // Page de détails d'un article
     public function detailsArticle(StoreBlogArticleRequest $request)
@@ -53,8 +57,8 @@ class BlogArticleController extends Controller
      */
     public function create()
     {
-        //
-        return view('dashboard.pages.actualites.create');
+        $result = session()->get('result') ?? null;
+        return view('dashboard.pages.articles.create', compact('result'));
     }
 
     /**
@@ -65,26 +69,64 @@ class BlogArticleController extends Controller
      */
     public function store(StoreBlogArticleRequest $request)
     {
-        //dd($request);
 
+        $data = $request->all();
+
+        // Validation de la requête
         $request->validate([
-            'title' => 'required',
-            'resume' => 'required',
-            'content' => 'required',
+            'titre_article' => 'required',
+            'resume_article' => 'required',
+            'contenu_article' => 'required',
         ]);
 
-        //Enregistrement dans la bd
-        BlogArticle::create([
-            'titre_article' => $request->title,
-            'resume_article' => $request->resume,
-            'contenu_article' => $request->content,
-            'image_article' => 'img/' . $request->img[0],
-            'date_publication' => now(),
-            'id_user' => Auth::user()->id,
-            'created_at' => now(),
-        ]);
+        // Vérifier si l'enregistrement est déjà dans la base de données
+        $existant = BlogArticle::where('titre_article', $data['titre_article'])->first();
+        if ($existant != null) { // Si 'enregistrement existe déjà
+            if ($existant->deleted_at == null) {
+                // Message au cas où l'enregistrement existe déjà...
+                $result['state'] = 'warning';
+                $result['message'] = 'Cet article existe déjà.';
+            } else { // Au cas ou l'enregistrement avait été supprimé...'
+                $existant->resume_article = $data['resume_article'];
+                $existant->contenu_article = $data['contenu_article'];
+                $existant->deleted_at = null;
+                $existant->deleted_by = null;
+                $existant->created_at = now();
+                $existant->save();
+                // Message de success
+                $result['state'] = 'success';
+                $result['message'] = "L'article a bien été enregistré.";
+            }
+        } else { // Si l'enregistrement n'existe pas alors on le crée
+            try {
+                // Création d'un nouvel enregistrement
+                $article = new BlogArticle;
+                $article->titre_article = $data['titre_article'];
+                $article->resume_article = $data['resume_article'];
+                $article->contenu_article = $data['contenu_article'];
+                if (isset($data['img_article']) && !empty($data['img_article']))
+                    $article->img_article = 'img/articles/article_' . date('d_m_Y_H_i_s') . '.png';
+                $article->created_at = now();
+                $article->save(); // Sauvegarde
+                //Enregistrement de l'image s'il y'en a
+                if (isset($data['img_article']) && !empty($data['img_article'])) {
+                    $img_article = Image::make($data['img_article']);
+                    //$img_article->resize(300, 300);  // redimensionner les images
+                    $img_article->save(public_path('/' . $article->img_article));
+                }
 
-        return redirect()->route('dashboard.pages.actualites.index');
+                // Message de success
+                $result['state'] = 'success';
+                $result['message'] = "L'article a bien été enregistré.";
+            } catch (Exception $exc) { // ! En cas d'erreur
+                $result['state'] = 'error';
+                $result['message'] = $exc->getMessage();
+                $result['img_path'] = $data['img_article'] ?? null;
+            }
+        }
+        //dd($result);
+        // Redirection
+        return redirect()->route('dashboard.pages.articles.create')->with('result', $result);
     }
 
     /**
@@ -104,31 +146,75 @@ class BlogArticleController extends Controller
      * @param  \App\Models\BlogArticle  $blogArticle
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlogArticle $blogArticle)
+    public function edit(int $id)
     {
-        //
+        $article = BlogArticle::find($id);
+        $result = session()->get('result');
+        return view('dashboard.pages.articles.edit', compact('article', 'result'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateBlogArticleRequest  $request
-     * @param  \App\Models\BlogArticle  $blogArticle
+     * @param  \App\Models\BlogArticle  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogArticleRequest $request, BlogArticle $blogArticle)
+    public function update(int $id, UpdateBlogArticleRequest $request)
     {
-        //
+        $data = $request->all();
+
+        // Validation de la requête
+        $request->validate([
+            'titre_article' => 'required',
+            'resume_article' => 'required',
+            'contenu_article' => 'required',
+        ]);
+
+        try {
+            // Modification
+            $article = BlogArticle::find($id);
+            $article->titre_article = $data['titre_article'];
+            $article->resume_article = $data['resume_article'];
+            $article->contenu_article = $data['contenu_article'];
+            $article->updated_at = now();
+            $article->save(); // Sauvegarde
+            //Enregistrement de l'image s'il y'en a
+            if (isset($data['img_article']) && !empty($data['img_article'])) {
+                $img_article = Image::make($data['img_article']);
+                //$img_article->resize(300, 300);  // redimensionner les images
+                $img_article->save(public_path('/' . $article->img_article));
+            }
+
+            // Message de success
+            $result['state'] = 'success';
+            $result['message'] = "L'article a bien été modifié.";
+        } catch (Exception $exc) { // ! En cas d'erreur
+            $result['state'] = 'error';
+            $result['message'] = $exc->getMessage();
+            $result['img_path'] = $data['img_article'] ?? null;
+        }
+        //dd($result);
+        // Redirection
+        return redirect()->route('dashboard.pages.articles.index')->with('result', $result);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BlogArticle  $blogArticle
+     * @param  \App\Models\BlogArticle  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogArticle $blogArticle)
+    public function delete(int $id)
     {
-        //
+        try {
+            BlogArticle::find($id)->delete();
+            $result['state'] = 'success';
+            $result['message'] = "L'article a bien été supprimé.";
+        } catch (Exception $exc) {
+            $result['state'] = 'danger';
+            $result['message'] = 'Echec de la suppression.';
+        }
+        return redirect()->route('dashboard.pages.articles.index')->with('result', $result);
     }
 }

@@ -54,9 +54,12 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', [AdminController::class, 'index'])->middleware(['auth'])->name('dashboard.index');
 
     // Gestion des articles
-    Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.actualites.index');
-    Route::get('/articles/add', [BlogArticleController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.actualites.create');
-    Route::post('/articles', [BlogArticleController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.actualites.store');
+    Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.articles.index');
+    Route::get('/articles/add', [BlogArticleController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.articles.create');
+    Route::post('/articles', [BlogArticleController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.articles.store');
+    Route::get('/articles/edit/{id}', [BlogArticleController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.articles.edit');
+    Route::put('/articles/update/{id}', [BlogArticleController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.articles.update');
+    Route::delete('/articles/delete/{id}', [BlogArticleController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.articles.delete');
 
     // Gestion des projets
     Route::get('/projets', [ProjetController::class, 'index'])->middleware(['auth'])->name('dashboard.pages.projets.index');

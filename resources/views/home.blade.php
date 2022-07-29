@@ -17,7 +17,7 @@
     {{-- Informations --}}
     <section class="home-slider owl-carousel">
         @foreach ($blog_articles as $article)
-            <div class="slider-item" style="background-image:url({{ asset($article->image_article) }});">
+            <div class="slider-item" style="background-image:url({{ asset($article->img_article) }});">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start"
@@ -316,10 +316,10 @@
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="blog-entry">
                             {{-- <a href="blog-single.html" class="block-20 d-flex align-items-end"
-                            style="background-image: url({{ asset($article->image_article) }});"> --}}
+                            style="background-image: url({{ asset($article->img_article) }});"> --}}
                             <a href="{{ url('/blog-details?id=' . $article->id) }}"
                                 class="block-20 d-flex align-items-end"
-                                style="background-image: url({{ asset($article->image_article) }});">
+                                style="background-image: url({{ asset($article->img_article) }});">
                                 <div class="meta-date text-center p-2" style="background: maroon;">
                                     <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
                                     <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>

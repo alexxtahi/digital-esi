@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Projets</h2>
+                        <h2>Actualités</h2>
                     </div>
                 </div>
             </div>
@@ -44,36 +44,31 @@
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Domaine</th>
                                     <th>Titre</th>
-                                    <th>Nom</th>
-                                    <th>Description</th>
+                                    <th>Résumé</th>
+                                    <th>Contenu</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($projets as $projet)
+                                @foreach ($articles as $article)
                                     <tr>
                                         <td class="py-1">
-                                            <img src="{{ asset($projet->img_projet) }}"
-                                                alt="image du projet {{ $projet->titre_projet }}" />
+                                            <img src="{{ asset($article->img_article) }}"
+                                                alt="image de l'information {{ $article->titre_article }}" />
                                         </td>
                                         <td>
-                                            {{ $projet->domaine_projet }}
+                                            {{ $article->titre_article }}
                                         </td>
                                         <td>
-                                            {{ $projet->titre_projet }}
+                                            {{ $article->resume_article }}
                                         </td>
                                         <td>
-                                            {{ $projet->nom_solution_projet }}
-                                        </td>
-
-                                        <td>
-                                            {{ $projet->description_projet }}
+                                            {{ $article->contenu_article }}
                                         </td>
                                         <td class="custom-actions-td">
                                             <button type="button"
-                                                onclick="redirectBtn('{{ url('/dashboard/projets/edit/' . $projet->id) }}')"
+                                                onclick="redirectBtn('{{ url('/dashboard/articles/edit/' . $article->id) }}')"
                                                 class="btn btn-inverse-info btn-icon">
                                                 <i class="mdi mdi-table-edit"></i>
                                             </button>
@@ -95,8 +90,8 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>Voulez vous vraiment supprimer cet enregistrement ?</p>
-                                                            <form id="delete-enreg-{{ $projet->id }}" method="POST"
-                                                                action="{{ url('/dashboard/projets/delete/' . $projet->id) }}">
+                                                            <form id="delete-enreg-{{ $article->id }}" method="POST"
+                                                                action="{{ url('/dashboard/articles/delete/' . $article->id) }}">
                                                                 @method('delete')
                                                                 @csrf
                                                             </form>
@@ -104,7 +99,7 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Annuler</button>
-                                                            <button form="delete-enreg-{{ $projet->id }}" type="submit"
+                                                            <button form="delete-enreg-{{ $article->id }}" type="submit"
                                                                 class="btn btn-danger">Supprimer</button>
                                                         </div>
                                                     </div>
@@ -127,10 +122,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                                                                                                                                                                                                                function showInfo(){
-                                                                                                                                                                                                                                                                                                                                    alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    function showInfo(){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

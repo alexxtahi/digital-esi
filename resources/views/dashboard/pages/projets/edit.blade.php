@@ -49,7 +49,7 @@
                         @method('PUT')
                         @csrf
 
-                        <div class="row">
+                        <div class="custom-flex">
                             <div class="form-group">
                                 <label>Image actuelle</label>
                                 <div class="input-group col-xs-12">
@@ -126,10 +126,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                                                                                                                                                                                        function showInfo(){
-                                                                                                                                                                                                                                                                                                            alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                        */
+                                                                                                                                                                                                                                                                                                            function showInfo(){
+                                                                                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                            */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

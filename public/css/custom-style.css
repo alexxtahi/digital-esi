@@ -75,3 +75,13 @@
     border-radius: 20px;
     object-fit: contain;
 }
+
+.custom-actions-td {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.custom-flex {
+    display: flex;
+    align-items: center;
+}

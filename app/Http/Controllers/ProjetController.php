@@ -155,7 +155,7 @@ class ProjetController extends Controller
         ]);
 
         try {
-            // Création d'un nouvel enregistrement
+            // Modification
             $projet = Projet::find($id);
             $projet->titre_projet = $data['titre_projet'];
             $projet->nom_solution_projet = $data['nom_solution_projet'];
