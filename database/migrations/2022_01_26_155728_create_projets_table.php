@@ -21,7 +21,6 @@ class CreateProjetsTable extends Migration
             $table->string('description_projet');
             $table->string('img_projet')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->timestamp('created_by')->nullable();
             $table->timestamps();
         });
     }

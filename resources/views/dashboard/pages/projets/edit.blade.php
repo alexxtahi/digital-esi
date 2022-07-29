@@ -44,9 +44,25 @@
                             @default
                         @endswitch
                     @endif
-                    <form class="forms-sample" action="{{ route('dashboard.pages.projets.update') }}" method="PUT"
+                    <form class="forms-sample" action="{{ url('/dashboard/projets/update/' . $projet->id) }}" method="POST"
                         enctype="multipart/form-data">
+                        @method('PUT')
                         @csrf
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Image actuelle</label>
+                                <div class="input-group col-xs-12">
+                                    <img src="{{ asset($projet->img_projet) }}" alt="" class="custom-enreg-img">
+                                </div>
+                            </div>
+                            <div class="align-items-center align-self-center" style="margin-left: 25px">
+                                <h1>{{ $projet->titre_projet }}</h1>
+                                <p>
+                                    {{ $projet->description_projet }}
+                                </p>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="titre_projet">Titre <span class="custom-required-mark">*</span></label>
@@ -55,11 +71,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="nom_solution_projet">Nom de la solution <span
+                                    class="custom-required-mark">*</span></label>
+                            <input required type="text" name="nom_solution_projet" class="form-control"
+                                id="nom_solution_projet" placeholder="Nom de la solution"
+                                value="{{ $projet->nom_solution_projet }}">
+                        </div>
+
+                        <div class="form-group">
                             <label for="domaine_projet">Domaine <span class="custom-required-mark">*</span></label>
                             <select required class="form-control" name="domaine_projet" id="domaine_projet">
                                 <option value="">-- Choisissez un domaine --</option>
                                 @foreach ($specs as $spec)
-                                    <option value="{{ $spec->lib_spec }}" @if ($projet->domaine_projet === $spec->lib_spec) selected @endif>
+                                    <option value="{{ $spec->lib_spec }}"
+                                        @if ($projet->domaine_projet === $spec->lib_spec) selected @endif>
                                         {{ $spec->lib_spec }}</option>
                                 @endforeach
                             </select>
@@ -73,7 +98,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="img_projet">Image</label>
+                            <label for="img_projet">Changer l'image</label>
                             <input type="file" id="img_projet" name="img_projet" class="file-upload-default">
                             <div class="input-group col-xs-12">
                                 <input type="text" name="image" class="form-control file-upload-info" disabled
@@ -83,6 +108,8 @@
                                 </span>
                             </div>
                         </div>
+
+
 
 
                         <button type="submit" class="btn btn-primary mr-2">Valider</button>
@@ -99,10 +126,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                        function showInfo(){
-                                                                                                                                            alert(document.getElementById('aa').value)
-                                                                                                                                        }
-                                                                                                                                        */
+                                                                                                                                                                                                                                                                                                        function showInfo(){
+                                                                                                                                                                                                                                                                                                            alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                        */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

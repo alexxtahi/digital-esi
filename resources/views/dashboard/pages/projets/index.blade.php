@@ -46,6 +46,7 @@
                                     <th>Image</th>
                                     <th>Domaine</th>
                                     <th>Titre</th>
+                                    <th>Nom</th>
                                     <th>Description</th>
                                     <th>Actions</th>
                                 </tr>
@@ -64,6 +65,10 @@
                                             {{ $projet->titre_projet }}
                                         </td>
                                         <td>
+                                            {{ $projet->nom_solution_projet }}
+                                        </td>
+
+                                        <td>
                                             {{ $projet->description_projet }}
                                         </td>
                                         <td>
@@ -72,15 +77,39 @@
                                                 class="btn btn-inverse-info btn-icon">
                                                 <i class="mdi mdi-table-edit"></i>
                                             </button>
-                                            <button form="delete-enreg-{{ $projet->id }}" type="submit"
-                                                class="btn btn-inverse-danger btn-icon">
+                                            <button type="button" class="btn btn-inverse-danger btn-icon"
+                                                data-toggle="modal" data-target="#deleteModal">
                                                 <i class="mdi mdi-delete"></i>
-                                                <form id="delete-enreg-{{ $projet->id }}" method="POST"
-                                                    action="{{ url('/dashboard/projets/delete/' . $projet->id) }}">
-                                                    @method('delete')
-                                                    @csrf
-                                                </form>
                                             </button>
+                                            {{-- Modal --}}
+                                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Voulez vous vraiment supprimer cet enregistrement ?</p>
+                                                            <form id="delete-enreg-{{ $projet->id }}" method="POST"
+                                                                action="{{ url('/dashboard/projets/delete/' . $projet->id) }}">
+                                                                @method('delete')
+                                                                @csrf
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Annuler</button>
+                                                            <button form="delete-enreg-{{ $projet->id }}" type="submit"
+                                                                class="btn btn-danger">Supprimer</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -98,10 +127,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                                                                                                                            function showInfo(){
-                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                            */
+                                                                                                                                                                                                                                                                                                                            function showInfo(){
+                                                                                                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                            */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

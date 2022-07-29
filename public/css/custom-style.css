@@ -67,3 +67,11 @@
     color: red;
     font-weight: bold;
 }
+
+.custom-enreg-img {
+    width: 250px;
+    aspect-ratio: 1;
+    border: 1px solid #222 !important;
+    border-radius: 20px;
+    object-fit: contain;
+}

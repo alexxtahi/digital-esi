@@ -7,6 +7,8 @@ use App\Http\Requests\StoreProjetRequest;
 use App\Http\Requests\UpdateProjetRequest;
 use App\Models\Specialite;
 use Exception;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
 class ProjetController extends Controller
@@ -70,7 +72,6 @@ class ProjetController extends Controller
                 $existant->deleted_at = null;
                 $existant->deleted_by = null;
                 $existant->created_at = now();
-                //$existant->created_by = Auth::user()->id;
                 $existant->save();
                 // Message de success
                 $result['state'] = 'success';
@@ -81,24 +82,27 @@ class ProjetController extends Controller
                 // Création d'un nouvel enregistrement
                 $projet = new Projet;
                 $projet->titre_projet = $data['titre_projet'];
+                $projet->nom_solution_projet = $data['nom_solution_projet'];
                 $projet->domaine_projet = $data['domaine_projet'];
                 $projet->description_projet = $data['description_projet'];
+                if (isset($data['img_projet']) && !empty($data['img_projet']))
+                    $projet->img_projet = 'img/projets/projet_' . date('d_m_Y_H_i_s') . '.png';
+                $projet->created_at = now();
+                $projet->save(); // Sauvegarde
                 //Enregistrement de l'image s'il y'en a
                 if (isset($data['img_projet']) && !empty($data['img_projet'])) {
-                    $projet->img_projet = 'img/projets/' . $data['nom_solution_projet'] . '.png';
                     $img_projet = Image::make($data['img_projet']);
                     //$img_projet->resize(300, 300);  // redimensionner les images
                     $img_projet->save(public_path('/' . $projet->img_projet));
                 }
-                $projet->created_at = now();
-                //$projet->created_by = Auth::user()->id;
-                $projet->save(); // Sauvegarde
+
                 // Message de success
                 $result['state'] = 'success';
                 $result['message'] = 'Le projet a bien été enregistré.';
             } catch (Exception $exc) { // ! En cas d'erreur
+                $result['state'] = 'error';
                 $result['message'] = $exc->getMessage();
-                $result['img_path'] = $data['img_projet'];
+                $result['img_path'] = $data['img_projet'] ?? null;
             }
         }
         //dd($result);
@@ -138,9 +142,45 @@ class ProjetController extends Controller
      * @param  \App\Models\Projet  $projet
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProjetRequest $request, Projet $projet)
+    public function update(int $id, UpdateProjetRequest $request)
     {
-        //
+        $data = $request->all();
+
+        // Validation de la requête
+        $request->validate([
+            'titre_projet' => 'required',
+            'nom_solution_projet' => 'required',
+            'domaine_projet' => 'required',
+            'description_projet' => 'required',
+        ]);
+
+        try {
+            // Création d'un nouvel enregistrement
+            $projet = Projet::find($id);
+            $projet->titre_projet = $data['titre_projet'];
+            $projet->nom_solution_projet = $data['nom_solution_projet'];
+            $projet->domaine_projet = $data['domaine_projet'];
+            $projet->description_projet = $data['description_projet'];
+            $projet->updated_at = now();
+            $projet->save(); // Sauvegarde
+            //Enregistrement de l'image s'il y'en a
+            if (isset($data['img_projet']) && !empty($data['img_projet'])) {
+                $img_projet = Image::make($data['img_projet']);
+                //$img_projet->resize(300, 300);  // redimensionner les images
+                $img_projet->save(public_path('/' . $projet->img_projet));
+            }
+
+            // Message de success
+            $result['state'] = 'success';
+            $result['message'] = 'Le projet a bien été modifié.';
+        } catch (Exception $exc) { // ! En cas d'erreur
+            $result['state'] = 'error';
+            $result['message'] = $exc->getMessage();
+            $result['img_path'] = $data['img_projet'] ?? null;
+        }
+        //dd($result);
+        // Redirection
+        return redirect()->route('dashboard.pages.projets.index')->with('result', $result);
     }
 
     /**
@@ -186,7 +226,6 @@ class ProjetController extends Controller
                 $existant->deleted_at = null;
                 $existant->deleted_by = null;
                 $existant->created_at = now();
-                //$existant->created_by = Auth::user()->id;
                 $existant->save();
                 // Message de success
                 $result['state'] = 'success';
@@ -207,7 +246,6 @@ class ProjetController extends Controller
                 //     $img_prod->save(public_path('/img/projets/' . $data['img_projet']->getClientOriginalName()));
                 // }
                 $projet->created_at = now();
-                //$projet->created_by = Auth::user()->id;
                 $projet->save(); // Sauvegarde
                 // Message de success
                 $result['state'] = 'success';
