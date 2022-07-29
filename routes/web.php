@@ -33,8 +33,8 @@ Route::post('/', [NewsletterController::class, 'store'])->name('newsletter.store
 Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
 // Page du personnel
 Route::get('/personnel', [HomeController::class, 'personnel'])->name('personnel');
-// Page du portfolio
-Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+// Page de la galerie
+Route::get('/galerie', [HomeController::class, 'galerie'])->name('galerie');
 // Page de l'à propos
 Route::get('/apropos', [HomeController::class, 'apropos'])->name('apropos');
 // Page des services
@@ -54,12 +54,15 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', [AdminController::class, 'index'])->middleware(['auth'])->name('dashboard.index');
 
     // Gestion des articles
-    Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.articles.index');
-    Route::get('/articles/add', [BlogArticleController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.articles.create');
-    Route::post('/articles', [BlogArticleController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.articles.store');
+    Route::get('/articles', [BlogArticleController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.actualites.index');
+    Route::get('/articles/add', [BlogArticleController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.actualites.create');
+    Route::post('/articles', [BlogArticleController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.actualites.store');
 
     // Gestion des projets
     Route::get('/projets', [ProjetController::class, 'index'])->middleware(['auth'])->name('dashboard.pages.projets.index');
     Route::get('/projets/add', [ProjetController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.projets.create');
     Route::post('/projets', [ProjetController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.projets.store');
+    Route::get('/projets/edit/{id}', [ProjetController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.projets.edit');
+    Route::put('/projets', [ProjetController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.projets.udpate');
+    Route::delete('/projets/delete/{id}', [ProjetController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.projets.delete');
 });

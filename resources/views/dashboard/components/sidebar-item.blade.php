@@ -1,4 +1,4 @@
-<li class="nav-item">
+<li @if ($view_name == 'dashboard-admin-index') class="nav-item active" @else class="nav-item" @endif>
     <a class="nav-link" data-toggle="collapse" href="#{{ $id }}" aria-expanded="false"
         aria-controls="{{ $id }}">
         @if (!empty($icon))

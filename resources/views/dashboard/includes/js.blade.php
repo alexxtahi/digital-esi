@@ -18,3 +18,4 @@
 <script src="{{ asset('majestic-master/js/dataTables.bootstrap4.js') }}"></script>
 
 <!-- End custom js for this page-->
+<script src="{{ asset('js/custom-script.js') }}"></script>

@@ -16,50 +16,51 @@
     </div>
     <div class="row">
 
-        <!-- Message après opération -->
-        @if (isset($result) && !empty($result) && $result['type'] === 'add-form')
-            @switch($result['state'])
-                @case('success')
-                    <div class="alert alert-success" role="alert">
-                        {{ $result['message'] }}
-                    </div>
-                @break
 
-                @case('warning')
-                    <div class="alert alert-warning" role="alert">
-                        {{ $result['message'] }}
-                    </div>
-                @break
-
-                @case('error')
-                    <div class="alert alert-danger" role="alert">
-                        {{ $result['message'] }}
-                    </div>
-                @break
-
-                @default
-            @endswitch
-        @endif
     </div>
 
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <!-- Message après opération -->
+                    @if ($result != null)
+                        @switch($result['state'])
+                            @case('success')
+                                <div class="alert alert-success" role="alert">
+                                    {{ $result['message'] }} Cliquez <a href="{{ route('dashboard.pages.projets.index') }}">ici</a>
+                                    pour voir tous les projets
+                                </div>
+                            @break
+
+                            @case('warning')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @case('error')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @default
+                        @endswitch
+                    @endif
                     <form class="forms-sample" action="{{ route('dashboard.pages.projets.store') }}" method="POST"
                         enctype="multipart/form-data">
-                        @method("POST")
                         @csrf
 
                         <div class="form-group">
-                            <label for="titre_projet">Titre</label>
-                            <input type="text" name="titre_projet" class="form-control" id="titre_projet"
+                            <label for="titre_projet">Titre <span class="custom-required-mark">*</span></label>
+                            <input required type="text" name="titre_projet" class="form-control" id="titre_projet"
                                 placeholder="Titre du projet">
                         </div>
 
                         <div class="form-group">
                             <label for="domaine_projet">Domaine</label>
-                            <select class="form-control" name="domaine_projet" id="domaine_projet">
+                            <select required class="form-control" name="domaine_projet" id="domaine_projet">
                                 <option value="">-- Choisissez un domaine --</option>
                                 @foreach ($specs as $spec)
                                     <option value="{{ $spec->lib_spec }}">{{ $spec->lib_spec }}</option>
@@ -68,9 +69,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description_projet">Description</label>
-                            <textarea class="form-control" name="description_projet" id="articleContent"
-                                rows="4"></textarea>
+                            <label for="description_projet">Description <span class="custom-required-mark">*</span></label>
+                            <textarea required class="form-control" name="description_projet" id="articleContent" rows="4"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -100,10 +100,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                    function showInfo(){
-                        alert(document.getElementById('aa').value)
-                    }
-                    */
+                                                                                function showInfo(){
+                                                                                    alert(document.getElementById('aa').value)
+                                                                                }
+                                                                                */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

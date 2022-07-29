@@ -6,12 +6,15 @@
                     <h2 class="ftco-heading-2">Des préoccupations ?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">Site centre, INP-HB
-                                    Yamoussoukro, Côte d'Ivoire</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+225 07 47
-                                        26 05 05</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span
-                                        class="text">siriky.kone@inphb.ci</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">
+                                    BP 1093 Yamousoukro CI
+                                </span></li>
+                            <li><span class="icon icon-phone"></span><span class="text">
+                                    +225 27 30 64 66 80
+                                </span></li>
+                            <li><span class="icon icon-envelope"></span><span class="text">
+                                    esi@inphb.ci
+                                </span></li>
                         </ul>
                     </div>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
@@ -30,14 +33,10 @@
                     <ul class="list-unstyled">
                         <li><a href="{{ route('home') }}"><span
                                     class="ion-ios-arrow-round-forward mr-2"></span>Accueil</a></li>
-                        <li><a href="{{ route('personnel') }}"><span
-                                    class="ion-ios-arrow-round-forward mr-2"></span>Personnel</a></li>
-                        <li><a href="{{ route('portfolio') }}"><span
-                                    class="ion-ios-arrow-round-forward mr-2"></span>Portfolio</a></li>
+                        <li><a href="{{ route('galerie') }}"><span
+                                    class="ion-ios-arrow-round-forward mr-2"></span>Galérie</a></li>
                         <li><a href="{{ route('services') }}"><span
                                     class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                        <li><a href="{{ route('blog') }}"><span class="ion-ios-arrow-round-forward mr-2"></span>Blog</a>
-                        </li>
                         <li><a href="{{ route('contacts') }}"><span
                                     class="ion-ios-arrow-round-forward mr-2"></span>Contacts</a></li>
                     </ul>
@@ -48,20 +47,21 @@
                     <h2 class="ftco-heading-2">Actualités récentes</h2>
                     <!-- Articles récents -->
                     @foreach ($blog_articles as $article)
-                    <div class="block-21 mb-4 d-flex">
-                        <a href="{{ url('/blog-details?id=' . $article->id ) }}" class="blog-img mr-4"
-                            style='background-image: url("{{ asset($article->image_article) }}");'></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="{{ url('/blog-details?id=' . $article->id ) }}">{{
-                                    $article->titre_article }}</a></h3>
-                            <div class="meta">
-                                <div><span class="icon-calendar"></span>
-                                    {{ date('d M Y', strtotime($article->date_publication)) }}</div>
-                                <div><span class="icon-person"></span> Admin</div>
-                                <div><span class="icon-chat"></span> 19</div>
+                        <div class="block-21 mb-4 d-flex">
+                            <a href="{{ url('/blog-details?id=' . $article->id) }}" class="blog-img mr-4"
+                                style='background-image: url("{{ asset($article->image_article) }}");'></a>
+                            <div class="text">
+                                <h3 class="heading"><a
+                                        href="{{ url('/blog-details?id=' . $article->id) }}">{{ $article->titre_article }}</a>
+                                </h3>
+                                <div class="meta">
+                                    <div><span class="icon-calendar"></span>
+                                        {{ date('d M Y', strtotime($article->date_publication)) }}</div>
+                                    <div><span class="icon-person"></span> Admin</div>
+                                    <div><span class="icon-chat"></span> 19</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

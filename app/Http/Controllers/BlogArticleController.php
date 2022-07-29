@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBlogArticleRequest;
 use App\Http\Requests\UpdateBlogArticleRequest;
 use App\Models\User;
 use App\Models\Commentaire;
+use Illuminate\Support\Facades\Auth;
 
 class BlogArticleController extends Controller
 {
@@ -26,7 +27,7 @@ class BlogArticleController extends Controller
 
     public function dashIndex()
     {
-        return view('dashboard.pages.articles.index');
+        return view('dashboard.pages.actualites.index');
     }
     // Page de détails d'un article
     public function detailsArticle(StoreBlogArticleRequest $request)
@@ -53,7 +54,7 @@ class BlogArticleController extends Controller
     public function create()
     {
         //
-        return view('dashboard.pages.articles.create');
+        return view('dashboard.pages.actualites.create');
     }
 
     /**
@@ -67,21 +68,23 @@ class BlogArticleController extends Controller
         //dd($request);
 
         $request->validate([
-            "title" => 'required',
+            'title' => 'required',
+            'resume' => 'required',
+            'content' => 'required',
         ]);
 
         //Enregistrement dans la bd
         BlogArticle::create([
-            'titre_article' => $request->get('title'),
-            'resume_article' => $request->get('resume'),
-            'contenu_article' => $request->get('content'),
-            'image_article' => 'img/' . $request->get('img')[0],
+            'titre_article' => $request->title,
+            'resume_article' => $request->resume,
+            'contenu_article' => $request->content,
+            'image_article' => 'img/' . $request->img[0],
             'date_publication' => now(),
-            'id_user' => 1,
+            'id_user' => Auth::user()->id,
             'created_at' => now(),
         ]);
 
-        return redirect()->route('dashboard.pages.articles.index');
+        return redirect()->route('dashboard.pages.actualites.index');
     }
 
     /**

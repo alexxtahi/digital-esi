@@ -20,8 +20,9 @@ class ProjetController extends Controller
     {
         // Récupération des projets
         $projets = Projet::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
         // Affichage
-        return view('dashboard.pages.projets.index', compact('projets'));
+        return view('dashboard.pages.projets.index', compact('projets', 'result'));
     }
 
     /**
@@ -33,8 +34,9 @@ class ProjetController extends Controller
     {
         // Récupération des spécialités
         $specs = Specialite::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
         // Affichage
-        return view('dashboard.pages.projets.create', compact('specs'));
+        return view('dashboard.pages.projets.create', compact('specs', 'result'));
     }
 
     /**
@@ -100,7 +102,7 @@ class ProjetController extends Controller
         }
         //dd($result);
         // Redirection
-        return redirect()->route('dashboard.pages.projets.index');
+        return redirect()->route('dashboard.pages.projets.create')->with('result', $result);
     }
     /*
     public function store(StoreProjetRequest $request)
@@ -168,9 +170,17 @@ class ProjetController extends Controller
      * @param  \App\Models\Projet  $projet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Projet $projet)
+    public function delete(int $id)
     {
-        //
+        try {
+            Projet::find($id)->delete();
+            $result['state'] = 'success';
+            $result['message'] = 'Le projet a bien été supprimé.';
+        } catch (Exception $exc) {
+            $result['state'] = 'danger';
+            $result['message'] = 'Echec de la suppression.';
+        }
+        return redirect()->route('dashboard.pages.projets.index')->with('result', $result);
     }
 }
 

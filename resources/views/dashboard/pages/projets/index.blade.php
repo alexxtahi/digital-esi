@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Gestions des projets</h2>
+                        <h2>Projets</h2>
                     </div>
                 </div>
             </div>
@@ -15,22 +15,39 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <!-- Message après opération -->
+                    @if ($result != null)
+                        @switch($result['state'])
+                            @case('success')
+                                <div class="alert alert-success" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @case('warning')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @case('error')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @default
+                        @endswitch
+                    @endif
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>
-                                        Image
-                                    </th>
-                                    <th>
-                                        Domaine
-                                    </th>
-                                    <th>
-                                        Titre
-                                    </th>
-                                    <th>
-                                        Description
-                                    </th>
+                                    <th>Image</th>
+                                    <th>Domaine</th>
+                                    <th>Titre</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +66,23 @@
                                         <td>
                                             {{ $projet->description_projet }}
                                         </td>
+                                        <td>
+                                            <button type="button" class="btn btn-inverse-info btn-icon">
+                                                <i class="mdi mdi-table-edit"></i>
+                                                <form action="#">
+                                                </form>
+                                            </button>
+                                            <button form="delete-enreg-{{ $projet->id }}" type="submit"
+                                                class="btn btn-inverse-danger btn-icon">
+                                                <i class="mdi mdi-delete"></i>
+                                                <form id="delete-enreg-{{ $projet->id }}" method="POST"
+                                                    action="{{ url('/dashboard/projets/delete/' . $projet->id) }}">
+                                                    @method('delete')
+                                                    @csrf
+                                                </form>
+
+                                            </button>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -65,10 +99,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                            function showInfo(){
-                                                alert(document.getElementById('aa').value)
-                                            }
-                                            */
+                                                                                                                                                                                                                                function showInfo(){
+                                                                                                                                                                                                                                    alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

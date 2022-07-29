@@ -48,15 +48,15 @@ class HomeController extends Controller
         // Affichage
         return view('personnel', compact('blog_articles', 'personnel'));
     }
-    // Page du portfolio
-    public function portfolio()
+    // Page de la galerie
+    public function galerie()
     {
         // Récupération des articles récents
         $blog_articles = BlogArticle::where('deleted_at', null)->paginate(3);
         // Récupération des projets
         $projets = Projet::where('deleted_at', null)->get();
         // Affichage
-        return view('portfolio', compact('blog_articles', 'projets'));
+        return view('galerie', compact('blog_articles', 'projets'));
     }
     // Page du services
     public function services()

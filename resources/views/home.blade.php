@@ -25,7 +25,8 @@
                         <div class="col-md-7 ftco-animate mb-md-5">
                             <span class="subheading">Actualités</span>
                             <h1 class="mb-4">{{ $article->titre_article }}</h1>
-                            <p><a href="#specs" class="btn btn-primary px-4 py-3 mt-3 custom-btn">Lire l'article</a>
+                            <p><a href="{{ url('/blog-details?id=' . $article->id) }}"
+                                    class="btn btn-primary px-4 py-3 mt-3 custom-btn">Lire l'article</a>
                             </p>
                         </div>
                     </div>
@@ -46,7 +47,7 @@
     @endif
 
     <section class="ftco-intro ftco-no-pb img"
-        style="background: center / cover url({{ asset('img/entree-inp.jpg') }}) no-repeat, linear-gradient(to left, #222, #999);">
+        style="background: center / cover no-repeat url({{ asset('img/entree-inp.jpg') }})">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
@@ -96,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                    {{-- <div class="row mt-5">
                         <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
@@ -124,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -187,7 +188,7 @@
                                     style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/mecatronic.jpg') }});" @endif>
                                     <div class="text pl-4">
                                         <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
+                                            {{-- <i class="icon-quote-left"></i> --}}
                                         </span>
                                         <p class="text-white">{{ $fil->description_filiere }}</p>
                                         <p class="name text-white">{{ $fil->lib_filiere }}</p>
@@ -206,9 +207,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center heading-section ftco-animate">
-                    <span class="subheading">Formation</span>
-                    <h2 class="mb-4" id="specs">Nos Spécialités</h2>
-                    <p>Les spécialités de nos formations dans le domaine de l'industrie</p>
+                    <span class="subheading">Admissibilité</span>
+                    <h2 class="mb-4" id="specs">Comment intégrer l'ESI ?</h2>
+                    <p>Décpuvrez ici comment entrer à l'Ecole Supérieure d'Industrie</p>
                 </div>
             </div>
             <div class="row tabulation mt-4 ftco-animate">
@@ -216,27 +217,11 @@
                     <ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
                         <li class="nav-item text-left">
                             <a class="nav-link active py-4" data-toggle="tab" href="#services-1"><span
-                                    class="flaticon-analysis mr-2"></span> Informatique</a>
+                                    class="flaticon-analysis mr-2"></span> Cycle court (BAC +3)</a>
                         </li>
                         <li class="nav-item text-left">
                             <a class="nav-link py-4" data-toggle="tab" href="#services-2"><span
-                                    class="flaticon-business mr-2"></span> Electronique</a>
-                        </li>
-                        <li class="nav-item text-left">
-                            <a class="nav-link py-4" data-toggle="tab" href="#services-3"><span
-                                    class="flaticon-insurance mr-2"></span> Electrotechnique</a>
-                        </li>
-                        <li class="nav-item text-left">
-                            <a class="nav-link py-4" data-toggle="tab" href="#services-4"><span
-                                    class="flaticon-money mr-2"></span> Mécatronique</a>
-                        </li>
-                        <li class="nav-item text-left">
-                            <a class="nav-link py-4" data-toggle="tab" href="#services-5"><span
-                                    class="flaticon-rating mr-2"></span> Alimentation</a>
-                        </li>
-                        <li class="nav-item text-left">
-                            <a class="nav-link py-4" data-toggle="tab" href="#services-6"><span
-                                    class="flaticon-search-engine mr-2"></span> Production de masse</a>
+                                    class="flaticon-business mr-2"></span> Cycle long (BAC +5)</a>
                         </li>
                     </ul>
                 </div>
@@ -246,16 +231,23 @@
                             <div class="img"
                                 style="background-image: url({{ asset('img/specialites/info.jpg') }});">
                             </div>
-                            <h3><a href="#">Informatique</a></h3>
-                            <p>Le parcours des passionés des technologies du digital: Développement, Sécurité
-                                informatique, Conception de SI, Bases de données, Intelligence artificielle, etc.</p>
+                            <h3><a href="#">Cycle Technicien Supérieur (BAC +3)</a></h3>
+                            <p>
+                                L'admission au cycle des techniciens supérieurs des nationaux se fait par voie de
+                                concours ou sur titre après le baccalauréat scientifique (C, D, E, F1, F2, F3, F4, F7)
+                                ou un BT option STIC, STGP, STGI de l'année en cours.
+                            </p>
                         </div>
                         <div class="tab-pane container p-0 fade" id="services-2">
                             <div class="img"
                                 style="background-image: url({{ asset('img/specialites/electronics.jpg') }});"></div>
-                            <h3><a href="#">Electronique</a></h3>
-                            <p>Formation sur les technologies embarquées, les systèmes électroniques et informatiques,
-                                les réseaux et la télécommunication.</p>
+                            <h3><a href="#">Cycle Ingénieur (BAC +5)</a></h3>
+                            <p>
+                                L'admission au cycle ingénieur se fait par voie de concours après deux années de classes
+                                préparatoires et à partir de la licence dans le domaine des sciences industrielles
+                                (mathématiques, physique, chimie) ou par voie de passerelle (meilleurs étduiants) après
+                                le Cycle Technicien Supérieur. La formation dure trois années avec un tronc commun.
+                            </p>
                         </div>
                         <div class="tab-pane container p-0 fade" id="services-3">
                             <div class="img"
@@ -301,7 +293,8 @@
                     <h2 class="mb-3 mb-md-0">Qualité d'enseignement supérieure</h2>
                 </div>
                 <div class="col-lg-3 col-md-4 ftco-animate">
-                    <p class="mb-0"><a href="#quoteForm" class="btn btn-secondary py-3 px-4">Soumettre une
+                    <p class="mb-0"><a href="#quoteForm"
+                            class="btn btn-secondary py-3 px-4 custom-btn-secondary">Soumettre une
                             requête</a></p>
                 </div>
             </div>
@@ -327,7 +320,7 @@
                             <a href="{{ url('/blog-details?id=' . $article->id) }}"
                                 class="block-20 d-flex align-items-end"
                                 style="background-image: url({{ asset($article->image_article) }});">
-                                <div class="meta-date text-center p-2">
+                                <div class="meta-date text-center p-2" style="background: maroon;">
                                     <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
                                     <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
                                     <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>

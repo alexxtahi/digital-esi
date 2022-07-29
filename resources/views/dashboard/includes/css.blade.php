@@ -8,3 +8,4 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="{{ asset('majestic-master/css/style.css') }}">
 <!-- endinject -->
+<link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">

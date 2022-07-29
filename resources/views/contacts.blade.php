@@ -21,7 +21,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
                     <h1 class="mb-2 bread">Contacts</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href={{url('/')}}>Accueil <i
+                    <p class="breadcrumbs"><span class="mr-2"><a href={{ url('/') }}>Accueil <i
                                     class="ion-ios-arrow-forward"></i></a></span> <span>Contacts <i
                                 class="ion-ios-arrow-forward"></i></span></p>
                 </div>
@@ -39,8 +39,9 @@
                                 <div class="icon">
                                     <span class="icon-map-o"></span>
                                 </div>
-                                <p><span>Adresse:</span> Site centre, INP-HB
-                                    Yamoussoukro, Côte d'Ivoire</p>
+                                <p><span>Adresse</span>
+                                    BP 1093 Yamousoukro Côte d'Ivoire
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -48,8 +49,10 @@
                                 <div class="icon">
                                     <span class="icon-tablet"></span>
                                 </div>
-                                <p><span>Téléphone:</span> <a href="tel://1234567920">+225 07 47 26 05
-                                        05</a></p>
+                                <p><span>Téléphone</span>
+                                    +225 27 30 64 66 80 <br>
+                                    +225 07 08 58 40 34
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center d-flex">
@@ -57,7 +60,9 @@
                                 <div class="icon">
                                     <span class="icon-envelope-o"></span>
                                 </div>
-                                <p><span>Email:</span> <a href="mailto:siriky.kone@inphb.ci">siriky.kone@inphb.ci</a>
+                                <p><span>Email</span>
+                                    esi@inphb.ci
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -82,8 +87,7 @@
                             <input type="email" name="email" class="form-control" placeholder="Votre email">
                         </div>
                         <div class="form-group">
-                            <textarea name="message_rens" cols="30" rows="7" class="form-control"
-                                placeholder="Message"></textarea>
+                            <textarea name="message_rens" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Envoyer un message" class="btn btn-primary py-3 px-5">
@@ -114,9 +118,10 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
 

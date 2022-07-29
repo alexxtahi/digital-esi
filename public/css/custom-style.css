@@ -39,11 +39,31 @@
 
 }
 
-
 .nav-link {
     font-size: 18px !important;
 }
 
 .testimony-wrap {
     border-radius: 10px;
+}
+
+.ftco-intro::after {
+    background: rgba(128, 0, 0, 0.9);
+}
+
+.custom-btn-secondary {
+    background: #fff3 !important;
+    border: 2px solid white !important;
+    color: #fff !important;
+}
+
+.custom-btn-secondary:hover {
+    background: white !important;
+    border: 2px solid white !important;
+    color: maroon !important;
+}
+
+.custom-required-mark {
+    color: red;
+    font-weight: bold;
 }
