@@ -6,17 +6,13 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Ajouter un projet</h2>
+                        <h2>Modifier un projet</h2>
                     </div>
 
                 </div>
 
             </div>
         </div>
-    </div>
-    <div class="row">
-
-
     </div>
 
     <div class="row">
@@ -48,21 +44,14 @@
                             @default
                         @endswitch
                     @endif
-                    <form class="forms-sample" action="{{ route('dashboard.pages.projets.store') }}" method="POST"
+                    <form class="forms-sample" action="{{ route('dashboard.pages.projets.update') }}" method="PUT"
                         enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
                             <label for="titre_projet">Titre <span class="custom-required-mark">*</span></label>
                             <input required type="text" name="titre_projet" class="form-control" id="titre_projet"
-                                placeholder="Titre du projet">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nom_solution_projet">Nom de la solution <span
-                                    class="custom-required-mark">*</span></label>
-                            <input required type="text" name="nom_solution_projet" class="form-control"
-                                id="nom_solution_projet" placeholder="Nom de la solution">
+                                placeholder="Titre du projet" value="{{ $projet->titre_projet }}">
                         </div>
 
                         <div class="form-group">
@@ -70,14 +59,17 @@
                             <select required class="form-control" name="domaine_projet" id="domaine_projet">
                                 <option value="">-- Choisissez un domaine --</option>
                                 @foreach ($specs as $spec)
-                                    <option value="{{ $spec->lib_spec }}">{{ $spec->lib_spec }}</option>
+                                    <option value="{{ $spec->lib_spec }}" @if ($projet->domaine_projet === $spec->lib_spec) selected @endif>
+                                        {{ $spec->lib_spec }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="description_projet">Description <span class="custom-required-mark">*</span></label>
-                            <textarea required class="form-control" name="description_projet" rows="4"></textarea>
+                            <textarea required class="form-control" name="description_projet" rows="4">
+                            {{ $projet->description_projet }}
+                            </textarea>
                         </div>
 
                         <div class="form-group">
@@ -107,10 +99,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                function showInfo(){
-                                                                                                                    alert(document.getElementById('aa').value)
-                                                                                                                }
-                                                                                                                */
+                                                                                                                                        function showInfo(){
+                                                                                                                                            alert(document.getElementById('aa').value)
+                                                                                                                                        }
+                                                                                                                                        */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

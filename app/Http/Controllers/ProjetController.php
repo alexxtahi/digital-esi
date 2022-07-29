@@ -53,6 +53,7 @@ class ProjetController extends Controller
         // Validation de la requête
         $request->validate([
             'titre_projet' => 'required',
+            'nom_solution_projet' => 'required',
             'domaine_projet' => 'required',
             'description_projet' => 'required',
         ]);
@@ -84,10 +85,10 @@ class ProjetController extends Controller
                 $projet->description_projet = $data['description_projet'];
                 //Enregistrement de l'image s'il y'en a
                 if (isset($data['img_projet']) && !empty($data['img_projet'])) {
-                    $projet->img_projet = 'img/projets/' . $data['img_projet']->getClientOriginalName();
+                    $projet->img_projet = 'img/projets/' . $data['nom_solution_projet'] . '.png';
                     $img_projet = Image::make($data['img_projet']);
-                    //$img_projet->resize(300, 300);
-                    $img_projet->save(public_path('/img/projets/' . $data['img_projet']->getClientOriginalName()));
+                    //$img_projet->resize(300, 300);  // redimensionner les images
+                    $img_projet->save(public_path('/' . $projet->img_projet));
                 }
                 $projet->created_at = now();
                 //$projet->created_by = Auth::user()->id;
@@ -104,31 +105,6 @@ class ProjetController extends Controller
         // Redirection
         return redirect()->route('dashboard.pages.projets.create')->with('result', $result);
     }
-    /*
-    public function store(StoreProjetRequest $request)
-    {
-        //dd($request);
-
-        // Validation de la requête
-        $request->validate([
-            'titre_projet' => 'required',
-            'domaine_projet' => 'required',
-            'description_projet' => 'required',
-        ]);
-
-        //Enregistrement dans la bd
-        Projet::create([
-            'titre_projet' => $request->get('titre_projet'),
-            'domaine_projet' => $request->get('domaine_projet'),
-            'description_projet' => $request->get('description_projet'),
-            'img_projet' => 'img/' . $request->get('img_projet')[0],
-            'created_at' => now(),
-        ]);
-
-        // Redirection
-        return redirect()->route('dashboard.pages.projets.index');
-    }
-*/
 
     /**
      * Display the specified resource.
@@ -147,9 +123,12 @@ class ProjetController extends Controller
      * @param  \App\Models\Projet  $projet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Projet $projet)
+    public function edit(int $id)
     {
-        //
+        $projet = Projet::find($id);
+        $specs = Specialite::where('deleted_at', null)->get();
+        $result = session()->get('result');
+        return view('dashboard.pages.projets.edit', compact('projet', 'specs', 'result'));
     }
 
     /**

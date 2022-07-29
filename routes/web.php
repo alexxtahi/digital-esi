@@ -63,6 +63,6 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/projets/add', [ProjetController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.projets.create');
     Route::post('/projets', [ProjetController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.projets.store');
     Route::get('/projets/edit/{id}', [ProjetController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.projets.edit');
-    Route::put('/projets', [ProjetController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.projets.udpate');
+    Route::put('/projets', [ProjetController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.projets.update');
     Route::delete('/projets/delete/{id}', [ProjetController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.projets.delete');
 });

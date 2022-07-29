@@ -67,10 +67,10 @@
                                             {{ $projet->description_projet }}
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-inverse-info btn-icon">
+                                            <button type="button"
+                                                onclick="redirectBtn('{{ url('/dashboard/projets/edit/' . $projet->id) }}')"
+                                                class="btn btn-inverse-info btn-icon">
                                                 <i class="mdi mdi-table-edit"></i>
-                                                <form action="#">
-                                                </form>
                                             </button>
                                             <button form="delete-enreg-{{ $projet->id }}" type="submit"
                                                 class="btn btn-inverse-danger btn-icon">
@@ -80,7 +80,6 @@
                                                     @method('delete')
                                                     @csrf
                                                 </form>
-
                                             </button>
                                         </td>
                                     </tr>
@@ -99,10 +98,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                                                                                                                function showInfo(){
-                                                                                                                                                                                                                                    alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                */
+                                                                                                                                                                                                                                            function showInfo(){
+                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                            */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

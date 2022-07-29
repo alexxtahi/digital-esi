@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Actualités</h2>
+                        <h2>Ajouter une information</h2>
                     </div>
 
                 </div>
@@ -19,10 +19,6 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Ajouter une information</h4>
-                    {{-- <p class="card-description">
-                        Remplissez le formulaire
-                    </p> --}}
                     <form class="forms-sample" action="{{ route('dashboard.pages.actualites.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
@@ -68,10 +64,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                            function showInfo(){
-                                                                                                                alert(document.getElementById('aa').value)
-                                                                                                            }
-                                                                                                            */
+                                                                                                                    function showInfo(){
+                                                                                                                        alert(document.getElementById('aa').value)
+                                                                                                                    }
+                                                                                                                    */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-        {{ $view_name }}
+        {{-- {{ $view_name }} --}}
         <li @if ($view_name == 'dashboard-admin-index') class="nav-item active" @else class="nav-item" @endif>
             <a class="nav-link" href="{{ url('/dashboard') }}">
                 <i class="mdi mdi-home menu-icon"></i>
