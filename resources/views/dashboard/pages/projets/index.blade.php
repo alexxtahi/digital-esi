@@ -55,8 +55,13 @@
                                 @foreach ($projets as $projet)
                                     <tr>
                                         <td class="py-1">
-                                            <img src="{{ asset($projet->img_projet) }}"
-                                                alt="image du projet {{ $projet->titre_projet }}" />
+                                            @if ($projet->img_projet != null)
+                                                <img src="{{ asset($projet->img_projet) }}"
+                                                    alt="image du projet {{ $projet->titre_projet }}" />
+                                            @else
+                                                <img src="{{ asset('img/contactbanner.png') }}"
+                                                    alt="image du projet {{ $projet->titre_projet }}" />
+                                            @endif
                                         </td>
                                         <td>
                                             {{ $projet->domaine_projet }}
@@ -78,12 +83,12 @@
                                                 <i class="mdi mdi-table-edit"></i>
                                             </button>
                                             <button type="button" class="btn btn-inverse-danger btn-icon"
-                                                data-toggle="modal" data-target="#deleteModal">
+                                                data-toggle="modal" data-target="#delete-modal-{{ $projet->id }}">
                                                 <i class="mdi mdi-delete"></i>
                                             </button>
                                             {{-- Modal --}}
-                                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="delete-modal-{{ $projet->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -127,10 +132,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                                                                                                                                                                                                                function showInfo(){
-                                                                                                                                                                                                                                                                                                                                    alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                */
+                                                                                                                                                                                                                                                                                                                                            function showInfo(){
+                                                                                                                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                            */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

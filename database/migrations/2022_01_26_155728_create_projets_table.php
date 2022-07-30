@@ -19,7 +19,7 @@ class CreateProjetsTable extends Migration
             $table->string('nom_solution_projet');
             $table->string('domaine_projet');
             $table->string('description_projet');
-            $table->string('img_projet')->default('img/projets/projet_temp.jpg');
+            $table->string('img_projet')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
