@@ -17,7 +17,8 @@
     {{-- Informations --}}
     <section class="home-slider owl-carousel">
         @foreach ($blog_articles as $article)
-            <div class="slider-item" style="background-image:url({{ asset($article->img_article) }});">
+            <div class="slider-item"
+                style="background-image:url({{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }});">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start"
@@ -146,13 +147,10 @@
                 @foreach ($projets as $projet)
                     <div class="col-md-4">
                         <div class="project">
-                            @if (isset($projet->img_projet) && !empty($projet->img_projet))
-                                <div class="img rounded mb-4"
-                                    style='background-image: url("{{ asset($projet->img_projet) }}");'></div>
-                            @else
-                                <div class="img rounded mb-4"
-                                    style="background-image: url({{ asset('img/contactbanner.png') }});"></div>
-                            @endif
+                            <div class="img rounded mb-4"
+                                style='background-image: url("{{ $projet->img_projet != null ? asset($projet->img_projet) : asset('img/contactbanner.png') }}");'>
+                            </div>
+
                             <div class="text w-100 text-center">
                                 <span class="cat">{{ $projet->domaine_projet }}</span>
                                 <h3><a href="#">{{ $projet->titre_projet }}</a></h3>

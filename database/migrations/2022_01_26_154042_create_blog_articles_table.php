@@ -19,7 +19,7 @@ class CreateBlogArticlesTable extends Migration
             $table->string('resume_article')->nullable();
             $table->string('contenu_article')->nullable();
             $table->dateTime('date_publication');
-            $table->string('img_article')->default('img/articles/blog1.jpg');
+            $table->string('img_article')->nullable();
             $table->integer('id_user');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();

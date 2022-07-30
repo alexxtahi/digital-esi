@@ -161,10 +161,12 @@ class ProjetController extends Controller
             $projet->nom_solution_projet = $data['nom_solution_projet'];
             $projet->domaine_projet = $data['domaine_projet'];
             $projet->description_projet = $data['description_projet'];
+            if (isset($data['img_projet']) && !empty($data['img_projet']) && $projet->img_projet == null)
+                $projet->img_projet = 'img/projets/projet_' . date('d_m_Y_H_i_s') . '.png';
             $projet->updated_at = now();
             $projet->save(); // Sauvegarde
             //Enregistrement de l'image s'il y'en a
-            if (isset($data['img_projet']) && !empty($data['img_projet'])) {
+            if (isset($data['img_projet']) && !empty($data['img_projet']) && $projet->img_projet != null) {
                 $img_projet = Image::make($data['img_projet']);
                 //$img_projet->resize(300, 300);  // redimensionner les images
                 $img_projet->save(public_path('/' . $projet->img_projet));

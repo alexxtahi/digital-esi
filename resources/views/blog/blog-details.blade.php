@@ -15,7 +15,8 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset($article->img_article) }});">
+    <section class="hero-wrap hero-wrap-2"
+        style="background-image: url({{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -37,7 +38,8 @@
                 <div class="col-lg-8 ftco-animate">
                     <h2 class="mb-3">#. {{ $article->titre_article }}</h2>
                     <p>
-                        <img src="{{ asset($article->img_article) }}" alt="" class="img-fluid">
+                        <img src="{{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }}"
+                            alt="" class="img-fluid">
                     </p>
 
                     <div class="about-author d-flex p-4 bg-light">
@@ -124,7 +126,7 @@
                         @foreach ($articles_recents as $recent)
                             <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4"
-                                    style='background-image: url("{{ asset($recent->img_article) }}");'></a>
+                                    style='background-image: url("{{ $recent->img_article != null ? asset($recent->img_article) : asset('img/articles/blog3.jpg') }}");'></a>
                                 <div class="text">
                                     <h3 class="heading" style="font-size: 13px;"><a
                                             href="{{ url('/blog-details?id=' . $recent->id) }}">{{ $recent->resume_article }}</a>

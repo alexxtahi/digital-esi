@@ -44,15 +44,9 @@
                 @foreach ($projets as $projet)
                     <div class="col-md-4">
                         <div class="project">
-                            @if (isset($projet->img_projet) && !empty($projet->img_projet))
-                                <div class="img rounded mb-4"
-                                    style='background-image: url("{{ asset($projet->img_projet) }}");'>
-                                </div>
-                            @else
-                                <div class="img rounded mb-4"
-                                    style="background-image: url({{ asset('img/contactbanner.png') }});">
-                                </div>
-                            @endif
+                            <div class="img rounded mb-4"
+                                style='background-image: url("{{ $projet->img_projet != null ? asset($projet->img_projet) : asset('img/contactbanner.png') }}");'>
+                            </div>
                             <div class="text w-100 text-center">
                                 <span class="cat">{{ $projet->domaine_projet }}</span>
                                 <h3><a href="#">{{ $projet->titre_projet }}</a></h3>

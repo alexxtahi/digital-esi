@@ -104,6 +104,8 @@ class BlogArticleController extends Controller
                 $article->titre_article = $data['titre_article'];
                 $article->resume_article = $data['resume_article'];
                 $article->contenu_article = $data['contenu_article'];
+                $article->date_publication = now();
+                $article->id_user = Auth::user()->id;
                 if (isset($data['img_article']) && !empty($data['img_article']))
                     $article->img_article = 'img/articles/article_' . date('d_m_Y_H_i_s') . '.png';
                 $article->created_at = now();
@@ -177,6 +179,10 @@ class BlogArticleController extends Controller
             $article->titre_article = $data['titre_article'];
             $article->resume_article = $data['resume_article'];
             $article->contenu_article = $data['contenu_article'];
+            if (isset($data['img_article']) && !empty($data['img_article']) && $article->img_article == null)
+                $article->img_article = 'img/articles/article_' . date('d_m_Y_H_i_s') . '.png';
+            $article->date_publication = now();
+            $article->id_user = Auth::user()->id;
             $article->updated_at = now();
             $article->save(); // Sauvegarde
             //Enregistrement de l'image s'il y'en a

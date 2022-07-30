@@ -37,7 +37,7 @@
                         <div class="blog-entry">
                             <a href="{{ url('/blog-details?id=' . $article->id) }}"
                                 class="block-20 d-flex align-items-end"
-                                style='background-image: url("{{ asset($article->img_article) }}");'>
+                                style='background-image: url("{{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }}");'>
                                 <div class="meta-date text-center p-2">
                                     <span class="day">{{ date(' d', strtotime($article->date_publication)) }}</span>
                                     <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>

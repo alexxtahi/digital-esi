@@ -55,13 +55,8 @@
                                 @foreach ($projets as $projet)
                                     <tr>
                                         <td class="py-1">
-                                            @if ($projet->img_projet != null)
-                                                <img src="{{ asset($projet->img_projet) }}"
-                                                    alt="image du projet {{ $projet->titre_projet }}" />
-                                            @else
-                                                <img src="{{ asset('img/contactbanner.png') }}"
-                                                    alt="image du projet {{ $projet->titre_projet }}" />
-                                            @endif
+                                            <img src="{{ $projet->img_projet != null ? asset($projet->img_projet) : asset('img/contactbanner.png') }}"
+                                                alt="image du projet {{ $projet->titre_projet }}" />
                                         </td>
                                         <td>
                                             {{ $projet->domaine_projet }}
@@ -132,10 +127,10 @@
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         /*
-                                                                                                                                                                                                                                                                                                                                            function showInfo(){
-                                                                                                                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                                                            */
+                                                                                                                                                                                                                                                                                                                                                    function showInfo(){
+                                                                                                                                                                                                                                                                                                                                                        alert(document.getElementById('aa').value)
+                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                    */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'
