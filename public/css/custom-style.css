@@ -31,11 +31,8 @@
 }
 
 .custom-logo-esi {
-    width: 160px !important;
-    aspect-ratio: 1 !important;
+    width: 4em !important;
     object-fit: contain !important;
-    position: absolute;
-    top: -30px;
 
 }
 

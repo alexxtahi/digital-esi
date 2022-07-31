@@ -1,6 +1,6 @@
 <div class="bg-top navbar-light d-flex flex-column-reverse">
     <div class="container py-3">
-        <div class="row no-gutters d-flex align-items-center align-items-stretch">
+        <div class="row no-gutters d-flex align-items-center">
             <div class="col-md-4 d-flex align-items-center py-4">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ asset('img/logo-esi.png') }}" class="custom-logo-esi" alt="" srcset="">
@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-8 d-block">
                 <div class="row d-flex">
-                    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                    <div class="col-md d-flex topper align-items-center py-md-4">
                         <div class="icon d-flex justify-content-center align-items-center"><span
                                 class="ion-ios-mail custom-icon-color"></span></div>
                         <div class="text">
@@ -16,7 +16,7 @@
                             <span>esi@inphb.ci</span>
                         </div>
                     </div>
-                    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                    <div class="col-md d-flex topper align-items-center py-md-4">
                         <div class="icon d-flex justify-content-center align-items-center"><span
                                 class="ion-ios-call custom-icon-color"></span></div>
                         <div class="text">
@@ -26,7 +26,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                    <div class="col-md d-flex topper align-items-center py-md-4">
                         <div class="icon d-flex justify-content-center align-items-center"><span
                                 class="ion-ios-locate custom-icon-color"></span></div>
                         <div class="text">
@@ -41,7 +41,7 @@
     <div class="top-social-menu py-2 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col justify-content-between" style="display: flex; flex-direction: row;">
                     <p class="social mb-0">
                         <a href="https://www.facebook.com/inphb.polytech"><i
                                 class="ion-logo-facebook custom-icon-color"></i><span
@@ -52,18 +52,18 @@
                                 class="ion-logo-instagram custom-icon-color"></i><span
                                 class="sr-only">Instagram</span></a>
                     </p>
-                </div>
-                <div class="col-md-5 text-right">
                     @if (Auth::check())
                         <!-- Si l'utilisateur est connecté -->
                         <!-- Formulaire de déconnexion -->
-                        <span style="margin-right: 15px;">Bonjour, M. {{ Auth::user()->nom_user }}</span>
-                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                            @csrf
-                            <a href="" class="btn-link"
-                                onclick="event.preventDefault(); this.closest('form').submit();">Se
-                                déconnecter</a>
-                        </form>
+                        <div class="social mb-0">
+                            <span style="margin-right: 15px;">Bonjour, M. {{ Auth::user()->nom_user }}</span>
+                            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                @csrf
+                                <a href="" class="btn-link"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">Se
+                                    déconnecter</a>
+                            </form>
+                        </div>
                     @else
                         <a href="{{ route('login') }}" class="btn-link">Se connecter</a>
                     @endif
