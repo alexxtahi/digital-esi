@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RenseignementController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EtudiantController;
 use Illuminate\Support\Facades\Route;
 // require auth routes
 require __DIR__ . '/auth.php';
@@ -46,6 +47,11 @@ Route::get('/blog', [BlogArticleController::class, 'index'])->name('blog');
 // Page de détails d'un article
 Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
 // Poster un commentaire
+Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post-commentaire');
+
+//! --- DIPLÔMÉS ---
+Route::get('/nos-etudiants-diplomes', [EtudiantController::class, 'nosEtudiantsDiplomesIndex'])->name('nos-etudiants-diplomes');
+Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->name('blog-details');
 Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post-commentaire');
 
 //! --- DASHBOARD ---

@@ -313,27 +313,29 @@
                 @foreach ($blog_articles as $article)
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="blog-entry">
-                            {{-- <a href="blog-single.html" class="block-20 d-flex align-items-end"
-                            style="background-image: url({{ asset($article->img_article) }});"> --}}
                             <a href="{{ url('/blog-details?id=' . $article->id) }}"
                                 class="block-20 d-flex align-items-end"
-                                style="background-image: url({{ asset($article->img_article) }});">
+                                style="background-image: url('{{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }}');">
                                 <div class="meta-date text-center p-2" style="background: maroon;">
-                                    <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
-                                    <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
-                                    <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
+                                    <span
+                                        class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
+                                    <span
+                                        class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
+                                    <span
+                                        class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
                                 </div>
                             </a>
                             <div class="text border border-top-0 p-4">
                                 <h3 class="heading">{{ $article->titre_article }}</h3>
                                 <p>{{ $article->resume_article }}</p>
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a href="{{ url('/blog-details?id=' . $article->id) }}"
+                                    <p class="mb-0"><a
+                                            href="{{ url('/blog-details?id=' . $article->id) }}"
                                             class="btn btn-primary">Lire l'article <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                     <p class="ml-auto mb-0">
-                                    <p>Admin</p>
-                                    <p><span class="icon-chat"></span> 63</p>
+                                        {{-- <p>Admin</p>
+                                    <p><span class="icon-chat"></span> 63</p> --}}
                                     </p>
                                 </div>
                             </div>
@@ -351,10 +353,9 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
-                stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
-                stroke-miterlimit="10" stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00" />
         </svg></div>
 
 

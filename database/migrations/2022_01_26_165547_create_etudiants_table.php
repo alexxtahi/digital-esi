@@ -16,10 +16,13 @@ class CreateEtudiantsTable extends Migration
         Schema::create('etudiants', function (Blueprint $table) {
             $table->id();
             $table->string('matri_etud');
-            $table->string('nom_etud');
-            $table->string('prenom_etud');
             $table->string('date_naiss_etud');
+            $table->string('bio')->nullable();
+            $table->string('promotion')->default('2019-2022');
+            $table->integer('id_user');
             $table->integer('id_classe');
+            $table->boolean('est_diplome')->default(false);
+            $table->string('filiere_diplome')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });

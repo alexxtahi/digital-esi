@@ -12,6 +12,9 @@
                             <li><span class="icon icon-phone"></span><span class="text">
                                     +225 27 30 64 66 80
                                 </span></li>
+                            <li><span class="icon icon-mobile-phone"></span><span class="text">
+                                    +225 07 08 58 40 34
+                                </span></li>
                             <li><span class="icon icon-envelope"></span><span class="text">
                                     esi@inphb.ci
                                 </span></li>

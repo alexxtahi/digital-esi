@@ -13,9 +13,15 @@ class EtudiantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function nosEtudiantsDiplomesIndex()
     {
-        //
+        // Datas fetching
+        $etudiants_diplomes = Etudiant::join('users', 'users.id', '=', 'etudiants.id_user')
+            ->where([['etudiants.deleted_at', null], ['etudiants.est_diplome', true]])
+            ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user')
+            ->get();
+        // Display
+        return view('services.etudiants-diplomes', compact('etudiants_diplomes'));
     }
 
     /**

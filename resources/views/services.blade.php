@@ -68,11 +68,11 @@
                 </div>
                 {{-- Annuaire --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="#">
+                    <a href="{{ route('nos-etudiants-diplomes') }}">
                         <div class="staff border">
                             <div class="text pt-3 px-3 pb-4 text-center">
                                 <span class="ion-md-document"></span>
-                                <h3>Nos diplomés</h3>
+                                <h3>Nos étudiants diplomés</h3>
                                 <span class=" position mb-2">Annuaire</span>
                                 <div class="faded">
                                     <p style="color:rgba(50,50,50,0.5);">Nous conservons les liens avec nos étudiants
@@ -138,15 +138,14 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
-                stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
-                stroke-miterlimit="10" stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00" />
         </svg></div>
 
 
 
-    @include('components/js')
+    @include('components.js')
 
 </body>
 

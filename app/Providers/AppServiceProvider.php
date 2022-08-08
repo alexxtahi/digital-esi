@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\BlogArticle;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,7 +27,11 @@ class AppServiceProvider extends ServiceProvider
         //
         view()->composer('*', function ($view) {
             $view_name = str_replace('.', '-', $view->getName());
-            view()->share('view_name', $view_name);
+            $blog_articles = BlogArticle::where('deleted_at', null)->get();
+            view()->share([
+                'view_name' => $view_name,
+                'blog_articles' => $blog_articles,
+            ]);
         });
     }
 }

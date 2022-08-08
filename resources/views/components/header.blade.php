@@ -16,13 +16,13 @@
                             <span>esi@inphb.ci</span>
                         </div>
                     </div>
-                    <div class="col-md d-flex topper align-items-center py-md-4">
+                    <div class="col-md d-flex topper align-items-center py-md-8">
                         <div class="icon d-flex justify-content-center align-items-center"><span
                                 class="ion-ios-call custom-icon-color"></span></div>
                         <div class="text">
                             <span>Contact</span>
                             <span>+225 27 30 64 66 80
-                                {{-- / +225 07 08 58 40 34 --}}
+                                <br> +225 07 08 58 40 34
                             </span>
                         </div>
                     </div>
@@ -47,7 +47,8 @@
                                 class="ion-logo-facebook custom-icon-color"></i><span
                                 class="sr-only">Facebook</span></a>
                         <a href="https://twitter.com/inphbpolytech"><i
-                                class="ion-logo-twitter custom-icon-color"></i><span class="sr-only">Twitter</span></a>
+                                class="ion-logo-twitter custom-icon-color"></i><span
+                                class="sr-only">Twitter</span></a>
                         <a href="https://www.instagram.com/inphb/?hl=fr"><i
                                 class="ion-logo-instagram custom-icon-color"></i><span
                                 class="sr-only">Instagram</span></a>
