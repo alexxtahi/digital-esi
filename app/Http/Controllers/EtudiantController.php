@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Http\Requests\StoreEtudiantRequest;
 use App\Http\Requests\UpdateEtudiantRequest;
+use App\Models\Filiere;
 
 class EtudiantController extends Controller
 {
@@ -20,8 +21,9 @@ class EtudiantController extends Controller
             ->where([['etudiants.deleted_at', null], ['etudiants.est_diplome', true]])
             ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user')
             ->get();
+        $filieres = Filiere::where('deleted_at', null)->get();
         // Display
-        return view('services.etudiants-diplomes', compact('etudiants_diplomes'));
+        return view('services.etudiants-diplomes', compact('etudiants_diplomes', 'filieres'));
     }
 
     /**

@@ -42,6 +42,8 @@
                                     class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
                         <li><a href="{{ route('contacts') }}"><span
                                     class="ion-ios-arrow-round-forward mr-2"></span>Contacts</a></li>
+                        <li><a href="{{ route('dashboard.index') }}"><span
+                                    class="ion-ios-arrow-round-forward mr-2"></span>Tableau de bord</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,9 +61,9 @@
                                 </h3>
                                 <div class="meta">
                                     <div><span class="icon-calendar"></span>
-                                        {{ date('d M Y', strtotime($article->date_publication)) }}</div>
-                                    <div><span class="icon-person"></span> Admin</div>
-                                    <div><span class="icon-chat"></span> 19</div>
+                                        {{ date('d F Y', strtotime($article->date_publication)) }}</div>
+                                    {{-- <div><span class="icon-person"></span> Admin</div>
+                                    <div><span class="icon-chat"></span> 19</div> --}}
                                 </div>
                             </div>
                         </div>

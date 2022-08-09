@@ -84,56 +84,39 @@
     </section>
 
 
-    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(images/bg_5.jpg);"
-        data-stellar-background-ratio="0.5">
+    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb"
+        style="background-image: url({{ asset('img/header-pic.jpg') }});" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-md-6 py-5 px-md-5">
                     <div class="py-md-5">
                         <div class="heading-section heading-section-white ftco-animate mb-5">
-                            <h2 class="mb-4">Request A Quote</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+                            <h2 class="mb-4">L'industrialisation pour l'émergence.</h2>
+                            <p> Intégrer l'ESI pour finir sur des débouchés tels que: </p>
+                            <div class="custom-debouches-box">
+                                <ul style="color: rgba(255, 255, 255, 0.9);">
+                                    <li>Agro-industrie</li>
+                                    <li>Energie</li>
+                                    <li>Mécanique</li>
+                                    <li>Electricité</li>
+                                    <li>Automatismes indutriels</li>
+                                    <li>Maintenance industrielle</li>
+                                    <li>Industries chimiques et agroalimentaires</li>
+                                    <li>Informatique et télécommunications</li>
+                                </ul>
+                                <ul style="color: rgba(255, 255, 255, 0.9);">
+                                    <li>Automobile</li>
+                                    <li>Manutention</li>
+                                    <li>Audit</li>
+                                    <li>Assistance et conseil</li>
+                                    <li>Bureaux d'études et de réalisation</li>
+                                    <li>Maintenance</li>
+                                    <li>Enseignement</li>
+                                    <li>Innovation technologique</li>
+                                </ul>
+                            </div>
                         </div>
-                        <form action="#" class="appointment-form ftco-animate">
-                            <div class="d-md-flex">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name">
-                                </div>
-                                <div class="form-group ml-md-4">
-                                    <input type="text" class="form-control" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="d-md-flex">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">Select Guidance</option>
-                                                <option value="">Finance</option>
-                                                <option value="">Business</option>
-                                                <option value="">Auto Loan</option>
-                                                <option value="">Real Estate</option>
-                                                <option value="">Other Services</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group ml-md-4">
-                                    <input type="text" class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="d-md-flex">
-                                <div class="form-group">
-                                    <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-group ml-md-4">
-                                    <input type="submit" value="Request A Quote" class="btn btn-white py-3 px-4">
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -141,94 +124,38 @@
     </section>
 
 
+    <!-- Nos formations -->
     <section class="ftco-section testimony-section">
         <div class="container-fluid px-md-5">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center heading-section ftco-animate">
-                    <span class="subheading">Testimonies</span>
-                    <h2 class="mb-4">Our Clients Says</h2>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia. It is a paradisematic country</p>
+                    <span class="subheading">Formation</span>
+                    <h2 class="mb-4">Nos filières</h2>
+                    <p>Les parcours de formation proposés par l'ESI</p>
                 </div>
             </div>
             <div class="row ftco-animate justify-content-center">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
-                        <div class="item">
-                            <div class="testimony-wrap d-flex">
-                                <div class="user-img" style="background-image: url(images/person_1.jpg)">
-                                </div>
-                                <div class="text pl-4">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Racky Henderson</p>
-                                    <span class="position">Father</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap d-flex">
-                                <div class="user-img" style="background-image: url(images/person_2.jpg)">
-                                </div>
-                                <div class="text pl-4">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Henry Dee</p>
-                                    <span class="position">Businesswoman</span>
+                        @foreach ($filieres as $fil)
+                            <div class="item">
+                                <div class="testimony-wrap d-flex"
+                                    @if ($fil->lib_filiere === 'STIC') style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/info.jpg') }});"
+                                @elseif ($fil->lib_filiere === 'STGP')
+                                    style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/chimie.jpg') }});"
+                                @else
+                                    style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/mecatronic.jpg') }});" @endif>
+                                    <div class="text pl-4">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+                                            {{-- <i class="icon-quote-left"></i> --}}
+                                        </span>
+                                        <p class="text-white">{{ $fil->description_filiere }}</p>
+                                        <p class="name text-white">{{ $fil->lib_filiere }}</p>
+                                        <span class="position">ESI</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap d-flex">
-                                <div class="user-img" style="background-image: url(images/person_3.jpg)">
-                                </div>
-                                <div class="text pl-4">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Mark Huff</p>
-                                    <span class="position">Businesswoman</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap d-flex">
-                                <div class="user-img" style="background-image: url(images/person_4.jpg)">
-                                </div>
-                                <div class="text pl-4">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Rodel Golez</p>
-                                    <span class="position">Businesswoman</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap d-flex">
-                                <div class="user-img" style="background-image: url(images/person_1.jpg)">
-                                </div>
-                                <div class="text pl-4">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Ken Bosh</p>
-                                    <span class="position">Businesswoman</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

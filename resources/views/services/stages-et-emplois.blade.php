@@ -14,7 +14,7 @@
     @include('components.header')
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/blog/blog1.jpg') }});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/header-pic2.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -44,11 +44,11 @@
 
                 @foreach ($offres as $offre)
                     <div class="col-md-6 col-lg-4 ftco-animate">
-                        <div class="blog-entry">
+                        <div class="blog-entry custom-offre-card">
                             <a href="{{ url('/offre-details?id=' . $offre->id) }}"
                                 class="block-20 d-flex align-items-end"
                                 style='background-image: url("{{ $offre->img_offre != null ? asset($offre->img_offre) : asset('img/contactbanner.png') }}");'>
-                                <div class="meta-date text-center p-2">
+                                <div class="meta-date text-center p-2" style="background: maroon;">
                                     <span
                                         class="day">{{ date(' d', strtotime($offre->date_publication)) }}</span>
                                     <span
@@ -59,6 +59,7 @@
                             </a>
                             <div class="text border border-top-0 p-4">
                                 <h3 class="heading"><a href="#">{{ $offre->titre }}</a></h3>
+                                <h6><strong>Type d'offre:</strong> {{ $offre->type_offre }}</h6>
                                 <p>{{ $offre->description }}</p>
                                 <div class="d-flex align-items-center mt-4">
                                     <p class="mb-0"><a href={{ url('/offre-details?id=' . $offre->id) }}
@@ -78,21 +79,6 @@
 
 
 
-            </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

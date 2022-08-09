@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('majestic-master/css/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('majestic-master/images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
 </head>
 
 <body>
@@ -78,6 +79,9 @@
                                 <div class="my-3">
                                     <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                                         type="submit">Connexion</button>
+                                    <a href="{{ route('home') }}"
+                                        class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">Retour
+                                        à l'accueil</a>
                                 </div>
                                 {{-- <div class="text-center mt-4 font-weight-light">
                                     Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
@@ -85,10 +89,13 @@
                             </form>
                         </div>
                     </div>
-                    <div style="background: url({{ asset('img/blog/blog1.jpg') }}) no-repeat center/cover;"
+                    <div style="background: url({{ asset('img/login-pic.jpg') }}) no-repeat center/cover;"
                         class="col-lg-6 login-half-bg d-flex flex-row">
-                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">
-                            Ecole Supérieure d'Industrie</p>
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end"
+                            style="display: flex; flex-direction: column; align-items: center;">
+                            <img class="custom-logo-esi-login" src="{{ asset('img/logo-esi.png') }}" alt="">
+                            Ecole Supérieure d'Industrie
+                        </p>
                     </div>
                 </div>
             </div>
