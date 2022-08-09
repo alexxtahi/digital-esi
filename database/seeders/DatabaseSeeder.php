@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FiliereSeeder::class); // Créer les filières par défaut
         $this->call(SpecialiteSeeder::class); // Créer les spécialités par défaut
         $this->call(EtudiantSeeder::class); // Créer les spécialités par défaut
-        // \App\Models\User::factory(10)->create();
+        \App\Models\OffreEmploi::factory(10)->create();
     }
 }

@@ -19,10 +19,20 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Blog</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href={{ url('/') }}>Accueil <i
-                                    class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i
-                                class="ion-ios-arrow-forward"></i></span></p>
+                    <h1 class="mb-2 bread">Offres de stages et d'emplois</h1>
+                    <p class="breadcrumbs">
+                        <span class="mr-2">
+                            <a href={{ url('/') }}>
+                                Accueil <i class="ion-ios-arrow-forward"></i>
+                            </a>
+                        </span>
+                        <span class="mr-2">
+                            <a href={{ url('/services') }}>
+                                Services <i class="ion-ios-arrow-forward"></i>
+                            </a>
+                        </span>
+                        <span>Stages et emplois <i class="ion-ios-arrow-forward"></i></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -32,29 +42,33 @@
         <div class="container">
             <div class="row">
 
-                @foreach ($blog_articles as $article)
+                @foreach ($offres as $offre)
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="blog-entry">
-                            <a href="{{ url('/blog-details?id=' . $article->id) }}"
+                            <a href="{{ url('/offre-details?id=' . $offre->id) }}"
                                 class="block-20 d-flex align-items-end"
-                                style='background-image: url("{{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }}");'>
+                                style='background-image: url("{{ $offre->img_offre != null ? asset($offre->img_offre) : asset('img/contactbanner.png') }}");'>
                                 <div class="meta-date text-center p-2">
-                                    <span class="day">{{ date(' d', strtotime($article->date_publication)) }}</span>
-                                    <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
-                                    <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
+                                    <span
+                                        class="day">{{ date(' d', strtotime($offre->date_publication)) }}</span>
+                                    <span
+                                        class="mos">{{ date('M', strtotime($offre->date_publication)) }}</span>
+                                    <span
+                                        class="yr">{{ date('Y', strtotime($offre->date_publication)) }}</span>
                                 </div>
                             </a>
                             <div class="text border border-top-0 p-4">
-                                <h3 class="heading"><a href="#">{{ $article->titre_article }}</a></h3>
-                                <p>{{ $article->resume_article }}</p>
+                                <h3 class="heading"><a href="#">{{ $offre->titre }}</a></h3>
+                                <p>{{ $offre->description }}</p>
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a href={{ url('/blog-details?id=' . $article->id) }}
-                                            class="btn btn-primary">Voir plus <span
+                                    <p class="mb-0"><a href={{ url('/offre-details?id=' . $offre->id) }}
+                                            class="btn btn-primary">Voir l'offre <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                     <p class="ml-auto mb-0">
-                                        <a href="#" class="mr-2">Admin</a>
-                                        <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                                        Date limite:
+                                        {{ $offre->date_limite ?? 'Aucune' }}
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -87,10 +101,9 @@
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen">
         <svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
-                stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
-                stroke-miterlimit="10" stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00" />
         </svg>
     </div>
 

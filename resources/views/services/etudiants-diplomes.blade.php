@@ -34,7 +34,7 @@
                                 Services <i class="ion-ios-arrow-forward"></i>
                             </a>
                         </span>
-                        <span>Nos étudiants diplômés <i class="ion-ios-arrow-forward"></i></span>
+                        <span>Etudiants diplômés <i class="ion-ios-arrow-forward"></i></span>
                     </p>
                 </div>
             </div>

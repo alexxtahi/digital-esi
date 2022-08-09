@@ -227,7 +227,7 @@
                     <div class="tab-content">
                         <div class="tab-pane container p-0 active" id="services-1">
                             <div class="img"
-                                style="background-image: url({{ asset('img/specialites/info.jpg') }});">
+                                style="background-image: url({{ asset('img/specialites/mecatronic.jpg') }});">
                             </div>
                             <h3><a href="#">Cycle Technicien Supérieur (BAC +3)</a></h3>
                             <p>
@@ -238,7 +238,7 @@
                         </div>
                         <div class="tab-pane container p-0 fade" id="services-2">
                             <div class="img"
-                                style="background-image: url({{ asset('img/specialites/electronics.jpg') }});"></div>
+                                style="background-image: url({{ asset('img/specialites/info.jpg') }});"></div>
                             <h3><a href="#">Cycle Ingénieur (BAC +5)</a></h3>
                             <p>
                                 L'admission au cycle ingénieur se fait par voie de concours après deux années de classes

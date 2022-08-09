@@ -52,7 +52,7 @@
                 </div>
                 {{-- Offre d'emploi --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="#">
+                    <a href="{{ route('stages-et-emplois') }}">
                         <div class="staff border">
                             <div class="text pt-3 px-3 pb-4 text-center">
                                 <span class="ion-md-document"></span>
@@ -68,11 +68,11 @@
                 </div>
                 {{-- Annuaire --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="{{ route('nos-etudiants-diplomes') }}">
+                    <a href="{{ route('etudiants-diplomes') }}">
                         <div class="staff border">
                             <div class="text pt-3 px-3 pb-4 text-center">
                                 <span class="ion-md-document"></span>
-                                <h3>Nos étudiants diplomés</h3>
+                                <h3>Etudiants diplomés</h3>
                                 <span class=" position mb-2">Annuaire</span>
                                 <div class="faded">
                                     <p style="color:rgba(50,50,50,0.5);">Nous conservons les liens avec nos étudiants
