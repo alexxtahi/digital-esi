@@ -60,9 +60,32 @@
                             <h3 class="mb-5 h4 font-weight-bold">Postuler</h3>
                             <div class="form-group">
                                 @if (Auth::check())
-                                    <a href="#" class="btn py-3 px-4 btn-primary">
-                                        Postuler maintenant
-                                    </a>
+                                    <form action="#" class="p-5 bg-light">
+                                        <div class="form-group">
+                                            <label for="motivations">Lettre de motivation</label>
+                                            <input type="file" accept="application/pdf" class="form-control"
+                                                name="motivations">
+                                        </div>
+                                        @if ($authUser->etudiant != null && $authUser->etudiant->cv_path != null)
+                                            <div class="form-group">
+                                                <label for="cv">CV</label>
+                                                <div class="alert alert-info" role="alert">
+                                                    Nous joindrons le CV de votre profil à votre candidature.
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="form-group">
+                                                <label for="cv">Importer un CV</label>
+                                                <input required class="form-control" type="file"
+                                                    accept="application/pdf" name="cv">
+                                            </div>
+                                        @endif
+                                        <div class="form-group">
+                                            <input type="submit" value="Postuler maintenant"
+                                                class="btn py-3 px-4 btn-primary">
+                                        </div>
+
+                                    </form>
                                 @else
                                     <a href="{{ route('login') }}" class="btn py-3 px-4 btn-primary">
                                         Se connecter pour postuler

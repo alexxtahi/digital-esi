@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\OffreEmploi;
 use App\Http\Requests\StoreOffreEmploiRequest;
 use App\Http\Requests\UpdateOffreEmploiRequest;
+use App\Models\Classe;
+use App\Models\Etudiant;
+use App\Models\Filiere;
+use Illuminate\Support\Facades\Auth;
 
 class OffreEmploiController extends Controller
 {
@@ -27,7 +31,7 @@ class OffreEmploiController extends Controller
         $offres_similaires = OffreEmploi::where([['id', '!=', $offre->id], ['domaine', $offre->domaine], ['deleted_at', null]])->get();
 
         // Affichage
-        return view('services.offre-details', compact('offre', 'offres_similaires'));
+        return view('services.offre-details', compact('offre', 'offres_similaires'),);
     }
 
     /**
