@@ -45,7 +45,7 @@
                 @foreach ($offres as $offre)
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="blog-entry custom-offre-card">
-                            <a href="{{ url('/offre-details?id=' . $offre->id) }}"
+                            <a href="{{ route('offre-details', ['id' => $offre->id]) }}"
                                 class="block-20 d-flex align-items-end"
                                 style='background-image: url("{{ $offre->img_offre != null ? asset($offre->img_offre) : asset('img/contactbanner.png') }}");'>
                                 <div class="meta-date text-center p-2" style="background: maroon;">

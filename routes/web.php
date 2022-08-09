@@ -50,8 +50,11 @@ Route::get('/blog-details', [BlogArticleController::class, 'detailsArticle'])->n
 Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post-commentaire');
 
 //! --- STAGES ET EMPLOIS ---
-Route::get('/stages-et-emplois', [OffreEmploiController::class, 'index'])->name('stages-et-emplois');
-Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->name('offre-details');
+Route::group(['prefix' => 'stages-et-emplois'], function () {
+    Route::get('/', [OffreEmploiController::class, 'index'])->name('stages-et-emplois');
+    Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->name('offre-details');
+    Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
+});
 
 //! --- DIPLÔMÉS ---
 Route::get('/etudiants-diplomes', [EtudiantController::class, 'nosEtudiantsDiplomesIndex'])->name('etudiants-diplomes');

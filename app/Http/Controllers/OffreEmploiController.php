@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\UserHelper;
 use App\Models\OffreEmploi;
 use App\Http\Requests\StoreOffreEmploiRequest;
 use App\Http\Requests\UpdateOffreEmploiRequest;
-use App\Models\Classe;
-use App\Models\Etudiant;
-use App\Models\Filiere;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OffreEmploiController extends Controller
@@ -20,8 +20,9 @@ class OffreEmploiController extends Controller
     public function index()
     {
         $offres = OffreEmploi::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
         // Display
-        return view('services.stages-et-emplois', compact('offres'));
+        return view('services.stages-et-emplois', compact('offres', 'result'));
     }
 
     // Page de détails d'une offre
@@ -29,9 +30,35 @@ class OffreEmploiController extends Controller
     {
         $offre = OffreEmploi::where([['id', $request->get('id')], ['deleted_at', null]])->first();
         $offres_similaires = OffreEmploi::where([['id', '!=', $offre->id], ['domaine', $offre->domaine], ['deleted_at', null]])->get();
+        $result = session()->get('result') ?? null;
 
         // Affichage
-        return view('services.offre-details', compact('offre', 'offres_similaires'),);
+        return view('services.offre-details', compact('offre', 'offres_similaires', 'result'),);
+    }
+
+    public function candidate(Request $request)
+    {
+        try {
+            $result = ['state' => 'error', 'message' => 'Une erreur est survenue'];
+            $user = UserHelper::getAuthUser();
+            if ($user != null && $user->role_user == 'Etudiant') {
+                $cv = null;
+                if ($request->cv == null) {
+                    // dd(public_path($user->etudiant->cv_path));
+                    $cv = File(public_path($user->etudiant->cv_path));
+                } else {
+                    // dd($request);
+                    // $cv = File($request->cv);
+                }
+            }
+            $result['state'] = 'success';
+            $result['message'] = "Votre candidature a bien été envoyé !";
+        } catch (Exception $exc) {
+            $result['state'] = 'danger';
+            $result['message'] = "Echec de l'envoi de la candidature.";
+        }
+        // dd($request);
+        return redirect()->back()->with('result', $result);
     }
 
     /**

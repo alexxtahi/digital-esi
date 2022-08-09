@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\UserHelper;
 use App\Models\BlogArticle;
 use App\Models\Classe;
 use App\Models\Etudiant;
@@ -33,16 +34,7 @@ class AppServiceProvider extends ServiceProvider
             $view_name = str_replace('.', '-', $view->getName());
             $blog_articles = BlogArticle::where('deleted_at', null)->get();
             // Retrouver les infos d'un étudiant
-            $authUser = null;
-            if (Auth::check()) {
-                $authUser = Auth::user();
-                if ($authUser->role_user == 'Etudiant') {
-                    $authUser['etudiant'] = Etudiant::where('id_user', $authUser->id)->first();
-                    $authUser['etudiant']['classe'] = Classe::find($authUser['etudiant']->id_classe);
-                    if ($authUser['etudiant']['classe'] != null)
-                        $authUser['etudiant']['filiere'] = Filiere::find($authUser['etudiant']['classe']->id_filiere);
-                }
-            }
+            $authUser = UserHelper::getAuthUser();
 
             view()->share([
                 'view_name' => $view_name,

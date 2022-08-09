@@ -37,6 +37,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
+                    <!-- Message après opération -->
+                    @if ($result != null)
+                        @switch($result['state'])
+                            @case('success')
+                                <div class="alert alert-success" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @case('warning')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @case('error')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $result['message'] }}
+                                </div>
+                            @break
+
+                            @default
+                        @endswitch
+                    @endif
                     <h2 class="mb-3">{{ $offre->titre }}</h2>
                     <div>
                         <p style="margin: 0;"><strong>Entreprise:</strong> {{ $offre->entreprise }}</p>
@@ -59,16 +83,44 @@
                         <div class="comment-form-wrap pt-5">
                             <h3 class="mb-5 h4 font-weight-bold">Postuler</h3>
                             <div class="form-group">
+                                <!-- Message après opération -->
+                                @if ($result != null)
+                                    @switch($result['state'])
+                                        @case('success')
+                                            <div class="alert alert-success" role="alert">
+                                                {{ $result['message'] }}
+                                            </div>
+                                        @break
+
+                                        @case('warning')
+                                            <div class="alert alert-warning" role="alert">
+                                                {{ $result['message'] }}
+                                            </div>
+                                        @break
+
+                                        @case('error')
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ $result['message'] }}
+                                            </div>
+                                        @break
+
+                                        @default
+                                    @endswitch
+                                @endif
                                 @if (Auth::check())
-                                    <form action="#" class="p-5 bg-light">
+                                    {{-- TODO: Fix upload issue --}}
+                                    <form action="{{ route('candidate-to-an-offer') }}" method="POST"
+                                        id="candidate-form" class="p-5 bg-light">
+                                        @csrf
+                                        @method('POST')
                                         <div class="form-group">
                                             <label for="motivations">Lettre de motivation</label>
-                                            <input type="file" accept="application/pdf" class="form-control"
-                                                name="motivations">
+                                            <input required type="file" accept="application/pdf"
+                                                class="form-control file-upload-default" name="motivations">
                                         </div>
                                         @if ($authUser->etudiant != null && $authUser->etudiant->cv_path != null)
                                             <div class="form-group">
-                                                <label for="cv">CV</label>
+                                                <label>CV</label>
                                                 <div class="alert alert-info" role="alert">
                                                     Nous joindrons le CV de votre profil à votre candidature.
                                                 </div>
@@ -76,13 +128,13 @@
                                         @else
                                             <div class="form-group">
                                                 <label for="cv">Importer un CV</label>
-                                                <input required class="form-control" type="file"
+                                                <input required class="form-control  file-upload-default" type="file"
                                                     accept="application/pdf" name="cv">
                                             </div>
                                         @endif
                                         <div class="form-group">
                                             <input type="submit" value="Postuler maintenant"
-                                                class="btn py-3 px-4 btn-primary">
+                                                class="btn py-3 px-4 btn-primary" form="candidate-form">
                                         </div>
 
                                     </form>
@@ -123,14 +175,12 @@
                                     style='background-image: url("{{ $offre->img_offre != null ? asset($offre->img_offre) : asset('img/contactbanner.png') }}");'></a>
                                 <div class="text">
                                     <h3 class="heading" style="font-size: 13px;"><a
-                                            href="{{ url('/offre-details?id=' . $offre->id) }}">{{ $offre->description }}</a>
+                                            href="{{ route('offre-details', ['id' => $offre->id]) }}">{{ $offre->description }}</a>
                                     </h3>
                                     <div class="meta">
-                                        <div><span class="icon-calendar"></span>
-                                            {{ date('d M Y', strtotime($offre->date_publication)) }}
+                                        <div><span class="icon-timer"></span> Limite:
+                                            {{ $offre->date_limite != null ? date('d/m/Y', strtotime($offre->date_limite)) : 'Aucune' }}
                                         </div>
-                                        <div><span class="icon-person"></span> Admin</div>
-                                        <div><span class="icon-chat"></span> 19</div>
                                     </div>
                                 </div>
                             </div>
