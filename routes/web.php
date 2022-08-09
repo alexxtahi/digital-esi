@@ -9,6 +9,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\OffreEmploiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 // require auth routes
 require __DIR__ . '/auth.php';
@@ -75,4 +76,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/projets/edit/{id}', [ProjetController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.projets.edit');
     Route::put('/projets/update/{id}', [ProjetController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.projets.update');
     Route::delete('/projets/delete/{id}', [ProjetController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.projets.delete');
+    // Gestion des projets
+    Route::get('/profil', [UserController::class, 'profilIndex'])->middleware(['auth'])->name('dashboard.pages.profil.index');
+    Route::post('/profil', [UserController::class, 'updateCV'])->middleware(['auth'])->name('dashboard.pages.profil.updateCV');
 });

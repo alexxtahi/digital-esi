@@ -40,7 +40,8 @@
                     <h2 class="mb-3">{{ $offre->titre }}</h2>
                     <div>
                         <p style="margin: 0;"><strong>Entreprise:</strong> {{ $offre->entreprise }}</p>
-                        <p style="margin-top: 0;"><strong>Date limite:</strong> {{ $offre->date_limite ?? 'Aucune' }}
+                        <p style="margin-top: 0;"><strong>Date limite:</strong>
+                            {{ $offre->date_limite != null ? date('d F Y', strtotime($offre->date_limite)) : 'Aucune' }}
                         </p>
                     </div>
                     <p>

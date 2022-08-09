@@ -67,7 +67,7 @@
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                     <p class="ml-auto mb-0">
                                         Date limite:
-                                        {{ $offre->date_limite ?? 'Aucune' }}
+                                        {{ $offre->date_limite != null ? date('d/m/Y', strtotime($offre->date_limite)) : 'Aucune' }}
                                     </p>
 
                                 </div>
