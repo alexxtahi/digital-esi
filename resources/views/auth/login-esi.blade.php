@@ -54,6 +54,7 @@
                                             placeholder="Email" autofocus required>
                                     </div>
                                 </div>
+                                <input type="hidden" name="prevUrl" value="{{ $_COOKIE['prevUrl'] }}">
                                 <div class="form-group">
                                     <label for="exampleInputPassword">Mot de passe</label>
                                     <div class="input-group">

@@ -20,6 +20,12 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login-esi');
     }
 
+    public function loginWithBackRedirection()
+    {
+        $_COOKIE['prevUrl'] = url()->previous();
+        return view('auth.login-esi');
+    }
+
     /**
      * Handle an incoming authentication request.
      *
@@ -32,7 +38,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // ANCHOR: La vue après la connexion
+        return $request->prevUrl != null ? redirect()->intended($request->prevUrl) : redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

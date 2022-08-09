@@ -87,7 +87,8 @@
 
                                     </form>
                                 @else
-                                    <a href="{{ route('login') }}" class="btn py-3 px-4 btn-primary">
+                                    <a href="{{ route('login-with-back-redirection') }}"
+                                        class="btn py-3 px-4 btn-primary">
                                         Se connecter pour postuler
                                     </a>
                                 @endif
