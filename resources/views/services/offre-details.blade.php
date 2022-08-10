@@ -23,8 +23,13 @@
                 <div class="col-md-9 ftco-animate text-center">
                     <h1 class="mb-2 bread">{{ $offre->titre }}</h1>
                     <p class="breadcrumbs"><span class="mr-2"><a href={{ url('/') }}>Accueil <i
-                                    class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-                                href={{ route('stages-et-emplois') }}>Stages et emplois <i
+                                    class="ion-ios-arrow-forward"></i></a></span>
+                        <span class="mr-2">
+                            <a href={{ url('/services') }}>
+                                Services <i class="ion-ios-arrow-forward"></i>
+                            </a>
+                        </span>
+                        <span class="mr-2"><a href={{ route('stages-et-emplois') }}>Stages et emplois <i
                                     class="ion-ios-arrow-forward"></i></a></span>
                         <span>Details de l'offre <i class="ion-ios-arrow-forward"></i></span>
                     </p>
@@ -64,6 +69,7 @@
                     <h2 class="mb-3">{{ $offre->titre }}</h2>
                     <div>
                         <p style="margin: 0;"><strong>Entreprise:</strong> {{ $offre->entreprise }}</p>
+                        <p style="margin: 0;"><strong>Type d'offre:</strong> {{ $offre->type_offre }}</p>
                         <p style="margin-top: 0;"><strong>Date limite:</strong>
                             {{ $offre->date_limite != null ? date('d F Y', strtotime($offre->date_limite)) : 'Aucune' }}
                         </p>
@@ -81,7 +87,7 @@
 
                     <div class="mt-5">
                         <div class="comment-form-wrap pt-5">
-                            <h3 class="mb-5 h4 font-weight-bold">Postuler</h3>
+                            <h3 class="mb-5 h4 font-weight-bold">Soumettre sa candidature</h3>
                             <div class="form-group">
                                 <!-- Message après opération -->
                                 @if ($result != null)

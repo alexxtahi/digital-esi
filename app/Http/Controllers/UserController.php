@@ -32,10 +32,10 @@ class UserController extends Controller
         $result = ['state' => 'error', 'message' => ''];
         try {
             $etudiant = Etudiant::where('id_user', Auth::user()->id)->first();
-            $etudiant->cv_path = 'cv/CV_' .  $etudiant->matri_etud . '.pdf';
+            $etudiant->cv_path = 'documents/cv-etudiants/CV_' .  $etudiant->matri_etud . '.pdf';
             $etudiant->save();
             //Enregistrement du fichier du CV
-            $uploaded_file_path = $request->file('cv')->storeAs('cv', 'CV_' .  $etudiant->matri_etud . '.pdf');
+            $uploaded_file_path = $request->file('cv')->storeAs('cv-etudiants', 'CV_' .  $etudiant->matri_etud . '.pdf');
             $is_file_moved = File::moveDirectory(storage_path('app/' . $uploaded_file_path), public_path($etudiant->cv_path));
             if ($is_file_moved) {
                 $result['state'] = 'success';

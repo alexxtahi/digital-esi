@@ -8,6 +8,7 @@ use App\Http\Controllers\RenseignementController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\LivreController;
 use App\Http\Controllers\OffreEmploiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,13 @@ Route::group(['prefix' => 'stages-et-emplois'], function () {
     Route::get('/', [OffreEmploiController::class, 'index'])->name('stages-et-emplois');
     Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->name('offre-details');
     Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
+});
+
+//! --- BIBLIOTHEQUE ---
+Route::group(['prefix' => 'bibliotheque'], function () {
+    Route::get('/', [LivreController::class, 'index'])->name('bibliotheque');
+    Route::get('/livre-details', [LivreController::class, 'detailsLivre'])->name('livre-details');
+    // Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
 });
 
 //! --- DIPLÔMÉS ---

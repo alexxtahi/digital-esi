@@ -25,7 +25,6 @@ class OffreEmploiController extends Controller
         return view('services.stages-et-emplois', compact('offres', 'result'));
     }
 
-    // Page de détails d'une offre
     public function detailsOffre(StoreOffreEmploiRequest $request)
     {
         $offre = OffreEmploi::where([['id', $request->get('id')], ['deleted_at', null]])->first();
