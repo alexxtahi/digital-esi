@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\OffreEmploi::factory(10)->create();
         \App\Models\Livre::factory(15)->create();
         $this->call(ClasseSeeder::class); // Créer les spécialités par défaut
+        \App\Models\Enquete::factory(10)->create();
     }
 }

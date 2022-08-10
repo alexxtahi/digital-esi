@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">CVthèque</h1>
+                    <h1 class="mb-2 bread">Enquêtes</h1>
                     <p class="breadcrumbs">
                         <span class="mr-2">
                             <a href={{ url('/') }}>
@@ -31,7 +31,7 @@
                                 Services <i class="ion-ios-arrow-forward"></i>
                             </a>
                         </span>
-                        <span>CVthèque <i class="ion-ios-arrow-forward"></i></span>
+                        <span>Enquêtes <i class="ion-ios-arrow-forward"></i></span>
                     </p>
                 </div>
             </div>
@@ -42,30 +42,38 @@
         <div class="container">
             <div class="row">
 
-                @forelse ($etudiants as $etudiant)
+                @forelse ($enquetes as $enquete)
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="blog-entry custom-offre-card">
-                            <div class="block-20 d-flex align-items-end" style='height: 400px;'>
-                                <iframe style="width: 100%; height: 100%;" src="{{ asset($etudiant->cv_path) }}"
-                                    frameborder="0"></iframe>
-                            </div>
+                            <a href="{{ route('enquete-details', ['id' => $enquete->id]) }}"
+                                class="block-20 d-flex align-items-end"
+                                style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                            </a>
                             <div class="text border border-top-0 p-4">
-                                <h3 class="heading"><a
-                                        href="#">{{ $etudiant->nom_user . ' ' . $etudiant->prenom_user }}</a></h3>
-                                <h6><strong>Classe: </strong>
-                                    {{ $etudiant->lib_classe . ' ' . $etudiant->promotion }}</h6>
-                                {{-- <p>{{ $etudiant->bio }}</p> --}}
+                                <h3 class="heading"><a href="#">{{ $enquete->theme }}</a></h3>
+                                <h6><strong>Description</strong></h6>
+                                <p>{{ $enquete->description }}</p>
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a href="{{ asset($etudiant->cv_path) }}"
-                                            target="_blank" class="btn btn-primary">Voir le CV <span
+                                    <p class="mb-0"><a
+                                            href="{{ route('enquete-details', ['id' => $enquete->id]) }}"
+                                            class="btn btn-primary">Répondre <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
+                                    <p class="ml-auto mb-0">
+                                        Publiée le
+                                        {{ date('d/m/Y', strtotime($enquete->date_publication)) }}
+                                    </p>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <h1>Pas encore disponible</h1>
+                    <h1>Aucune enquête pour le moment</h1>
                 @endforelse
+
+
+
+
             </div>
         </div>
     </section>

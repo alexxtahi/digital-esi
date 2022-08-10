@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RenseignementController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EnqueteController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\OffreEmploiController;
@@ -55,6 +56,13 @@ Route::group(['prefix' => 'stages-et-emplois'], function () {
     Route::get('/', [OffreEmploiController::class, 'index'])->name('stages-et-emplois');
     Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->name('offre-details');
     Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
+});
+
+//! --- ENQUETES ---
+Route::group(['prefix' => 'enquetes'], function () {
+    Route::get('/', [EnqueteController::class, 'index'])->name('enquetes');
+    Route::get('/enquete-details', [EnqueteController::class, 'detailsEnquete'])->name('enquete-details');
+    Route::post('/comment', [EnqueteController::class, 'comment'])->name('comment-an-enquete');
 });
 
 //! --- BIBLIOTHEQUE ---

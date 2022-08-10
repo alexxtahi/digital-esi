@@ -32,7 +32,7 @@ class OffreEmploiController extends Controller
         $result = session()->get('result') ?? null;
 
         // Affichage
-        return view('services.offre-details', compact('offre', 'offres_similaires', 'result'),);
+        return view('services.offre-details', compact('offre', 'offres_similaires', 'result'));
     }
 
     public function candidate(Request $request)

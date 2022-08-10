@@ -54,7 +54,9 @@
                                             placeholder="Email" autofocus required>
                                     </div>
                                 </div>
+                                @if (isset($_COOKIE['prevUrl']) && !empty($_COOKIE['prevUrl']))
                                 <input type="hidden" name="prevUrl" value="{{ $_COOKIE['prevUrl'] }}">
+                                @endif
                                 <div class="form-group">
                                     <label for="exampleInputPassword">Mot de passe</label>
                                     <div class="input-group">

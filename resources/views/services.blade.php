@@ -91,7 +91,7 @@
                                 <h3>Les livres du savoir</h3>
                                 <span class=" position mb-2">Bibliothèque</span>
                                 <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Un grans registre de livres et documents utiles
+                                    <p style="color:rgba(50,50,50,0.5);">Un registre de livres utiles
                                         pour apprendre</p>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                 </div>
                 {{-- Enquête --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="#">
+                    <a href="{{ route('enquetes') }}">
                         <div class="staff border">
                             <div class="text pt-3 px-3 pb-4 text-center">
                                 <span class="ion-md-document"></span>
