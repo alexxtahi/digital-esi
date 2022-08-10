@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Bibliothèque</h1>
+                    <h1 class="mb-2 bread">CVthèque</h1>
                     <p class="breadcrumbs">
                         <span class="mr-2">
                             <a href={{ url('/') }}>
@@ -31,7 +31,7 @@
                                 Services <i class="ion-ios-arrow-forward"></i>
                             </a>
                         </span>
-                        <span>Bibliothèque <i class="ion-ios-arrow-forward"></i></span>
+                        <span>CVthèque <i class="ion-ios-arrow-forward"></i></span>
                     </p>
                 </div>
             </div>
@@ -42,31 +42,30 @@
         <div class="container">
             <div class="row">
 
-                @foreach ($livres as $livre)
+                @forelse ($etudiants as $etudiant)
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="blog-entry custom-offre-card">
-                            <a href="{{ route('livre-details', ['id' => $livre->id]) }}"
-                                class="block-20 d-flex align-items-end"
-                                style='background-image: url("{{ $livre->img_couverture != null ? asset($livre->img_couverture) : asset('img/contactbanner.png') }}");'>
-                            </a>
+                            <div class="block-20 d-flex align-items-end" style='height: 400px;'>
+                                <iframe style="width: 100%; height: 100%;" src="{{ asset($etudiant->cv_path) }}"
+                                    frameborder="0"></iframe>
+                            </div>
                             <div class="text border border-top-0 p-4">
-                                <h3 class="heading"><a href="#">{{ $livre->titre }}</a></h3>
-                                <h6><strong>Auteur: </strong> {{ $livre->auteur }}</h6>
-                                <p>{{ $livre->resume }}</p>
+                                <h3 class="heading"><a
+                                        href="#">{{ $etudiant->nom_user . ' ' . $etudiant->prenom_user }}</a></h3>
+                                <h6><strong>Classe: </strong>
+                                    {{ $etudiant->lib_classe . ' ' . $etudiant->promotion }}</h6>
+                                <p>{{ $etudiant->bio }}</p>
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a
-                                            href="{{ route('offre-details', ['id' => $livre->id]) }}"
-                                            class="btn btn-primary">Lire <span
+                                    <p class="mb-0"><a href="{{ asset($etudiant->cv_path) }}"
+                                            target="_blank" class="btn btn-primary">Voir <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
-
-
-
-
+                @empty
+                    <h1>Pas encore disponible</h1>
+                @endforelse
             </div>
         </div>
     </section>

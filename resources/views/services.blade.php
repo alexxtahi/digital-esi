@@ -36,7 +36,7 @@
             <div class="row justify-content-center">
                 {{-- CVThèque --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="#">
+                    <a href="{{ route('cvtheque') }}">
                         <div class="staff border">
                             <div class="text pt-3 px-3 pb-4 text-center">
                                 <span class="ion-md-document"></span>

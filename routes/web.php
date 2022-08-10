@@ -64,6 +64,10 @@ Route::group(['prefix' => 'bibliotheque'], function () {
     // Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
 });
 
+//! --- CVTHEQUE ---
+Route::get('/cvtheque', [EtudiantController::class, 'cvtheque'])->name('cvtheque');
+
+
 //! --- DIPLÔMÉS ---
 Route::get('/etudiants-diplomes', [EtudiantController::class, 'nosEtudiantsDiplomesIndex'])->name('etudiants-diplomes');
 

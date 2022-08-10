@@ -1,3 +1,5 @@
+<link rel="icon" href="{{ asset('img/logo-esi.png') }}" type="image/x-icon" />
+
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/open-iconic-bootstrap.min.css') }}">
@@ -17,4 +19,3 @@
 <link rel="stylesheet" href="{{ asset('negotiate-master/css/login.css') }}">
 {{-- Custom style --}}
 <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
-

@@ -26,6 +26,19 @@ class EtudiantController extends Controller
         return view('services.etudiants-diplomes', compact('etudiants_diplomes', 'filieres'));
     }
 
+    public function cvtheque()
+    {
+        $etudiants = Etudiant::join('users', 'users.id', '=', 'etudiants.id_user')
+            ->join('classes', 'classes.id', '=', 'etudiants.id_classe')
+            ->join('filieres', 'filieres.id', '=', 'classes.id_filiere')
+            ->where([['etudiants.cv_path', '!=', null], ['etudiants.deleted_at', null]])
+            ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user', 'classes.lib_classe', 'filieres.lib_filiere')
+            ->get();
+        $result = session()->get('result') ?? null;
+        // Display
+        return view('services.cvtheque', compact('etudiants', 'result'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
