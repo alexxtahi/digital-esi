@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Enquete extends Model
 {
     use HasFactory;
+    protected $fillable = ['theme', 'domaine', 'description', 'date_publication'];
 }

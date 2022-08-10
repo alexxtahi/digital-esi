@@ -30,8 +30,7 @@
                         </li>
                     </ul>
                     <div class="tab-content py-0 px-0">
-                        <div class="tab-pane fade show active" id="overview" role="tabpanel"
-                            aria-labelledby="overview-tab">
+                        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
                             <div class="d-flex flex-wrap justify-content-xl-between">
                                 <div
                                     class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
@@ -60,7 +59,7 @@
                                     <i class="mdi mdi-human mr-3 icon-lg text-success"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">Etudiants</small>
-                                        <h5 class="mr-2 mb-0">{{ $etudiants_nb }}</h5>
+                                        <h5 class="mr-2 mb-0">{{ count($etudiants) }}</h5>
                                     </div>
                                 </div>
                                 <div
@@ -68,7 +67,7 @@
                                     <i class="mdi mdi-toolbox mr-3 icon-lg text-warning"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">Projets</small>
-                                        <h5 class="mr-2 mb-0">{{ $projets_nb }}</h5>
+                                        <h5 class="mr-2 mb-0">{{ count($projets) }}</h5>
                                     </div>
                                 </div>
                                 <div
@@ -76,7 +75,7 @@
                                     <i class="mdi mdi-information mr-3 icon-lg text-danger"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">Actualités</small>
-                                        <h5 class="mr-2 mb-0">{{ $articles_nb }} Articles</h5>
+                                        <h5 class="mr-2 mb-0">{{ count($articles) }} Articles</h5>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +87,8 @@
                                     <i class="mdi mdi-file mr-3 icon-lg text-warning"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">CVs</small>
-                                        <h5 class="mr-2 mb-0">0</h5>
+                                        <h5 class="mr-2 mb-0">{{ count($etudiants->where('cv_path', '!=', null)) }}
+                                        </h5>
                                     </div>
                                 </div>
                                 <div
@@ -96,15 +96,15 @@
                                     <i class="mdi mdi-worker mr-3 icon-lg text-success"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">Offres d'emploi</small>
-                                        <h5 class="mr-2 mb-0">0</h5>
+                                        <h5 class="mr-2 mb-0">{{ count($offres) }}</h5>
                                     </div>
                                 </div>
                                 <div
                                     class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                                     <i class="mdi mdi-book mr-3 icon-lg text-danger"></i>
                                     <div class="d-flex flex-column justify-content-around">
-                                        <small class="mb-1 text-muted">Cours</small>
-                                        <h5 class="mr-2 mb-0">0</h5>
+                                        <small class="mb-1 text-muted">Livres</small>
+                                        <h5 class="mr-2 mb-0">{{ count($livres) }}</h5>
                                     </div>
                                 </div>
                                 <div
@@ -112,7 +112,7 @@
                                     <i class="mdi mdi-comment-search mr-3 icon-lg text-danger"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">Enquêtes</small>
-                                        <h5 class="mr-2 mb-0">0</h5>
+                                        <h5 class="mr-2 mb-0">{{ count($enquetes) }}</h5>
                                     </div>
                                 </div>
                             </div>

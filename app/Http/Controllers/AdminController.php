@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Projet;
 use App\Models\BlogArticle;
-
-use Illuminate\Http\Request;
+use App\Models\Enquete;
+use App\Models\Etudiant;
+use App\Models\Livre;
+use App\Models\OffreEmploi;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        // Récupération du personnel
-        $personnel_nb = count(User::where('deleted_at', null)->where('role_user', 'Directeur')->orWhere('role_user', 'Directeur des études')->orWhere('role_user', 'Enseignant')->get());
-        // Récupération des étudiants
-        $etudiants_nb = count(User::where('deleted_at', null)->where('role_user', 'Etudiant')->get());
-        // Récupération des étudiants
-        $projets_nb = count(Projet::where('deleted_at', null)->get());
-        // Récupération des articles de blog
-        $articles_nb = count(BlogArticle::where('deleted_at', null)->get());
+        $etudiants = Etudiant::where('deleted_at', null)->get();
+        $projets = Projet::where('deleted_at', null)->get();
+        $articles = BlogArticle::where('deleted_at', null)->get();
+        $livres = Livre::where('deleted_at', null)->get();
+        $offres = OffreEmploi::where('deleted_at', null)->get();
+        $enquetes = Enquete::where('deleted_at', null)->get();
         // Affichage
-        return view('dashboard.admin-index', compact('personnel_nb', 'etudiants_nb', 'projets_nb', 'articles_nb'));
+        return view('dashboard.admin-index', compact('etudiants', 'projets', 'articles', 'livres', 'offres', 'enquetes'));
     }
 }

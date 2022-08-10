@@ -102,4 +102,8 @@ Route::group(['prefix' => 'dashboard'], function () {
     // Gestion des projets
     Route::get('/profil', [UserController::class, 'profilIndex'])->middleware(['auth'])->name('dashboard.pages.profil.index');
     Route::post('/profil', [UserController::class, 'updateCV'])->middleware(['auth'])->name('dashboard.pages.profil.updateCV');
+    // Gestion des enquetes
+    Route::get('/enquetes', [EnqueteController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.enquetes.index');
+    Route::get('/enquetes/add', [EnqueteController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.enquetes.create');
+    Route::post('/enquetes', [EnqueteController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.enquetes.store');
 });

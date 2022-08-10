@@ -73,18 +73,21 @@
                                                 <i class="mdi mdi-table-edit"></i>
                                             </button>
                                             <button type="button" class="btn btn-inverse-danger btn-icon"
-                                                data-toggle="modal" data-target="#deleteModal">
+                                                data-toggle="modal" data-target="#deleteModal{{ $article->id }}">
                                                 <i class="mdi mdi-delete"></i>
                                             </button>
                                             {{-- Modal --}}
-                                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="deleteModal{{ $article->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel{{ $article->id }}"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
+                                                            <h5 class="modal-title"
+                                                                id="exampleModalLabel{{ $article->id }}">Suppression
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
@@ -121,11 +124,6 @@
     <script src="{{ asset('majestic-master/js/file-upload.js') }}"></script>
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
-        /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        function showInfo(){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

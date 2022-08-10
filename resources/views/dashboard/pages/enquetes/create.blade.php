@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Ajouter un article</h2>
+                        <h2>Ajouter une enquête</h2>
                     </div>
 
                 </div>
@@ -29,8 +29,8 @@
                             @case('success')
                                 <div class="alert alert-success" role="alert">
                                     {{ $result['message'] }} Cliquez <a
-                                        href="{{ route('dashboard.pages.articles.index') }}">ici</a>
-                                    pour voir toutes les actualités
+                                        href="{{ route('dashboard.pages.enquetes.index') }}">ici</a>
+                                    pour voir toutes les enquêtes
                                 </div>
                             @break
 
@@ -49,36 +49,28 @@
                             @default
                         @endswitch
                     @endif
-                    <form class="forms-sample" action="{{ route('dashboard.pages.articles.store') }}" method="POST">
+                    <form class="forms-sample" action="{{ route('dashboard.pages.enquetes.store') }}" method="POST">
                         @csrf
+                        @method('POST')
                         <div class="form-group">
-                            <label for="titre_article">Titre <span class="custom-required-mark">*</span></label>
-                            <input required type="text" name="titre_article" class="form-control" id="titre_article"
-                                placeholder="Titre de l'article">
+                            <label for="theme">Thème <span class="custom-required-mark">*</span></label>
+                            <input required type="text" name="theme" class="form-control" id="theme"
+                                placeholder="Thème de l'enquête">
                         </div>
                         <div class="form-group">
-                            <label for="resume_article">Résumé <span class="custom-required-mark">*</span></label>
-                            <input required type="text" name="resume_article" class="form-control" id="resume_article"
-                                placeholder="Résumé de l'article">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contenu_article">Contenu <span class="custom-required-mark">*</span></label>
-                            <textarea required class="form-control" name="contenu_article" rows="4"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="img_article">Image</label>
-                            <input type="file" id="img_article" name="img_article" class="file-upload-default">
-                            <div class="input-group col-xs-12">
-                                <input type="text" name="image" class="form-control file-upload-info" disabled
-                                    placeholder="Image de l'article">
-                                <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary" type="button">Choisir</button>
-                                </span>
-                            </div>
+                            <label for="domaine">Domaine <span class="custom-required-mark">*</span></label>
+                            <select required class="form-control" name="domaine" id="domaine">
+                                <option value="">-- Choisissez un domaine --</option>
+                                @foreach ($specs as $spec)
+                                    <option value="{{ $spec->lib_spec }}">{{ $spec->lib_spec }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="description">Description <span class="custom-required-mark">*</span></label>
+                            <textarea required class="form-control" name="description" rows="4"></textarea>
+                        </div>
 
                         <button type="submit" class="btn btn-primary mr-2">Valider</button>
                         <button type="reset" class="btn btn-light">Annuler</button>

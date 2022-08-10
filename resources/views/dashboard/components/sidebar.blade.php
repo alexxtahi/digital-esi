@@ -46,6 +46,26 @@
                 </ul>
             </div>
         </li>
+        {{-- Enquêtes --}}
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#enquetes" aria-expanded="false"
+                aria-controls="enquetes">
+                <i class="mdi mdi-information menu-icon"></i>
+                <span class="menu-title">Enquêtes</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="enquetes">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.pages.enquetes.index') }}">Aperçu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.pages.enquetes.create') }}">Ajouter une
+                            enquête</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         {{-- Profil --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard.pages.profil.index') }}">

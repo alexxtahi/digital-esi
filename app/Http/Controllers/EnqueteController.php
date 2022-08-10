@@ -6,6 +6,7 @@ use App\Models\Enquete;
 use App\Http\Requests\StoreEnqueteRequest;
 use App\Http\Requests\UpdateEnqueteRequest;
 use App\Models\Commentaire;
+use App\Models\Specialite;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,70 +60,68 @@ class EnqueteController extends Controller
         // dd($request);
         return redirect()->back()->with('result', $result);
     }
+    public function dashIndex()
+    {
+        $enquetes = Enquete::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
+        return view('dashboard.pages.enquetes.index', compact('enquetes', 'result'));
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $specs = Specialite::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
+        return view('dashboard.pages.enquetes.create', compact('specs', 'result'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreEnqueteRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreEnqueteRequest $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Enquete  $enquete
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Enquete $enquete)
-    {
-        //
-    }
+        $data = $request->all();
+        // Validation de la requête
+        $request->validate([
+            'theme' => 'required',
+            'domaine' => 'required',
+            'description' => 'required',
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Enquete  $enquete
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Enquete $enquete)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateEnqueteRequest  $request
-     * @param  \App\Models\Enquete  $enquete
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateEnqueteRequest $request, Enquete $enquete)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Enquete  $enquete
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Enquete $enquete)
-    {
-        //
+        // Vérifier si l'enregistrement est déjà dans la base de données
+        $existant = Enquete::where('theme', $data['theme'])->first();
+        if ($existant != null) { // Si 'enregistrement existe déjà
+            if ($existant->deleted_at == null) {
+                // Message au cas où l'enregistrement existe déjà...
+                $result['state'] = 'warning';
+                $result['message'] = 'Cette enquête existe déjà.';
+            } else { // Au cas ou l'enregistrement avait été supprimé...'
+                $existant->description = $data['description'];
+                $existant->date_publication = now();
+                $existant->deleted_at = null;
+                $existant->deleted_by = null;
+                $existant->created_at = now();
+                $existant->save();
+                // Message de success
+                $result['state'] = 'success';
+                $result['message'] = "L'enquête a bien été enregistrée.";
+            }
+        } else { // Si l'enregistrement n'existe pas alors on le crée
+            try {
+                // Création d'un nouvel enregistrement
+                $enquete = new Enquete();
+                $enquete->theme = $data['theme'];
+                $enquete->domaine = $data['domaine'];
+                $enquete->description = $data['description'];
+                $enquete->date_publication = now();
+                $enquete->created_at = now();
+                $enquete->save(); // Sauvegarde
+                // Message de success
+                $result['state'] = 'success';
+                $result['message'] = "L'enquête a bien été enregistrée.";
+            } catch (Exception $exc) { // ! En cas d'erreur
+                $result['state'] = 'error';
+                $result['message'] = $exc->getMessage();
+            }
+        }
+        // Redirection
+        return redirect()->route('dashboard.pages.enquetes.create')->with('result', $result);
     }
 }

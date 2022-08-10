@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Projets</h2>
+                        <h2>Enquêtes</h2>
                     </div>
                 </div>
             </div>
@@ -43,53 +43,48 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
+                                    <th>Theme</th>
                                     <th>Domaine</th>
-                                    <th>Titre</th>
-                                    <th>Nom</th>
                                     <th>Description</th>
+                                    <th>Date de publication</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($projets as $projet)
+                                @foreach ($enquetes as $enquete)
                                     <tr>
-                                        <td class="py-1">
-                                            <img src="{{ $projet->img_projet != null ? asset($projet->img_projet) : asset('img/contactbanner.png') }}"
-                                                alt="image du projet {{ $projet->titre_projet }}" />
+                                        <td>
+                                            {{ $enquete->theme }}
                                         </td>
                                         <td>
-                                            {{ $projet->domaine_projet }}
+                                            {{ $enquete->domaine }}
                                         </td>
                                         <td>
-                                            {{ $projet->titre_projet }}
+                                            {{ $enquete->description }}
                                         </td>
                                         <td>
-                                            {{ $projet->nom_solution_projet }}
-                                        </td>
-
-                                        <td>
-                                            {{ $projet->description_projet }}
+                                            {{ $enquete->date_publication }}
                                         </td>
                                         <td class="custom-actions-td">
                                             <button type="button"
-                                                onclick="redirectBtn('{{ url('/dashboard/projets/edit/' . $projet->id) }}')"
+                                                onclick="redirectBtn('{{ url('/dashboard/enquetes/edit/' . $enquete->id) }}')"
                                                 class="btn btn-inverse-info btn-icon">
                                                 <i class="mdi mdi-table-edit"></i>
                                             </button>
                                             <button type="button" class="btn btn-inverse-danger btn-icon"
-                                                data-toggle="modal" data-target="#delete-modal-{{ $projet->id }}">
+                                                data-toggle="modal" data-target="#deleteModal{{ $enquete->id }}">
                                                 <i class="mdi mdi-delete"></i>
                                             </button>
                                             {{-- Modal --}}
-                                            <div class="modal fade" id="delete-modal-{{ $projet->id }}" tabindex="-1"
-                                                role="dialog" aria-labelledby="exampleModalLabel{{ $projet->id }}"
+                                            <div class="modal fade" id="deleteModal{{ $enquete->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel{{ $enquete->id }}"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
-                                                                id="exampleModalLabel{{ $projet->id }}">Suppression</h5>
+                                                                id="exampleModalLabel{{ $enquete->id }}">Suppression
+                                                            </h5>
                                                             <button type="button" class="close"
                                                                 data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
@@ -97,8 +92,8 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>Voulez vous vraiment supprimer cet enregistrement ?</p>
-                                                            <form id="delete-enreg-{{ $projet->id }}" method="POST"
-                                                                action="{{ url('/dashboard/projets/delete/' . $projet->id) }}">
+                                                            <form id="delete-enreg-{{ $enquete->id }}" method="POST"
+                                                                action="{{ url('/dashboard/enquetes/delete/' . $enquete->id) }}">
                                                                 @method('delete')
                                                                 @csrf
                                                             </form>
@@ -106,7 +101,7 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Annuler</button>
-                                                            <button form="delete-enreg-{{ $projet->id }}" type="submit"
+                                                            <button form="delete-enreg-{{ $enquete->id }}" type="submit"
                                                                 class="btn btn-danger">Supprimer</button>
                                                         </div>
                                                     </div>
