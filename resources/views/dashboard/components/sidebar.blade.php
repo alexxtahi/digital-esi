@@ -50,7 +50,7 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#enquetes" aria-expanded="false"
                 aria-controls="enquetes">
-                <i class="mdi mdi-information menu-icon"></i>
+                <i class="mdi mdi-search-web menu-icon"></i>
                 <span class="menu-title">Enquêtes</span>
                 <i class="menu-arrow"></i>
             </a>
@@ -62,6 +62,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard.pages.enquetes.create') }}">Ajouter une
                             enquête</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        {{-- Livres --}}
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#livres" aria-expanded="false"
+                aria-controls="livres">
+                <i class="mdi mdi-book menu-icon"></i>
+                <span class="menu-title">Livres</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="livres">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.pages.livres.index') }}">Aperçu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.pages.livres.create') }}">Ajouter un
+                            livre</a>
                     </li>
                 </ul>
             </div>

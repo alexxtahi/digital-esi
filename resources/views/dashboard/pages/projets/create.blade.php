@@ -28,7 +28,8 @@
                         @switch($result['state'])
                             @case('success')
                                 <div class="alert alert-success" role="alert">
-                                    {{ $result['message'] }} Cliquez <a href="{{ route('dashboard.pages.projets.index') }}">ici</a>
+                                    {{ $result['message'] }} Cliquez <a
+                                        href="{{ route('dashboard.pages.projets.index') }}">ici</a>
                                     pour voir tous les projets
                                 </div>
                             @break
@@ -82,7 +83,8 @@
 
                         <div class="form-group">
                             <label for="img_projet">Image</label>
-                            <input type="file" id="img_projet" name="img_projet" class="file-upload-default">
+                            <input type="file" accept="image/*" id="img_projet" name="img_projet"
+                                class="file-upload-default">
                             <div class="input-group col-xs-12">
                                 <input type="text" name="image" class="form-control file-upload-info" disabled
                                     placeholder="Image du projet">
@@ -106,11 +108,6 @@
     <script src="{{ asset('majestic-master/js/file-upload.js') }}"></script>
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
-        /*
-                                                                                                                function showInfo(){
-                                                                                                                    alert(document.getElementById('aa').value)
-                                                                                                                }
-                                                                                                                */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

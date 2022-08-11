@@ -69,7 +69,8 @@
 
                         <div class="form-group">
                             <label for="img_article">Image</label>
-                            <input type="file" id="img_article" name="img_article" class="file-upload-default">
+                            <input type="file" accept="image/*" id="img_article" name="img_article"
+                                class="file-upload-default">
                             <div class="input-group col-xs-12">
                                 <input type="text" name="image" class="form-control file-upload-info" disabled
                                     placeholder="Image de l'article">

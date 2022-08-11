@@ -24,7 +24,8 @@
                         @switch($result['state'])
                             @case('success')
                                 <div class="alert alert-success" role="alert">
-                                    {{ $result['message'] }} Cliquez <a href="{{ route('dashboard.pages.projets.index') }}">ici</a>
+                                    {{ $result['message'] }} Cliquez <a
+                                        href="{{ route('dashboard.pages.projets.index') }}">ici</a>
                                     pour voir tous les projets
                                 </div>
                             @break
@@ -44,8 +45,8 @@
                             @default
                         @endswitch
                     @endif
-                    <form class="forms-sample" action="{{ url('/dashboard/projets/update/' . $projet->id) }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form class="forms-sample" action="{{ url('/dashboard/projets/update/' . $projet->id) }}"
+                        method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
 
@@ -125,11 +126,6 @@
     <script src="{{ asset('majestic-master/js/file-upload.js') }}"></script>
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
-        /*
-                                                                                                                                                                                                                                                                                                            function showInfo(){
-                                                                                                                                                                                                                                                                                                                alert(document.getElementById('aa').value)
-                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                            */
         tinymce.init({
             selector: '#articleContent',
             language: 'fr_FR'

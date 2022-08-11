@@ -102,11 +102,18 @@ Route::group(['prefix' => 'dashboard'], function () {
     // Gestion des projets
     Route::get('/profil', [UserController::class, 'profilIndex'])->middleware(['auth'])->name('dashboard.pages.profil.index');
     Route::post('/profil', [UserController::class, 'updateCV'])->middleware(['auth'])->name('dashboard.pages.profil.updateCV');
-    // Gestion des enquetes
+    // Gestion des enquêtes
     Route::get('/enquetes', [EnqueteController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.enquetes.index');
     Route::get('/enquetes/add', [EnqueteController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.enquetes.create');
     Route::post('/enquetes', [EnqueteController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.enquetes.store');
     Route::get('/enquetes/edit/{id}', [EnqueteController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.enquetes.edit');
     Route::put('/enquetes/update/{id}', [EnqueteController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.enquetes.update');
     Route::delete('/enquetes/delete/{id}', [EnqueteController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.enquetes.delete');
+    // Gestion des livres
+    Route::get('/livres', [LivreController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.livres.index');
+    Route::get('/livres/add', [LivreController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.livres.create');
+    Route::post('/livres', [LivreController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.livres.store');
+    Route::get('/livres/edit/{id}', [LivreController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.livres.edit');
+    Route::put('/livres/update/{id}', [LivreController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.livres.update');
+    Route::delete('/livres/delete/{id}', [LivreController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.livres.delete');
 });

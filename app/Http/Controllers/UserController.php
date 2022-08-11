@@ -9,7 +9,6 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {

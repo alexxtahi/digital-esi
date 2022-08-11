@@ -114,7 +114,7 @@ class BlogArticleController extends Controller
                 if (isset($data['img_article']) && !empty($data['img_article'])) {
                     $img_article = Image::make($data['img_article']);
                     //$img_article->resize(300, 300);  // redimensionner les images
-                    $img_article->save(public_path('/' . $article->img_article));
+                    $img_article->save(public_path($article->img_article));
                 }
 
                 // Message de success
@@ -189,7 +189,7 @@ class BlogArticleController extends Controller
             if (isset($data['img_article']) && !empty($data['img_article'])) {
                 $img_article = Image::make($data['img_article']);
                 //$img_article->resize(300, 300);  // redimensionner les images
-                $img_article->save(public_path('/' . $article->img_article));
+                $img_article->save(public_path($article->img_article));
             }
 
             // Message de success

@@ -91,7 +91,7 @@
                                 <h3>Les livres du savoir</h3>
                                 <span class=" position mb-2">Bibliothèque</span>
                                 <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Un registre de livres utiles
+                                    <p style="color:rgba(50,50,50,0.5);">Un registre de livres et documents utiles
                                         pour apprendre</p>
                                 </div>
                             </div>

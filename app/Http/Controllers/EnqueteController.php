@@ -60,6 +60,7 @@ class EnqueteController extends Controller
         // dd($request);
         return redirect()->back()->with('result', $result);
     }
+
     public function dashIndex()
     {
         $enquetes = Enquete::where('deleted_at', null)->get();
