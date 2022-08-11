@@ -92,6 +92,10 @@
                     <a href="{{ route('home') }}" class="nav-link">Accueil</a>
                 </li>
 
+                <li @if ($view_name == 'formations') class="nav-item custom-active" @else class="nav-item" @endif>
+                    <a href="{{ route('formations') }}" class="nav-link">Formations</a>
+                </li>
+
                 <li @if ($view_name == 'galerie') class="nav-item custom-active" @else class="nav-item" @endif>
                     <a href="{{ route('galerie') }}" class="nav-link">Galérie</a>
                 </li>

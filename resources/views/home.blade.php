@@ -48,7 +48,7 @@
     @endif
 
     <section class="ftco-intro ftco-no-pb img"
-        style="background: center / cover no-repeat url({{ asset('img/entree-inp.jpg') }})">
+        style="background: center / cover no-repeat url({{ asset('img/inp-centre.jpg') }})">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
@@ -74,7 +74,7 @@
                     <div class="tabulation-2 mt-4">
                         <div class="tab-content bg-light rounded mt-2">
                             <div class="tab-pane container p-0 active" id="home1">
-                                <p>
+                                <p class="text-justify">
                                     La réforme des grandes écoles de Yamoussoukro en 1996 a conduit à la création de
                                     l'Institut National Polytechnique Félix HOUPHOUËT-BOIGNY (INP-HB) qui est un
                                     consortium d'écoles dont l'Ecole Supérieure de L'Industrie (ESI). Depuis, l'ESI
@@ -159,44 +159,6 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Nos formations -->
-    <section class="ftco-section testimony-section">
-        <div class="container-fluid px-md-5">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center heading-section ftco-animate">
-                    <span class="subheading">Formation</span>
-                    <h2 class="mb-4">Nos filières</h2>
-                    <p>Les parcours de formation proposés par l'ESI</p>
-                </div>
-            </div>
-            <div class="row ftco-animate justify-content-center">
-                <div class="col-md-12">
-                    <div class="carousel-testimony owl-carousel">
-                        @foreach ($filieres as $fil)
-                            <div class="item">
-                                <div class="testimony-wrap d-flex"
-                                    @if ($fil->lib_filiere === 'STIC') style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/info.jpg') }});"
-                                @elseif ($fil->lib_filiere === 'STGP')
-                                    style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/chimie.jpg') }});"
-                                @else
-                                    style="background: linear-gradient(to left, #222c, #555c), center / cover no-repeat url({{ asset('img/specialites/mecatronic.jpg') }});" @endif>
-                                    <div class="text pl-4">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            {{-- <i class="icon-quote-left"></i> --}}
-                                        </span>
-                                        <p class="text-white">{{ $fil->description_filiere }}</p>
-                                        <p class="name text-white">{{ $fil->lib_filiere }}</p>
-                                        <span class="position">ESI</span>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -329,8 +291,7 @@
                                 <h3 class="heading">{{ $article->titre_article }}</h3>
                                 <p>{{ $article->resume_article }}</p>
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a
-                                            href="{{ url('/blog-details?id=' . $article->id) }}"
+                                    <p class="mb-0"><a href="{{ url('/blog-details?id=' . $article->id) }}"
                                             class="btn btn-primary">Lire l'article <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                     <p class="ml-auto mb-0">

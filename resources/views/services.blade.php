@@ -17,7 +17,7 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/entree-inp2.jpg') }});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/inp-centre.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -33,101 +33,89 @@
 
     <section class="ftco-section">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 {{-- CVThèque --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="{{ route('cvtheque') }}">
-                        <div class="staff border">
-                            <div class="text pt-3 px-3 pb-4 text-center">
-                                <span class="ion-md-document"></span>
-                                <h3>CVthèque</h3>
-                                <span class=" position mb-2">Documents</span>
-                                <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">La librarie de CV pour nos ingénieurs et
-                                        techniciens</p>
-                                </div>
-                            </div>
+                    <div class="blog-entry custom-offre-card">
+                        <a href="{{ route('cvtheque') }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">CVthèque</a></h3>
+                            <h6><strong>Archive de CVs</strong></h6>
+                            <p>La librarie de CV pour nos ingénieurs et techniciens</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                {{-- Offre d'emploi --}}
+                {{-- Stages et emplois --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="{{ route('stages-et-emplois') }}">
-                        <div class="staff border">
-                            <div class="text pt-3 px-3 pb-4 text-center">
-                                <span class="ion-md-document"></span>
-                                <h3>Stages et emplois</h3>
-                                <span class=" position mb-2">Offres</span>
-                                <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Là où les étudiants se confrontent au monde de
-                                        l'entreprise</p>
-                                </div>
-                            </div>
+                    <div class="blog-entry custom-offre-card">
+                        <a href="{{ route('stages-et-emplois') }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">Stages et emplois</a></h3>
+                            <h6><strong>Offres</strong></h6>
+                            <p>Là où les étudiants se confrontent au monde de
+                                l'entreprise</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 {{-- Annuaire --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="{{ route('etudiants-diplomes') }}">
-                        <div class="staff border">
-                            <div class="text pt-3 px-3 pb-4 text-center">
-                                <span class="ion-md-document"></span>
-                                <h3>Etudiants diplomés</h3>
-                                <span class=" position mb-2">Annuaire</span>
-                                <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Nous conservons les liens avec nos étudiants
-                                        diplomés</p>
-                                </div>
-                            </div>
+                    <div class="blog-entry custom-offre-card">
+                        <a href="{{ route('etudiants-diplomes') }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">Etudiants diplomés</a></h3>
+                            <h6><strong>Annuaire</strong></h6>
+                            <p>Nous conservons les liens avec nos étudiants
+                                diplomés</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 {{-- Bibliothèque --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="{{ route('bibliotheque') }}">
-                        <div class="staff border">
-                            <div class="text pt-3 px-3 pb-4 text-center">
-                                <span class="ion-md-document"></span>
-                                <h3>Les livres du savoir</h3>
-                                <span class=" position mb-2">Bibliothèque</span>
-                                <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Un registre de livres et documents utiles
-                                        pour apprendre</p>
-                                </div>
-                            </div>
+                    <div class="blog-entry custom-offre-card">
+                        <a href="{{ route('bibliotheque') }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">Les documents</a></h3>
+                            <h6><strong>Bibliothèque</strong></h6>
+                            <p>Un registre de livres et documents utiles
+                                pour apprendre</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 {{-- Enquête --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="{{ route('enquetes') }}">
-                        <div class="staff border">
-                            <div class="text pt-3 px-3 pb-4 text-center">
-                                <span class="ion-md-document"></span>
-                                <h3>Avis des diplomés</h3>
-                                <span class=" position mb-2">Enquêtes</span>
-                                <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Les avis de nos diplomés sur nos formations</p>
-                                </div>
-                            </div>
+                    <div class="blog-entry custom-offre-card">
+                        <a href="{{ route('enquetes') }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">Avis des diplomés</a></h3>
+                            <h6><strong>Enquêtes</strong></h6>
+                            <p>Les avis de nos diplomés sur nos formations et
+                                services</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 {{-- Gestion Admin --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
-                    <a href="#">
-                        <div class="staff border">
-                            <div class="text pt-3 px-3 pb-4 text-center">
-                                <span class="ion-md-document"></span>
-                                <h3>Gestion administrative</h3>
-                                <span class=" position mb-2">Gestion</span>
-                                <div class="faded">
-                                    <p style="color:rgba(50,50,50,0.5);">Pour gérer les détails administratifs de
-                                        l'école </p>
-                                </div>
-                            </div>
+                    <div class="blog-entry custom-offre-card">
+                        <a href="{{ route('enquetes') }}" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        </a>
+                        <div class="text border border-top-0 p-4">
+                            <h3 class="heading"><a href="#">Gestion administrative</a></h3>
+                            <h6><strong>Gestion</strong></h6>
+                            <p>Pour gérer les détails administratifs de
+                                l'école </p>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -49,40 +49,24 @@
             </div>
             <div class="col-md-7 wrap-about ftco-animate align-items-stretch d-flex">
                 <div class="bg-white p-5">
-                    <h2 class="mb-4">Un aperçu<br>de nos filières</h2>
+                    <h2 class="mb-4">Nos parcours de formation</h2>
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="services">
-                                <div class="icon mt-2 d-flex align-items-center"><span
-                                        class="flaticon-insurance"></span></div>
-                                <div class="text media-body">
-                                    <h3>STIC</h3>
-                                    <p>
-                                        Sciences et Technologies de l'Information et de la Communication
-                                    </p>
+                        @foreach ($filieres as $filiere)
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="services"
+                                        style="display: flex; flex-direction: row; align-items: center;">
+                                        <div class="icon"><span class="flaticon-analysis"></span></div>
+                                        <div class="text media-body" style="margin-left: 15px">
+                                            <h3>{{ $filiere->lib_filiere }}</h3>
+                                            <p>
+                                                {{ $filiere->description_filiere }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="services">
-                                <div class="icon mt-2"><span class="flaticon-analysis"></span></div>
-                                <div class="text media-body">
-                                    <h3>STGI</h3>
-                                    <p>
-                                        Sciences et Technologies du Génie Industriel
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="services">
-                                <div class="icon mt-2"><span class="flaticon-analysis"></span></div>
-                                <div class="text media-body">
-                                    <h3>STGP</h3>
-                                    <p>
-                                        Sciences et Technologies du Génie des Procédés
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

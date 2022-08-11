@@ -38,15 +38,12 @@ class HomeController extends Controller
         // Affichage
         return view('contacts', compact('blog_articles'));
     }
-    // Page du personnel
-    public function personnel()
+    // Page du formations
+    public function formations()
     {
-        // Récupération des articles récents
-        $blog_articles = BlogArticle::where('deleted_at', null)->paginate(3);
-        // Récupération du personnel
-        $personnel = User::where('deleted_at', null)->where('role_user', 'Directeur')->orWhere('role_user', 'Directeur des études')->get();
+        $filieres = Filiere::where('deleted_at', null)->get();
         // Affichage
-        return view('personnel', compact('blog_articles', 'personnel'));
+        return view('formations', compact('filieres'));
     }
     // Page de la galerie
     public function galerie()

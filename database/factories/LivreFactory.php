@@ -18,7 +18,7 @@ class LivreFactory extends Factory
             'resume' => $this->faker->text(),
             'auteur' => $this->faker->name() . ' ' . $this->faker->name(),
             'fichier' => 'documents/bibliotheque/livre0.pdf',
-            'img_couverture' => 'img/entree-inp.jpg',
+            'img_couverture' => 'img/inp-centre.jpg',
         ];
     }
 }

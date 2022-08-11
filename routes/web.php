@@ -36,14 +36,14 @@ Route::post('/', [NewsletterController::class, 'store'])->name('newsletter.store
 //! --- CONTACTS ---
 // Page des contacts
 Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
-// Page du personnel
-Route::get('/personnel', [HomeController::class, 'personnel'])->name('personnel');
+// Page des formations
+Route::get('/formations', [HomeController::class, 'formations'])->name('formations');
 // Page de la galerie
 Route::get('/galerie', [HomeController::class, 'galerie'])->name('galerie');
 // Page de l'à propos
 Route::get('/apropos', [HomeController::class, 'apropos'])->name('apropos');
 // Page des services
-Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/services', [HomeController::class, 'services'])->middleware(['auth'])->name('services');
 
 //! --- BLOG ---
 // Page de détails d'un article
@@ -53,31 +53,31 @@ Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post
 
 //! --- STAGES ET EMPLOIS ---
 Route::group(['prefix' => 'stages-et-emplois'], function () {
-    Route::get('/', [OffreEmploiController::class, 'index'])->name('stages-et-emplois');
-    Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->name('offre-details');
-    Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
+    Route::get('/', [OffreEmploiController::class, 'index'])->middleware(['auth'])->name('stages-et-emplois');
+    Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->middleware(['auth'])->name('offre-details');
+    Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->middleware(['auth'])->name('candidate-to-an-offer');
 });
 
 //! --- ENQUETES ---
 Route::group(['prefix' => 'enquetes'], function () {
-    Route::get('/', [EnqueteController::class, 'index'])->name('enquetes');
-    Route::get('/enquete-details', [EnqueteController::class, 'detailsEnquete'])->name('enquete-details');
-    Route::post('/comment', [EnqueteController::class, 'comment'])->name('comment-an-enquete');
+    Route::get('/', [EnqueteController::class, 'index'])->middleware(['auth'])->name('enquetes');
+    Route::get('/enquete-details', [EnqueteController::class, 'detailsEnquete'])->middleware(['auth'])->name('enquete-details');
+    Route::post('/comment', [EnqueteController::class, 'comment'])->middleware(['auth'])->name('comment-an-enquete');
 });
 
 //! --- BIBLIOTHEQUE ---
 Route::group(['prefix' => 'bibliotheque'], function () {
-    Route::get('/', [LivreController::class, 'index'])->name('bibliotheque');
-    Route::get('/livre-details', [LivreController::class, 'detailsLivre'])->name('livre-details');
+    Route::get('/', [LivreController::class, 'index'])->middleware(['auth'])->name('bibliotheque');
+    Route::get('/livre-details', [LivreController::class, 'detailsLivre'])->middleware(['auth'])->name('livre-details');
     // Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
 });
 
 //! --- CVTHEQUE ---
-Route::get('/cvtheque', [EtudiantController::class, 'cvtheque'])->name('cvtheque');
+Route::get('/cvtheque', [EtudiantController::class, 'cvtheque'])->middleware(['auth'])->name('cvtheque');
 
 
 //! --- DIPLÔMÉS ---
-Route::get('/etudiants-diplomes', [EtudiantController::class, 'nosEtudiantsDiplomesIndex'])->name('etudiants-diplomes');
+Route::get('/etudiants-diplomes', [EtudiantController::class, 'nosEtudiantsDiplomesIndex'])->middleware(['auth'])->name('etudiants-diplomes');
 
 //! --- DASHBOARD ---
 Route::group(['prefix' => 'dashboard'], function () {

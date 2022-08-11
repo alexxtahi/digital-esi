@@ -55,7 +55,7 @@
                                 <p>{{ $livre->resume }}</p>
                                 <div class="d-flex align-items-center mt-4">
                                     <p class="mb-0"><a
-                                            href="{{ route('offre-details', ['id' => $livre->id]) }}"
+                                            href="{{ route('livre-details', ['id' => $livre->id]) }}"
                                             class="btn btn-primary">Lire <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                 </div>

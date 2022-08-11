@@ -71,10 +71,10 @@
                     <div>
                         <p style="margin-top: 0;"><strong>Auteur:</strong> {{ $livre->auteur }}</p>
                     </div>
-
-                    <div class="about-author d-flex p-4 bg-light">
+                    <p>
                         {{ $livre->resume }}
-                        <br>
+                    </p>
+                    <div class="about-author d-flex p-4 bg-light">
                         <span>Publié par <strong>{{ $livre->auteur }}</strong></span>
                     </div>
                     <div class="mt-5">
@@ -109,7 +109,10 @@
                                 <form class="p-5 bg-light">
                                     <iframe class="custom-cv-iframe" src="{{ asset($livre->fichier) }}"
                                         frameborder="0"></iframe>
-
+                                    <a href="{{ asset($livre->fichier) }}" target="_blank"
+                                        class="btn py-3 px-4 btn-primary">
+                                        Ouvrir en plein écran
+                                    </a>
 
                                 </form>
                             </div>

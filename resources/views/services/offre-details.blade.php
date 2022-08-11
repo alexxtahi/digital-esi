@@ -78,10 +78,10 @@
                         <img src="{{ $offre->img_offre != null ? asset($offre->img_offre) : asset('img/contactbanner.png') }}"
                             alt="" class="img-fluid">
                     </p>
-
-                    <div class="about-author d-flex p-4 bg-light">
+                    <p>
                         {{ $offre->description }}
-                        <br>
+                    </p>
+                    <div class="about-author d-flex p-4 bg-light">
                         <span>Publiée par <strong>{{ $offre->entreprise }}</strong></span>
                     </div>
 
