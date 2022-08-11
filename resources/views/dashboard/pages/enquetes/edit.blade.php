@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                     <div class="mr-md-3 mr-xl-5">
-                        <h2>Modifier un article</h2>
+                        <h2>Modifier une enquête</h2>
                     </div>
 
                 </div>
@@ -25,8 +25,8 @@
                             @case('success')
                                 <div class="alert alert-success" role="alert">
                                     {{ $result['message'] }} Cliquez <a
-                                        href="{{ route('dashboard.pages.articles.index') }}">ici</a>
-                                    pour voir tous les articles
+                                        href="{{ route('dashboard.pages.enquetes.index') }}">ici</a>
+                                    pour voir toutes les enquêtes
                                 </div>
                             @break
 
@@ -45,55 +45,34 @@
                             @default
                         @endswitch
                     @endif
-                    <form class="forms-sample" action="{{ url('/dashboard/articles/update/' . $article->id) }}"
+                    <form class="forms-sample" action="{{ url('/dashboard/enquetes/update/' . $enquete->id) }}"
                         method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
 
-                        <div class="custom-flex">
-                            <div class="form-group">
-                                <label>Image actuelle</label>
-                                <div class="input-group col-xs-12">
-                                    <img src="{{ asset($article->img_article) }}" alt="" class="custom-enreg-img">
-                                </div>
-                            </div>
-                            <div class="align-items-center align-self-center" style="margin-left: 25px">
-                                <h1>{{ $article->titre_article }}</h1>
-                                <p>
-                                    {{ $article->resume_article }}
-                                </p>
-                            </div>
+                        <div class="form-group">
+                            <label for="theme">Thème <span class="custom-required-mark">*</span></label>
+                            <input required type="text" name="theme" class="form-control" id="theme"
+                                placeholder="Thème de l'enquête" value="{{ $enquete->theme }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="titre_article">Titre <span class="custom-required-mark">*</span></label>
-                            <input required type="text" name="titre_article" class="form-control" id="titre_article"
-                                placeholder="Titre de l'article" value="{{ $article->titre_article }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="resume_article">Résumé <span class="custom-required-mark">*</span></label>
-                            <input required type="text" name="resume_article" class="form-control" id="resume_article"
-                                placeholder="Résumé de l'article" value="{{ $article->resume_article }}">
+                            <label for="domaine">Domaine <span class="custom-required-mark">*</span></label>
+                            <select required class="form-control" name="domaine" id="domaine">
+                                <option value="">-- Choisissez un domaine --</option>
+                                @foreach ($specs as $spec)
+                                    <option value="{{ $spec->lib_spec }}"
+                                        @if ($enquete->domaine === $spec->lib_spec) selected @endif>
+                                        {{ $spec->lib_spec }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="contenu_article">Contenu <span class="custom-required-mark">*</span></label>
-                            <textarea required class="form-control" name="contenu_article" rows="4">
-                                 {{ $article->contenu_article }}
+                            <label for="description">Description <span class="custom-required-mark">*</span></label>
+                            <textarea required class="form-control" name="description" rows="4">
+                                 {{ $enquete->description }}
                             </textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="img_article">Changer l'image</label>
-                            <input type="file" accept="image/*" id="img_article" name="img_article"
-                                class="file-upload-default">
-                            <div class="input-group col-xs-12">
-                                <input type="text" name="image" class="form-control file-upload-info" disabled
-                                    placeholder="Image de l'article">
-                                <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary" type="button">Choisir</button>
-                                </span>
-                            </div>
                         </div>
 
 

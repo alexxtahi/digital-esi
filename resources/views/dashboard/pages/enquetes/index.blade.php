@@ -63,7 +63,7 @@
                                             {{ $enquete->description }}
                                         </td>
                                         <td>
-                                            {{ $enquete->date_publication }}
+                                            {{ date('d/m/Y', strtotime($enquete->date_publication)) }}
                                         </td>
                                         <td class="custom-actions-td">
                                             <button type="button"

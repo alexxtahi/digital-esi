@@ -106,4 +106,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/enquetes', [EnqueteController::class, 'dashIndex'])->middleware(['auth'])->name('dashboard.pages.enquetes.index');
     Route::get('/enquetes/add', [EnqueteController::class, 'create'])->middleware(['auth'])->name('dashboard.pages.enquetes.create');
     Route::post('/enquetes', [EnqueteController::class, 'store'])->middleware(['auth'])->name('dashboard.pages.enquetes.store');
+    Route::get('/enquetes/edit/{id}', [EnqueteController::class, 'edit'])->middleware(['auth'])->name('dashboard.pages.enquetes.edit');
+    Route::put('/enquetes/update/{id}', [EnqueteController::class, 'update'])->middleware(['auth'])->name('dashboard.pages.enquetes.update');
+    Route::delete('/enquetes/delete/{id}', [EnqueteController::class, 'delete'])->middleware(['auth'])->name('dashboard.pages.enquetes.delete');
 });

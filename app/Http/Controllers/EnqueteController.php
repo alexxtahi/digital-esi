@@ -124,4 +124,54 @@ class EnqueteController extends Controller
         // Redirection
         return redirect()->route('dashboard.pages.enquetes.create')->with('result', $result);
     }
+
+    public function edit(int $id)
+    {
+        $enquete = Enquete::find($id);
+        $specs = Specialite::where('deleted_at', null)->get();
+        $result = session()->get('result');
+        return view('dashboard.pages.enquetes.edit', compact('enquete', 'specs', 'result'));
+    }
+
+    public function update(int $id, UpdateEnqueteRequest $request)
+    {
+        $data = $request->all();
+
+        // Validation de la requête
+        $request->validate([
+            'theme' => 'required',
+            'domaine' => 'required',
+            'description' => 'required',
+        ]);
+
+        try {
+            // Modification
+            $enquete = Enquete::find($id);
+            $enquete->theme = $data['theme'];
+            $enquete->domaine = $data['domaine'];
+            $enquete->description = $data['description'];
+            $enquete->save(); // Sauvegarde
+            // Message de success
+            $result['state'] = 'success';
+            $result['message'] = "L'enquête a bien été modifiée.";
+        } catch (Exception $exc) { // ! En cas d'erreur
+            $result['state'] = 'error';
+            $result['message'] = $exc->getMessage();
+        }
+        // Redirection
+        return redirect()->route('dashboard.pages.enquetes.index')->with('result', $result);
+    }
+
+    public function delete(int $id)
+    {
+        try {
+            Enquete::find($id)->delete();
+            $result['state'] = 'success';
+            $result['message'] = "L'enquête a bien été supprimée.";
+        } catch (Exception $exc) {
+            $result['state'] = 'danger';
+            $result['message'] = 'Echec de la suppression.';
+        }
+        return redirect()->route('dashboard.pages.enquetes.index')->with('result', $result);
+    }
 }
