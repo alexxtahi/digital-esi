@@ -38,7 +38,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry custom-offre-card">
                         <a href="{{ route('cvtheque') }}" class="block-20 d-flex align-items-end"
-                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                            style='background-image: url("{{ asset('img/services/cvtheque.jpg') }}");'>
                         </a>
                         <div class="text border border-top-0 p-4">
                             <h3 class="heading"><a href="#">CVthèque</a></h3>
@@ -51,7 +51,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry custom-offre-card">
                         <a href="{{ route('stages-et-emplois') }}" class="block-20 d-flex align-items-end"
-                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                            style='background-image: url("{{ asset('img/services/stages-et-emplois.jpg') }}");'>
                         </a>
                         <div class="text border border-top-0 p-4">
                             <h3 class="heading"><a href="#">Stages et emplois</a></h3>
@@ -65,7 +65,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry custom-offre-card">
                         <a href="{{ route('etudiants-diplomes') }}" class="block-20 d-flex align-items-end"
-                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                            style='background-image: url("{{ asset('img/services/etudiants-diplomes.jpg') }}");'>
                         </a>
                         <div class="text border border-top-0 p-4">
                             <h3 class="heading"><a href="#">Etudiants diplomés</a></h3>
@@ -79,7 +79,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry custom-offre-card">
                         <a href="{{ route('bibliotheque') }}" class="block-20 d-flex align-items-end"
-                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                            style='background-image: url("{{ asset('img/services/bibliotheque.jpg') }}");'>
                         </a>
                         <div class="text border border-top-0 p-4">
                             <h3 class="heading"><a href="#">Les documents</a></h3>
@@ -93,7 +93,7 @@
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry custom-offre-card">
                         <a href="{{ route('enquetes') }}" class="block-20 d-flex align-items-end"
-                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                            style='background-image: url("{{ asset('img/services/enquetes.jpg') }}");'>
                         </a>
                         <div class="text border border-top-0 p-4">
                             <h3 class="heading"><a href="#">Avis des diplomés</a></h3>
@@ -106,8 +106,8 @@
                 {{-- Gestion Admin --}}
                 <div class="col-md-6 col-lg-4 ftco-animate">
                     <div class="blog-entry custom-offre-card">
-                        <a href="{{ route('enquetes') }}" class="block-20 d-flex align-items-end"
-                            style='background-image: url("{{ asset('img/contactbanner.png') }}");'>
+                        <a href="#" class="block-20 d-flex align-items-end"
+                            style='background-image: url("{{ asset('img/services/gestion-admin.jpg') }}");'>
                         </a>
                         <div class="text border border-top-0 p-4">
                             <h3 class="heading"><a href="#">Gestion administrative</a></h3>

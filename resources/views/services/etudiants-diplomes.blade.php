@@ -17,7 +17,8 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('img/articles/blog3.jpg') }});">
+    <section class="hero-wrap hero-wrap-2"
+        style="background-image: url({{ asset('img/services/etudiants-diplomes.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
