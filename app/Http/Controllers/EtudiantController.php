@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Http\Requests\StoreEtudiantRequest;
 use App\Http\Requests\UpdateEtudiantRequest;
+use App\Models\Classe;
 use App\Models\Filiere;
 
 class EtudiantController extends Controller
@@ -34,9 +35,11 @@ class EtudiantController extends Controller
             ->where([['etudiants.cv_path', '!=', null], ['etudiants.deleted_at', null]])
             ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user', 'classes.lib_classe', 'filieres.lib_filiere')
             ->get();
+        $filieres = Filiere::where('deleted_at', null)->get();
+        $classes = Classe::where('deleted_at', null)->get();
         $result = session()->get('result') ?? null;
         // Display
-        return view('services.cvtheque', compact('etudiants', 'result'));
+        return view('services.cvtheque', compact('etudiants', 'filieres', 'classes', 'result'));
     }
 
     /**

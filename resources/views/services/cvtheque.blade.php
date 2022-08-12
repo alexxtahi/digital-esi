@@ -33,11 +33,98 @@
                         </span>
                         <span>CVthèque <i class="ion-ios-arrow-forward"></i></span>
                     </p>
+                    <div class="col-md-12 col-lg-12 ftco-animate">
+                        <div class="sidebar-box">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#filtre-modal">
+                                Afficher les filtres
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    {{-- Filtres --}}
+    <section class="ftco-section">
+        <div class="container">
+            {{-- Modal --}}
+            <div class="modal fade" id="filtre-modal" tabindex="-1" role="dialog" aria-labelledby="filtreModal"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="filtreModal">Filtres</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Recherchez selon vos préférences</p>
+                            <form action="#">
+                                {{-- Nom --}}
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Nom</label>
+                                            <input type="text" class="form-control" name="nom"
+                                                placeholder="Entrez le nom d'un étudiant">
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- Filiere --}}
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Filière</label>
+                                            <select class="form-control" name="filiere">
+                                                <option value="">-- Filière --</option>
+                                                @foreach ($filieres as $filiere)
+                                                    <option value="{{ $filiere->id }}">{{ $filiere->lib_filiere }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{-- Classe --}}
+                                    <div class="col-md-6 col-lg-6 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Classe</label>
+                                            <select class="form-control" name="classe">
+                                                <option value="">-- Classe --</option>
+                                                @foreach ($classes as $classe)
+                                                    <option value="{{ $classe->id }}">{{ $classe->lib_classe }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- Statut --}}
+                                <div class="row">
+                                    <div class="col-md-2 col-lg-12 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Statut</label>
+                                            <select class="form-control" name="statut">
+                                                <option value="">-- Statut --</option>
+                                                <option value="Etudiant">Etudiant</option>
+                                                <option value="Diplômé">Diplômé</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Annuler</button>
+                            <button form="filtre-enreg" type="submit" class="btn btn-primary">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Liste des enregistrements --}}
     <section class="ftco-section">
         <div class="container">
             <div class="row">

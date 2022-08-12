@@ -104,3 +104,12 @@
     width: 100%;
     aspect-ratio: 0.6;
 }
+
+.sidebar-box {
+    margin: 0;
+}
+
+.ftco-section {
+    padding: 2em 0;
+    /* position: relative; */
+}
