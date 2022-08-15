@@ -61,14 +61,15 @@
                         </div>
                         <div class="modal-body">
                             <p>Recherchez selon vos préférences</p>
-                            <form action="#">
+                            <form action="{{ route('cvtheque.filtres') }}" id="filtre-enreg" method="GET">
                                 {{-- Nom --}}
                                 <div class="row">
                                     <div class="col-md-6 col-lg-12 ftco-animate">
                                         <div class="form-group">
                                             <label>Nom</label>
-                                            <input type="text" class="form-control" name="nom"
-                                                placeholder="Entrez le nom d'un étudiant">
+                                            <input type="text" class="form-control" name="nom_complet"
+                                                placeholder="Recherchez des étudiants par nom"
+                                                value="{{ $_GET['nom_complet'] ?? null }}">
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +81,9 @@
                                             <select class="form-control" name="filiere">
                                                 <option value="">-- Filière --</option>
                                                 @foreach ($filieres as $filiere)
-                                                    <option value="{{ $filiere->id }}">{{ $filiere->lib_filiere }}
+                                                    <option value="{{ $filiere->id }}"
+                                                        {{ isset($_GET['filiere']) && $_GET['filiere'] == $filiere->id ? 'selected' : '' }}>
+                                                        {{ $filiere->lib_filiere }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -93,7 +96,9 @@
                                             <select class="form-control" name="classe">
                                                 <option value="">-- Classe --</option>
                                                 @foreach ($classes as $classe)
-                                                    <option value="{{ $classe->id }}">{{ $classe->lib_classe }}
+                                                    <option value="{{ $classe->id }}"
+                                                        {{ isset($_GET['classe']) && $_GET['classe'] == $classe->id ? 'selected' : '' }}>
+                                                        {{ $classe->lib_classe }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -107,8 +112,14 @@
                                             <label>Statut</label>
                                             <select class="form-control" name="statut">
                                                 <option value="">-- Statut --</option>
-                                                <option value="Etudiant">Etudiant</option>
-                                                <option value="Diplômé">Diplômé</option>
+                                                <option value="Etudiant"
+                                                    {{ isset($_GET['statut']) && $_GET['statut'] == 'Etudiant' ? 'selected' : '' }}>
+                                                    Etudiant
+                                                </option>
+                                                <option value="Diplômé"
+                                                    {{ isset($_GET['statut']) && $_GET['statut'] == 'Diplômé' ? 'selected' : '' }}>
+                                                    Diplômé
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -116,7 +127,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal">Annuler</button>
+                            <a href="{{ route('cvtheque') }}" class="btn btn-dark">Réinitialiser</a>
                             <button form="filtre-enreg" type="submit" class="btn btn-primary">Rechercher</button>
                         </div>
                     </div>
@@ -138,13 +149,19 @@
                             </div>
                             <div class="text border border-top-0 p-4">
                                 <h3 class="heading"><a
-                                        href="#">{{ $etudiant->nom_user . ' ' . $etudiant->prenom_user }}</a></h3>
-                                <h6><strong>Classe: </strong>
-                                    {{ $etudiant->lib_classe . ' ' . $etudiant->promotion }}</h6>
+                                        href="#">{{ $etudiant->nom_user . ' ' . $etudiant->prenom_user }}</a>
+                                </h3>
+                                <h6><strong>Filière: </strong>
+                                    {{ $etudiant->lib_filiere }}</h6>
+                                <h6><strong>{{ $etudiant->est_diplome ? 'Promotion' : 'Classe' }}: </strong>
+                                    {{ $etudiant->est_diplome ? $etudiant->filiere_diplome : $etudiant->lib_classe . ' ' . $etudiant->promotion }}
+                                </h6>
+                                <h6><strong>Statut: </strong>
+                                    {{ $etudiant->est_diplome ? 'Diplômé' : 'Etudiant' }}</h6>
                                 {{-- <p>{{ $etudiant->bio }}</p> --}}
                                 <div class="d-flex align-items-center mt-4">
-                                    <p class="mb-0"><a href="{{ asset($etudiant->cv_path) }}"
-                                            target="_blank" class="btn btn-primary">Voir le CV <span
+                                    <p class="mb-0"><a href="{{ asset($etudiant->cv_path) }}" target="_blank"
+                                            class="btn btn-primary">Voir le CV <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
                                 </div>
                             </div>
@@ -161,9 +178,10 @@
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen">
         <svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
         </svg>
     </div>
 

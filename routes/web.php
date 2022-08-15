@@ -73,7 +73,10 @@ Route::group(['prefix' => 'bibliotheque'], function () {
 });
 
 //! --- CVTHEQUE ---
-Route::get('/cvtheque', [EtudiantController::class, 'cvtheque'])->middleware(['auth'])->name('cvtheque');
+Route::group(['prefix' => 'cvtheque'], function () {
+    Route::get('/', [EtudiantController::class, 'cvtheque'])->middleware(['auth'])->name('cvtheque');
+    Route::get('/filtres', [EtudiantController::class, 'cvthequeWithFilters'])->middleware(['auth'])->name('cvtheque.filtres');
+});
 
 
 //! --- DIPLÔMÉS ---

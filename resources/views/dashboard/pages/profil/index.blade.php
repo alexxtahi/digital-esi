@@ -46,8 +46,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nom</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" value="{{ $user->nom_user }}"
-                                            disabled />
+                                        <input type="text" class="form-control" value="{{ $user->nom_user }}" disabled />
                                     </div>
                                 </div>
                             </div>
@@ -145,8 +144,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">Changer de CV</label>
                                                     <div class="col-sm-9">
-                                                        <input required type="file" accept="application/pdf" name="cv"
-                                                            class="file-upload-default">
+                                                        <input required type="file" accept="application/pdf"
+                                                            name="cv" class="file-upload-default">
                                                         <div class="input-group col-xs-12">
                                                             <input type="text" name="cv_name"
                                                                 class="form-control file-upload-info" disabled
@@ -181,8 +180,9 @@
                                                 <input required type="file" accept="application/pdf" name="cv"
                                                     class="file-upload-default">
                                                 <div class="input-group col-xs-12">
-                                                    <input type="text" name="cv_name" class="form-control file-upload-info"
-                                                        disabled placeholder="Importer un fichier">
+                                                    <input type="text" name="cv_name"
+                                                        class="form-control file-upload-info" disabled
+                                                        placeholder="Importer un fichier">
                                                     <span class="input-group-append">
                                                         <button class="file-upload-browse btn btn-primary"
                                                             type="button">Importer</button>
@@ -191,8 +191,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <button form="cv-form" type="submit" class="btn btn-primary btn-lg btn-block">
-                                                <i class="mdi mdi-check"></i>
+                                            <button form="cv-form" type="submit"
+                                                class="btn btn-primary btn-lg btn-block">
+                                                <i class="mdi mdi-download"></i>
                                                 Importer le CV
                                             </button>
                                         </div>
