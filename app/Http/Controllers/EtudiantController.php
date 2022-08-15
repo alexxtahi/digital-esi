@@ -35,6 +35,7 @@ class EtudiantController extends Controller
             ->join('filieres', 'filieres.id', '=', 'classes.id_filiere')
             ->where([['etudiants.cv_path', '!=', null], ['etudiants.deleted_at', null]])
             ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user', 'classes.lib_classe', 'filieres.lib_filiere')
+            ->orderBy('etudiants.created_at', 'DESC')
             ->get();
         $filieres = Filiere::where('deleted_at', null)->get();
         $classes = Classe::where('deleted_at', null)->get();
@@ -56,6 +57,7 @@ class EtudiantController extends Controller
             ->where([$request->statut != null ? ($request->statut == 'Etudiant' ? ['etudiants.est_diplome', 0] : ['etudiants.est_diplome', 1]) : [null]])
             // Sélection des données
             ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user', 'classes.lib_classe', 'filieres.lib_filiere')
+            ->orderBy('etudiants.created_at', 'DESC')
             ->get();
         // Autres données
         $filieres = Filiere::where('deleted_at', null)->get();

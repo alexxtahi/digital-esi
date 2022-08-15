@@ -33,6 +33,7 @@
                         </span>
                         <span>CVthèque <i class="ion-ios-arrow-forward"></i></span>
                     </p>
+                    {{-- Bouton des filtres --}}
                     <div class="col-md-12 col-lg-12 ftco-animate">
                         <div class="sidebar-box">
                             <button type="button" class="btn btn-primary" data-toggle="modal"

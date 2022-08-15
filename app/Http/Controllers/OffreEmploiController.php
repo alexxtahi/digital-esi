@@ -19,7 +19,23 @@ class OffreEmploiController extends Controller
      */
     public function index()
     {
-        $offres = OffreEmploi::where('deleted_at', null)->get();
+        $offres = OffreEmploi::where('deleted_at', null)
+            ->orderBy('date_publication', 'DESC')
+            ->get();
+        $result = session()->get('result') ?? null;
+        // Display
+        return view('services.stages-et-emplois', compact('offres', 'result'));
+    }
+
+    public function indexWithFilters(Request $request)
+    {
+        $offres = OffreEmploi::where('deleted_at', null)
+            // Application des filtres
+            ->where([$request->type_offre != null ? ['type_offre', $request->type_offre] : [null]])
+            ->where([$request->date_limite != null ? ['date_limite', '<=', $request->date_limite] : [null]])
+            // Sélection des données
+            ->orderBy('date_publication', $request->ordre ?? 'DESC')
+            ->get();
         $result = session()->get('result') ?? null;
         // Display
         return view('services.stages-et-emplois', compact('offres', 'result'));

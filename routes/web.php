@@ -54,6 +54,7 @@ Route::post('/commentaire', [CommentaireController::class, 'store'])->name('post
 //! --- STAGES ET EMPLOIS ---
 Route::group(['prefix' => 'stages-et-emplois'], function () {
     Route::get('/', [OffreEmploiController::class, 'index'])->middleware(['auth'])->name('stages-et-emplois');
+    Route::get('/filtres', [OffreEmploiController::class, 'indexWithFilters'])->middleware(['auth'])->name('stages-et-emplois.filtres');
     Route::get('/offre-details', [OffreEmploiController::class, 'detailsOffre'])->middleware(['auth'])->name('offre-details');
     Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->middleware(['auth'])->name('candidate-to-an-offer');
 });
