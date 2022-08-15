@@ -37,11 +37,111 @@
                         </span>
                         <span>Etudiants diplômés <i class="ion-ios-arrow-forward"></i></span>
                     </p>
+                    {{-- Bouton des filtres --}}
+                    <div class="col-md-12 col-lg-12 ftco-animate">
+                        <div class="sidebar-box">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#filtre-modal">
+                                Afficher les filtres
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    {{-- Filtres --}}
+    <section class="ftco-section">
+        <div class="container">
+            {{-- Modal --}}
+            <div class="modal fade" id="filtre-modal" tabindex="-1" role="dialog" aria-labelledby="filtreModal"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="filtreModal">Filtres</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Recherchez selon vos préférences</p>
+                            <form action="{{ route('etudiants-diplomes.filtres') }}" id="filtre-enreg" method="GET">
+                                {{-- Nom --}}
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Nom</label>
+                                            <input type="text" class="form-control" name="nom_complet"
+                                                placeholder="Recherchez des diplômés par nom"
+                                                value="{{ $_GET['nom_complet'] ?? null }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- Filiere --}}
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Filière</label>
+                                            <select class="form-control" name="filiere">
+                                                <option value="">-- Filière --</option>
+                                                @foreach ($filieres as $filiere)
+                                                    <option value="{{ $filiere->id }}"
+                                                        {{ isset($_GET['filiere']) && $_GET['filiere'] == $filiere->id ? 'selected' : '' }}>
+                                                        {{ $filiere->lib_filiere }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{-- Promotion --}}
+                                    <div class="col-md-6 col-lg-6 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Promotion</label>
+                                            <select class="form-control" name="promotion">
+                                                <option value="">-- Promotion --</option>
+                                                @foreach ($promotions as $promotion)
+                                                    <option value="{{ $promotion }}"
+                                                        {{ isset($_GET['promotion']) && $_GET['promotion'] == $promotion ? 'selected' : '' }}>
+                                                        {{ $promotion }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- Promotion --}}
+                                <div class="row">
+                                    {{-- Ordre --}}
+                                    <div class="col-md-2 col-lg-12 ftco-animate">
+                                        <div class="form-group">
+                                            <label>Ordre</label>
+                                            <select class="form-control" name="ordre">
+                                                <option value="">-- Ordre --</option>
+                                                <option value="ASC"
+                                                    {{ isset($_GET['ordre']) && $_GET['ordre'] == 'ASC' ? 'selected' : '' }}>
+                                                    Orde alphabaétique
+                                                </option>
+                                                <option value="DESC"
+                                                    {{ isset($_GET['ordre']) && $_GET['ordre'] == 'DESC' ? 'selected' : '' }}>
+                                                    Orde alphabaétique inverse
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ route('etudiants-diplomes') }}" class="btn btn-dark">Réinitialiser</a>
+                            <button form="filtre-enreg" type="submit" class="btn btn-primary">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Liste des enregistrements --}}
     <section class="ftco-section">
         <div class="container">
             <div class="row">
@@ -87,9 +187,10 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
 

@@ -145,7 +145,7 @@
                                     <p class="mb-0"><a href="{{ route('offre-details', ['id' => $offre->id]) }}"
                                             class="btn btn-primary">Voir l'offre <span
                                                 class="ion-ios-arrow-round-forward"></span></a></p>
-                                    <p class="ml-auto mb-0" style="font-size: 12px;">
+                                    <p class="ml-auto mb-0" style="font-size: 13px;">
                                         Date limite:
                                         {{ $offre->date_limite != null ? date('d/m/Y', strtotime($offre->date_limite)) : 'Aucune' }}
                                     </p>

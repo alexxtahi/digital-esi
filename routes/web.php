@@ -81,7 +81,10 @@ Route::group(['prefix' => 'cvtheque'], function () {
 
 
 //! --- DIPLÔMÉS ---
-Route::get('/etudiants-diplomes', [EtudiantController::class, 'nosEtudiantsDiplomesIndex'])->middleware(['auth'])->name('etudiants-diplomes');
+Route::group(['prefix' => 'etudiants-diplomes'], function () {
+    Route::get('/', [EtudiantController::class, 'etudiantsDiplomesIndex'])->middleware(['auth'])->name('etudiants-diplomes');
+    Route::get('/filtres', [EtudiantController::class, 'etudiantsDiplomesIndexWithFilters'])->middleware(['auth'])->name('etudiants-diplomes.filtres');
+});
 
 //! --- DASHBOARD ---
 Route::group(['prefix' => 'dashboard'], function () {

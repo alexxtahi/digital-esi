@@ -23,6 +23,7 @@ class CreateEtudiantsTable extends Migration
             $table->integer('id_classe');
             $table->boolean('est_diplome')->default(false);
             $table->string('filiere_diplome')->nullable();
+            $table->timestamp('graduated_at')->nullable();
             $table->string('cv_path')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();

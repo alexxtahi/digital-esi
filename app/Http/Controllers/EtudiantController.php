@@ -16,16 +16,46 @@ class EtudiantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function nosEtudiantsDiplomesIndex()
+    public function etudiantsDiplomesIndex()
     {
         // Datas fetching
         $etudiants_diplomes = Etudiant::join('users', 'users.id', '=', 'etudiants.id_user')
             ->where([['etudiants.deleted_at', null], ['etudiants.est_diplome', true]])
             ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user')
             ->get();
+        // Autres données
         $filieres = Filiere::where('deleted_at', null)->get();
+        $classes = Classe::where('deleted_at', null)->get();
+        for ($i = 2022; $i >= 2013; $i--) {
+            $promotions[] = ($i - 3) . '-' . $i;
+        }
         // Display
-        return view('services.etudiants-diplomes', compact('etudiants_diplomes', 'filieres'));
+        return view('services.etudiants-diplomes', compact('etudiants_diplomes', 'filieres', 'classes', 'promotions'));
+    }
+
+    public function etudiantsDiplomesIndexWithFilters(Request $request)
+    {
+        // Datas fetching
+        $etudiants_diplomes = Etudiant::join('users', 'users.id', '=', 'etudiants.id_user')
+            ->join('classes', 'classes.id', '=', 'etudiants.id_classe')
+            ->join('filieres', 'filieres.id', '=', 'classes.id_filiere')
+            ->where([['etudiants.deleted_at', null], ['etudiants.est_diplome', true]])
+            // Application des filtres
+            ->where([$request->nom_complet != null ? ['users.nom_complet_user', 'like', '%' . $request->nom_complet . '%'] : [null]])
+            ->where([$request->filiere != null ? ['filieres.id', $request->filiere] : [null]])
+            ->where([$request->promotion != null ? ['etudiants.promotion', $request->promotion] : [null]])
+            ->orderBy('users.nom_user', $request->ordre ?? 'DESC')
+            // Sélection des données
+            ->select('etudiants.*', 'users.nom_user', 'users.prenom_user', 'users.tel_user', 'classes.lib_classe', 'filieres.lib_filiere')
+            ->get();
+        // Autres données
+        $filieres = Filiere::where('deleted_at', null)->get();
+        $classes = Classe::where('deleted_at', null)->get();
+        for ($i = 2022; $i >= 2013; $i--) {
+            $promotions[] = ($i - 3) . '-' . $i;
+        }
+        // Display
+        return view('services.etudiants-diplomes', compact('etudiants_diplomes', 'filieres', 'classes', 'promotions'));
     }
 
     public function cvtheque()
