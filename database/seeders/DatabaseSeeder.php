@@ -13,14 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class); // Créer les users par défaut
-        $this->call(BlogArticleSeeder::class); // Créer les articles de blog par défaut
-        $this->call(FiliereSeeder::class); // Créer les filières par défaut
-        $this->call(SpecialiteSeeder::class); // Créer les spécialités par défaut
-        $this->call(EtudiantSeeder::class); // Créer les spécialités par défaut
+        $this->call(UserSeeder::class);
+        $this->call(BlogArticleSeeder::class);
+        $this->call(FiliereSeeder::class);
+        $this->call(SpecialiteSeeder::class);
+        $this->call(EtudiantSeeder::class);
         \App\Models\OffreEmploi::factory(10)->create();
+        $this->call(TypeLivreSeeder::class);
         \App\Models\Livre::factory(15)->create();
-        $this->call(ClasseSeeder::class); // Créer les spécialités par défaut
+        $this->call(ClasseSeeder::class);
         \App\Models\Enquete::factory(10)->create();
     }
 }

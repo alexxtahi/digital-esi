@@ -28,8 +28,8 @@ class EtudiantSeeder extends Seeder
                 'id_user' => $etudiant->id,
                 'id_classe' => 1,
                 'est_diplome' => $trualse[$est_diplome],
-                'filiere_diplome' => $est_diplome ? $filieres[array_rand($filieres)] : NULL,
-                'graduated_at' => $est_diplome ? now() : NULL,
+                'filiere_diplome' => $trualse[$est_diplome] ? $filieres[array_rand($filieres)] : NULL,
+                'graduated_at' => $trualse[$est_diplome] ? now() : NULL,
                 'created_at' => now(),
             ]);
         }

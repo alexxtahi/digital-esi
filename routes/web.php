@@ -69,6 +69,7 @@ Route::group(['prefix' => 'enquetes'], function () {
 //! --- BIBLIOTHEQUE ---
 Route::group(['prefix' => 'bibliotheque'], function () {
     Route::get('/', [LivreController::class, 'index'])->middleware(['auth'])->name('bibliotheque');
+    Route::get('/filtres', [LivreController::class, 'indexWithFilters'])->middleware(['auth'])->name('bibliotheque.filtres');
     Route::get('/livre-details', [LivreController::class, 'detailsLivre'])->middleware(['auth'])->name('livre-details');
     // Route::post('/candidate', [OffreEmploiController::class, 'candidate'])->name('candidate-to-an-offer');
 });

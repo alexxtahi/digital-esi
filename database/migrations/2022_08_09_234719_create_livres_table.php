@@ -19,6 +19,7 @@ class CreateLivresTable extends Migration
             $table->string('resume');
             $table->string('auteur');
             $table->string('fichier');
+            $table->integer('id_type_livre');
             $table->string('img_couverture')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();

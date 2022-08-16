@@ -78,8 +78,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- Filiere --}}
                                 <div class="row">
+                                    {{-- Filiere --}}
                                     <div class="col-md-6 col-lg-6 ftco-animate">
                                         <div class="form-group">
                                             <label>Filière</label>
@@ -110,9 +110,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- Promotion --}}
+                                {{-- Ordre --}}
                                 <div class="row">
-                                    {{-- Ordre --}}
                                     <div class="col-md-2 col-lg-12 ftco-animate">
                                         <div class="form-group">
                                             <label>Ordre</label>
@@ -178,7 +177,11 @@
                         </div>
                     </div>
                 @empty
-                    <h1 class="mb-2 bread">Pas encore disponible</h1>
+                    @if ($current_route == 'etudiants-diplomes.filtres')
+                        <h1>Aucun résultat trouvé</h1>
+                    @else
+                        <h1>Pas encore disponible</h1>
+                    @endif
                 @endforelse
             </div>
         </div>

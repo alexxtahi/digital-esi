@@ -28,8 +28,7 @@
                         @switch($result['state'])
                             @case('success')
                                 <div class="alert alert-success" role="alert">
-                                    {{ $result['message'] }} Cliquez <a
-                                        href="{{ route('dashboard.pages.livres.index') }}">ici</a>
+                                    {{ $result['message'] }} Cliquez <a href="{{ route('dashboard.pages.livres.index') }}">ici</a>
                                     pour voir tous les livres
                                 </div>
                             @break
@@ -56,19 +55,34 @@
                         <div class="form-group">
                             <label for="titre">Titre <span class="custom-required-mark">*</span></label>
                             <input required type="text" name="titre" class="form-control" id="titre"
-                                placeholder="Titre du livre">
+                                placeholder="Titre du livre" value="{{ old('titre') }}">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="auteur">Auteur <span class="custom-required-mark">*</span></label>
+                                    <input required type="text" name="auteur" class="form-control" id="auteur"
+                                        placeholder="Auteur du livre" value="{{ old('auteur') }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="id_type_livre">Catégorie <span class="custom-required-mark">*</span></label>
+                                    <select required type="text" name="id_type_livre" class="form-control">
+                                        <option value="">-- Choisissez une catégorie --</option>
+                                        @foreach ($type_livres as $type_livre)
+                                            <option value="{{ $type_livre->id }}">
+                                                {{ $type_livre->lib_type_livre }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="resume">Résumé <span class="custom-required-mark">*</span></label>
-                            <input required type="text" name="resume" class="form-control" id="resume"
-                                placeholder="Résumé du livre">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="auteur">Auteur <span class="custom-required-mark">*</span></label>
-                            <input required type="text" name="auteur" class="form-control" id="auteur"
-                                placeholder="Auteur du livre">
+                            <textarea required class="form-control" name="resume" placeholder="Résumé du livre">{{ old('auteur') }}</textarea>
                         </div>
 
                         <div class="row">

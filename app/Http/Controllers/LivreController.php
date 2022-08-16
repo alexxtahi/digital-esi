@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Livre;
 use App\Http\Requests\StoreLivreRequest;
 use App\Http\Requests\UpdateLivreRequest;
+use App\Models\TypeLivre;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 use Exception;
+use Illuminate\Http\Request;
 
 class LivreController extends Controller
 {
@@ -18,15 +20,40 @@ class LivreController extends Controller
      */
     public function index()
     {
-        $livres = Livre::where('deleted_at', null)->get();
+        $livres = Livre::join('type_livres', 'type_livres.id', '=', 'livres.id_type_livre')
+            ->where('livres.deleted_at', null)
+            ->select('livres.*', 'type_livres.lib_type_livre')
+            ->orderBy('livres.created_at', 'DESC')
+            ->get();
+        $type_livres = TypeLivre::where('deleted_at', null)->get();
         $result = session()->get('result') ?? null;
         // Display
-        return view('services.bibliotheque', compact('livres', 'result'));
+        return view('services.bibliotheque', compact('livres', 'type_livres', 'result'));
+    }
+
+    public function indexWithFilters(Request $request)
+    {
+        $livres = Livre::join('type_livres', 'type_livres.id', '=', 'livres.id_type_livre')
+            ->where('livres.deleted_at', null)
+            // Application des filtres
+            ->where([$request->auteur != null ? ['livres.auteur', 'like', '%' . $request->auteur . '%'] : [null]])
+            ->where([$request->keywords != null ? ['livres.resume', 'like', '%' . $request->keywords . '%'] : [null]])
+            ->where([$request->id_type_livre != null ? ['livres.id_type_livre', $request->id_type_livre] : [null]])
+            // Sélection des données
+            ->select('livres.*', 'type_livres.lib_type_livre')
+            ->orderBy('livres.created_at', 'DESC')
+            ->get();
+        $type_livres = TypeLivre::where('deleted_at', null)->get();
+        $result = session()->get('result') ?? null;
+        // Display
+        return view('services.bibliotheque', compact('livres', 'type_livres', 'result'));
     }
 
     public function detailsLivre(StoreLivreRequest $request)
     {
-        $livre = Livre::where([['id', $request->get('id')], ['deleted_at', null]])->first();
+        $livre = Livre::join('type_livres', 'type_livres.id', '=', 'livres.id_type_livre')
+            ->where([['livres.id', $request->get('id')], ['livres.deleted_at', null]])
+            ->first();
         $result = session()->get('result') ?? null;
 
         // Affichage
@@ -35,15 +62,19 @@ class LivreController extends Controller
 
     public function dashIndex()
     {
-        $livres = Livre::where('deleted_at', null)->get();
+        $livres = Livre::join('type_livres', 'type_livres.id', '=', 'livres.id_type_livre')
+            ->where('livres.deleted_at', null)
+            ->select('livres.*', 'type_livres.lib_type_livre')
+            ->get();
         $result = session()->get('result') ?? null;
         return view('dashboard.pages.livres.index', compact('livres', 'result'));
     }
 
     public function create()
     {
+        $type_livres = TypeLivre::where('deleted_at', null)->get();
         $result = session()->get('result') ?? null;
-        return view('dashboard.pages.livres.create', compact('result'));
+        return view('dashboard.pages.livres.create', compact('type_livres', 'result'));
     }
 
     public function store(StoreLivreRequest $request)
@@ -85,6 +116,7 @@ class LivreController extends Controller
                 $livre->titre = $data['titre'];
                 $livre->resume = $data['resume'];
                 $livre->auteur = $data['auteur'];
+                $livre->id_type_livre = $data['id_type_livre'];
                 $livre->fichier = 'documents/livres/livre_' . date('d_m_Y_H_i_s') . '.pdf';
                 //Enregistrement du fichier du livre
                 $uploaded_file_path = $request->file('fichier')->storeAs('livres', 'livre_' .  date('d_m_Y_H_i_s') . '.pdf');
@@ -115,8 +147,9 @@ class LivreController extends Controller
     public function edit(int $id)
     {
         $livre = Livre::find($id);
+        $type_livres = TypeLivre::find($id);
         $result = session()->get('result');
-        return view('dashboard.pages.livres.edit', compact('livre', 'result'));
+        return view('dashboard.pages.livres.edit', compact('livre', 'type_livres', 'result'));
     }
 
     public function update(int $id, UpdateLivreRequest $request)
@@ -136,6 +169,7 @@ class LivreController extends Controller
             $livre->titre = $data['titre'];
             $livre->resume = $data['resume'];
             $livre->auteur = $data['auteur'];
+            $livre->id_type_livre = $data['id_type_livre'];
             $livre->fichier = 'documents/livres/livre_' . date('d_m_Y_H_i_s') . '.pdf';
             //Enregistrement du fichier du livre
             if (isset($data['fichier']) && !empty($data['fichier']) && $livre->fichier == null) {

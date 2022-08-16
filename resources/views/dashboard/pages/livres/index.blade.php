@@ -45,6 +45,7 @@
                                 <tr>
                                     <th>Image</th>
                                     <th>Titre</th>
+                                    <th>Type</th>
                                     <th>Résumé</th>
                                     <th>Auteur</th>
                                     <th>Actions</th>
@@ -59,6 +60,9 @@
                                         </td>
                                         <td>
                                             {{ $livre->titre }}
+                                        </td>
+                                        <td>
+                                            {{ $livre->lib_type_livre }}
                                         </td>
                                         <td>
                                             {{ $livre->resume }}
@@ -86,8 +90,8 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
                                                                 id="exampleModalLabel{{ $livre->id }}">Suppression</h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>

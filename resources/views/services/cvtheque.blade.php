@@ -169,7 +169,11 @@
                         </div>
                     </div>
                 @empty
-                    <h1>Pas encore disponible</h1>
+                    @if ($current_route == 'cvtheque.filtres')
+                        <h1>Aucun résultat trouvé</h1>
+                    @else
+                        <h1>Pas encore disponible</h1>
+                    @endif
                 @endforelse
             </div>
         </div>
