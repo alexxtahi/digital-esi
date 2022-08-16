@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Livre::factory(15)->create();
         $this->call(ClasseSeeder::class);
         \App\Models\Enquete::factory(10)->create();
+        $this->call(StageSeeder::class);
     }
 }
