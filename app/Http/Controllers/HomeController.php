@@ -42,8 +42,9 @@ class HomeController extends Controller
     public function formations()
     {
         $filieres = Filiere::where('deleted_at', null)->get();
+        $specs = Specialite::where('deleted_at', null)->get();
         // Affichage
-        return view('formations', compact('filieres'));
+        return view('formations', compact('filieres', 'specs'));
     }
     // Page de la galerie
     public function galerie()

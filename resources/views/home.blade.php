@@ -38,21 +38,21 @@
     </section>
 
     <!-- Formulaire de demande de renseignemens -->
-    @include('components.askinfo-form')
+    {{-- @include('components.askinfo-form') --}}
     <!-- Message après soumission de la requête -->
-    @if (isset($result))
+    {{-- @if (isset($result))
         <script>
             alert("Votre demande a bien été prise en compte. Nous vous reviendrons d'ici peu.")
         </script>
         @include('components.modal', [$result])
-    @endif
+    @endif --}}
 
     <section class="ftco-intro ftco-no-pb img"
         style="background: center / cover no-repeat url({{ asset('img/inp-centre.jpg') }})">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
-                    <h2 class="mb-0">Nous formons les élites de l'industrie</h2>
+                    <h2 class="mb-0">Ecole Supérieure d'Industrie</h2>
                 </div>
             </div>
         </div>
@@ -62,15 +62,23 @@
         <div class="container consult-wrap">
             <div class="row d-flex align-items-stretch">
                 <div class="col-md-6 wrap-about align-items-stretch d-flex">
-                    <div class="img" style="background-image: url({{ asset('img/tanoh-aka.jpg') }});">
+                    <div class="img"
+                        style="background-size: contain; background-image: url({{ asset('img/presentation-esi.png') }});">
                     </div>
                 </div>
                 <div class="col-md-6 wrap-about ftco-animate py-md-5 pl-md-5">
-                    <div class="heading-section mb-4">
-                        <span class="subheading">Le mot du directeur</span>
-                        <h2>M. TANOH Aka</h2>
-                        <h3 style="font-weight: 100;">Directeur de l'ESI</h3>
+                    <div
+                        style="display: flex; justify-content: space-between; flex-direction: row; align-items: center;">
+                        <div class="heading-section">
+                            <span class="subheading">Le mot de bienvenue</span>
+                            <h2>M. TANOH Aka</h2>
+                            <h3 style="font-weight: 100;">Directeur de l'ESI</h3>
+                        </div>
+                        <img src="{{ asset('img/tanoh-aka.jpg') }}"
+                            style="object-fit: cover; width: 140px; height: 140px; border-radius: 5px;" alt=""
+                            srcset="">
                     </div>
+
                     <div class="tabulation-2 mt-4">
                         <div class="tab-content bg-light rounded mt-2">
                             <div class="tab-pane container p-0 active" id="home1">
@@ -98,35 +106,44 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row mt-5">
+                    <div class="row mt-5">
                         <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="2">0</strong>
-                                    <span>Diplomés</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18">
-                                <div class="icon"><span class="flaticon-doctor"></span></div>
-                                <div class="text">
-                                    <strong class="number" data-number="6">0</strong>
-                                    <span>Enseignants</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18">
-                                <div class="icon"><span class="flaticon-doctor"></span></div>
-                                <div class="text">
-                                    <strong class="number" data-number="3">0</strong>
+                                    <strong class="number" data-number="1915">0</strong>
                                     <span>Etudiants</span>
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                        <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="icon"><span class="flaticon-doctor"></span></div>
+                                <div class="text">
+                                    <strong class="number" data-number="517">0</strong>
+                                    <span>Diplômés par an</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="icon"><span class="flaticon-doctor"></span></div>
+                                <div class="text">
+                                    <strong class="number" data-number="249">0</strong>
+                                    <span>Enseignants-chercheurs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="icon"><span class="flaticon-doctor"></span></div>
+                                <div class="text">
+                                    <strong class="number" data-number="727">0</strong>
+                                    <span>Personnels</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -279,12 +296,9 @@
                                 class="block-20 d-flex align-items-end"
                                 style="background-image: url('{{ $article->img_article != null ? asset($article->img_article) : asset('img/articles/blog3.jpg') }}');">
                                 <div class="meta-date text-center p-2" style="background: maroon;">
-                                    <span
-                                        class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
-                                    <span
-                                        class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
-                                    <span
-                                        class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
+                                    <span class="day">{{ date('d', strtotime($article->date_publication)) }}</span>
+                                    <span class="mos">{{ date('M', strtotime($article->date_publication)) }}</span>
+                                    <span class="yr">{{ date('Y', strtotime($article->date_publication)) }}</span>
                                 </div>
                             </a>
                             <div class="text border border-top-0 p-4">
@@ -314,9 +328,10 @@
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
 

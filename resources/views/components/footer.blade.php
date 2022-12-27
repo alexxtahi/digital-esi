@@ -36,6 +36,8 @@
                     <ul class="list-unstyled">
                         <li><a href="{{ route('home') }}"><span
                                     class="ion-ios-arrow-round-forward mr-2"></span>Accueil</a></li>
+                        <li><a href="{{ route('formations') }}"><span
+                                    class="ion-ios-arrow-round-forward mr-2"></span>Formations</a></li>
                         <li><a href="{{ route('galerie') }}"><span
                                     class="ion-ios-arrow-round-forward mr-2"></span>Galérie</a></li>
                         <li><a href="{{ route('services') }}"><span

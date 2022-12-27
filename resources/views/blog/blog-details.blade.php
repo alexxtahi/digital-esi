@@ -45,7 +45,7 @@
                     <div class="about-author d-flex p-4 bg-light">
                         {!! $article->contenu_article !!}
                         <br>
-                        <span>Ecrit par {{ $author->nom_user . ' ' . $author->prenom_user }}</span>
+                        {{-- <span>Ecrit par {{ $author->nom_user . ' ' . $author->prenom_user }}</span> --}}
                     </div>
 
                     <div class="pt-5 mt-5">
